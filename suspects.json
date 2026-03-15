@@ -193,5 +193,395 @@
         ],
         "wiki_search": "Youri_Gagarine",
         "maxAttempts": 3
+    }, 
+    {
+        "name": "Rosalind Franklin",
+        "profession": "Physico-chimiste",
+        "public_file": "Née en 1920 au Royaume-Uni, elle est une brillante scientifique pionnière de la cristallographie aux rayons X. Ses travaux ont été d'une importance capitale pour la plus grande découverte de la biologie moderne : la structure de l'ADN. C'est elle qui réalise le célèbre \"Cliché 51\", la toute première preuve visuelle prouvant que l'ADN a une forme de double hélice. Elle meurt tragiquement d'un cancer de l'ovaire à l'âge de 37 ans, très probablement dû à sa forte exposition aux rayons X pendant ses recherches.",
+        "secret_file": "<li>Elle est la grande oubliée de l'histoire des sciences : son Cliché 51 a été montré à son insu aux chercheurs Watson et Crick, qui s'en sont servis pour publier leur modèle et gagner le prix Nobel sans la créditer.</li><li>Pendant la Seconde Guerre mondiale, elle a étudié la porosité du charbon, ce qui a permis d'inventer des masques à gaz beaucoup plus efficaces pour les soldats britanniques.</li><li>Sa passion secrète était la randonnée en haute montagne et elle parcourait régulièrement les Alpes.</li>",
+        "clues": [
+            "Je suis une scientifique britannique du 20e siècle spécialisée dans les rayons X.",
+            "Mes travaux ont été volés ou utilisés à mon insu par les scientifiques Watson et Crick.",
+            "Mon célèbre \"Cliché 51\" a permis de découvrir la structure en double hélice de l'ADN."
+        ],
+        "wiki_search": "Rosalind_Franklin",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Wolfgang Amadeus Mozart",
+        "profession": "Compositeur",
+        "public_file": "Né en 1756 à Salzbourg, il est le plus célèbre enfant prodige de l'histoire de la musique. Poussé par son père, il entame une tournée européenne dès l'âge de six ans, jouant devant les cours royales avec une virtuosité stupéfiante. Devenu adulte, il s'installe à Vienne en tant qu'artiste indépendant. En seulement 35 ans de vie, il compose plus de 600 œuvres touchant à la perfection absolue dans tous les genres musicaux de son époque : opéras (Don Giovanni, La Flûte enchantée), symphonies et concertos. Il meurt épuisé en laissant son célèbre Requiem inachevé.",
+        "secret_file": "<li>Il avait un humour très scatologique (pipi-caca) et a même composé un chœur officiel pour ses amis intitulé \"Lèche-moi le derrière\".</li><li>Il possédait un étourneau (un petit oiseau) de compagnie qu'il avait acheté sur un marché après avoir entendu l'animal siffler parfaitement un passage de l'un de ses concertos.</li><li>Il adorait jouer au billard et composait souvent ses symphonies de tête tout en jouant avec ses amis.</li>",
+        "clues": [
+            "Je suis un artiste autrichien né au 18e siècle, connu pour avoir été un enfant surdoué.",
+            "J'ai composé des opéras majeurs comme \"La Flûte enchantée\" ou \"Les Noces de Figaro\".",
+            "Je suis mort très jeune à 35 ans, laissant mon célèbre Requiem inachevé."
+        ],
+        "wiki_search": "Wolfgang_Amadeus_Mozart",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Frida Kahlo",
+        "profession": "Artiste peintre",
+        "public_file": "Née en 1907 au Mexique, elle est l'une des artistes les plus célèbres au monde. Sa vie est marquée par la souffrance physique : atteinte de poliomyélite enfant, son corps est ensuite fracassé dans un grave accident de bus à 18 ans. L'obligeant à porter des corsets toute sa vie, cet accident la pousse à peindre depuis son lit, à l'aide d'un miroir au plafond. Elle réalise ainsi ses célèbres autoportraits, où elle mêle le surréalisme, la symbolique mexicaine et ses douleurs intimes. Elle a été mariée au célèbre peintre muraliste Diego Rivera.",
+        "secret_file": "<li>Trop faible pour marcher lors de sa première grande exposition au Mexique, elle est arrivée en ambulance et a assisté au vernissage allongée dans son lit à baldaquin, installé au milieu de la galerie.</li><li>Elle mentait souvent sur sa date de naissance (affirmant être née en 1910) pour que sa venue au monde coïncide symboliquement avec l'année de la Révolution mexicaine.</li><li>Elle possédait une ménagerie d'animaux de compagnie insolites : des singes-araignées, un faon, un aigle et des chiens nus mexicains.</li>",
+        "clues": [
+            "Je suis une femme latino-américaine du 20e siècle à l'univers visuel très coloré.",
+            "Mon art s'inspire beaucoup de mon grave accident de bus survenu quand j'étais jeune.",
+            "Mes couronnes de fleurs dans les cheveux et mes épais sourcils continus sont devenus iconiques."
+        ],
+        "wiki_search": "Frida_Kahlo",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Nelson Mandela",
+        "profession": "Avocat, homme d'État et militant",
+        "public_file": "Né en 1918, il consacre sa vie à la lutte contre l'apartheid (le système de ségrégation raciale) en Afrique du Sud. D'abord partisan de la non-violence, il cofonde ensuite une branche armée face à la répression brutale du gouvernement. Arrêté en 1962, il passe 27 ans en prison, principalement sur l'île pénitentiaire de Robben Island. Libéré en 1990, il choisit la voie de la réconciliation nationale. Il partage le prix Nobel de la paix en 1993 avec le président de Klerk et devient le premier président noir d'Afrique du Sud en 1994.",
+        "secret_file": "<li>Son vrai prénom n'était pas Nelson, mais Rolihlahla (qui signifie \"le fauteur de troubles\" dans sa tribu) ; le prénom Nelson lui a été donné arbitrairement par une institutrice britannique.</li><li>Dans sa jeunesse, il était un grand passionné de boxe, fasciné par la stratégie et la \"science\" des combats sur le ring.</li><li>Il a fait une apparition au cinéma en 1992 dans le film \"Malcolm X\" de Spike Lee, où il joue le rôle d'un instituteur à la toute fin du film.</li>",
+        "clues": [
+            "J'ai passé 27 ans de ma vie en prison pour mes convictions politiques.",
+            "J'ai reçu le prix Nobel de la paix en 1993, conjointement avec Frederik de Klerk.",
+            "Je suis devenu en 1994 le premier président noir d'Afrique du Sud."
+        ],
+        "wiki_search": "Nelson_Mandela",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Simone Veil",
+        "profession": "Magistrate et femme d'État",
+        "public_file": "Née Simone Jacob en 1927 à Nice, elle est déportée à Auschwitz à l'âge de 16 ans. Survivante de la Shoah, elle devient magistrate et s'engage pour améliorer les conditions de vie dans les prisons. Nommée ministre de la Santé en 1974, elle porte le projet de loi dépénalisant l'interruption volontaire de grossesse (IVG) en France, affrontant des attaques d'une violence inouïe à l'Assemblée. Profondément attachée à l'Europe pacifiée, elle devient en 1979 la première femme présidente du Parlement européen. Elle repose aujourd'hui au Panthéon.",
+        "secret_file": "<li>À son retour des camps de concentration, elle a découvert qu'elle avait réussi son baccalauréat, qu'elle avait passé clandestinement la veille de son arrestation.</li><li>Lors des débats tendus sur l'IVG, sa voiture a été couverte de croix gammées et elle recevait des menaces de mort, mais elle a refusé d'avoir des gardes du corps et conduisait elle-même sa voiture.</li><li>Son matricule de déportée, 78651, était tatoué sur son bras gauche, une marque indélébile qu'elle n'a jamais cherché à cacher sous ses vêtements.</li>",
+        "clues": [
+            "Je suis une femme d'État française du 20e siècle survivante des camps de concentration.",
+            "J'ai été la première femme présidente du Parlement européen.",
+            "J'ai fait adopter la loi qui porte mon nom et qui légalise l'IVG en France en 1975."
+        ],
+        "wiki_search": "Simone_Veil",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Marco Polo",
+        "profession": "Marchand et explorateur",
+        "public_file": "Né à Venise en 1254, il entreprend avec son père et son oncle un immense voyage vers l'Asie à l'âge de 17 ans. Parcourant la célèbre route de la soie, ils atteignent la cour de l'empereur mongol Kubilaï Khan en Chine. Marco Polo y passe 24 ans, visitant des régions inconnues des Européens. De retour en Italie, il est fait prisonnier lors d'une guerre navale. Dans sa cellule, il dicte ses mémoires à son compagnon de captivité, donnant naissance au \"Livre des Merveilles\", un ouvrage qui fascinera l'Europe et inspirera Christophe Colomb.",
+        "secret_file": "<li>Beaucoup de ses contemporains pensaient qu'il exagérait ses récits, d'où le surnom sarcastique donné à son livre : \"Le million\" (sous-entendu : un million de mensonges).</li><li>Malgré la précision de ses descriptions sur la Chine, il n'a curieusement jamais mentionné la Grande Muraille, ni l'usage des baguettes pour manger.</li><li>Sur son lit de mort, pressé par le prêtre et ses amis d'avouer qu'il avait inventé ses histoires pour faire sensation, il a répondu : \"Je n'ai pas raconté la moitié de ce que j'ai vu\".</li>",
+        "clues": [
+            "Je suis un marchand italien du 13e siècle.",
+            "J'ai passé plus de 20 ans à la cour de l'empereur de Chine.",
+            "Mon récit de voyage, le \"Livre des merveilles\", a fait rêver des générations d'Européens."
+        ],
+        "wiki_search": "Marco_Polo",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Alexandre le Grand",
+        "profession": "Roi de Macédoine et conquérant",
+        "public_file": "Né en 356 av. J.-C., il a pour précepteur privé le célèbre philosophe Aristote. Devenu roi à 20 ans après l'assassinat de son père, il se lance dans une immense campagne militaire contre le puissant Empire perse. Stratège de génie et invaincu au combat, il conquiert un territoire gigantesque s'étendant de la Grèce jusqu'au nord-ouest de l'Inde, en passant par l'Égypte où il fonde la ville d'Alexandrie. Son épopée diffuse la culture grecque dans tout l'Orient. Il meurt d'une mystérieuse fièvre à Babylone à l'âge de seulement 32 ans.",
+        "secret_file": "<li>Il était tellement attaché à la littérature épique qu'il dormait souvent avec un exemplaire de l'Iliade d'Homère et un poignard glissés sous son oreiller.</li><li>Son cheval, Bucéphale, était si sauvage que personne ne pouvait le monter. Alexandre a remarqué que l'animal avait simplement peur de sa propre ombre et a réussi à le dompter en le tournant face au soleil.</li><li>Bien qu'il soit grec macédonien, il a été couronné pharaon en Égypte et a été déclaré \"fils du dieu Zeus-Ammon\" par un célèbre oracle dans le désert.</li>",
+        "clues": [
+            "J'ai eu pour tuteur l'un des plus célèbres philosophes de la Grèce antique.",
+            "J'ai donné mon nom à de nombreuses villes, dont la plus célèbre se trouve en Égypte.",
+            "Jeune roi macédonien, j'ai conquis l'immense Empire perse et je n'ai jamais perdu une bataille."
+        ],
+        "wiki_search": "Alexandre_le_Grand",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Harriet Tubman",
+        "profession": "Militante abolitionniste et espionne",
+        "public_file": "Née esclave dans le Maryland (États-Unis) vers 1822, elle subit la brutalité des plantations avant de s'échapper vers le Nord libre à l'âge de 27 ans. Au lieu de rester en sécurité, elle retourne clandestinement dans le Sud à treize reprises pour guider des dizaines d'autres esclaves vers la liberté. Elle devient la figure de proue du Chemin de fer clandestin (un réseau de routes et de refuges sûrs). Pendant la guerre de Sécession, elle devient la première femme à diriger une expédition armée, menant un raid qui a permis de libérer plus de 700 esclaves d'un coup.",
+        "secret_file": "<li>Jeune esclave, elle a reçu un violent coup à la tête avec un poids en métal qui lui a causé des crises de narcolepsie soudaines et des \"visions\" qu'elle attribuait à Dieu tout le reste de sa vie.</li><li>Elle portait toujours un pistolet chargé sur elle lors de ses missions clandestines, non seulement pour se protéger, mais surtout pour braquer les fugitifs terrifiés qui voulaient faire demi-tour.</li><li>On la surnommait \"Moïse\" en référence au personnage biblique qui a guidé son peuple vers la liberté hors d'Égypte.</li>",
+        "clues": [
+            "Je suis une femme afro-américaine née au 19e siècle.",
+            "J'ai été espionne et cheffe de raid militaire pendant la guerre de Sécession américaine.",
+            "Née esclave, je suis devenue la cheffe du \"Chemin de fer clandestin\" pour aider les autres à fuir."
+        ],
+        "wiki_search": "Harriet_Tubman",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Vincent van Gogh",
+        "profession": "Artiste peintre",
+        "public_file": "Né aux Pays-Bas en 1853, il est l'une des figures les plus marquantes de l'histoire de la peinture. Sa carrière n'a duré qu'une dizaine d'années, pendant lesquelles il a produit plus de 2000 œuvres avec des couleurs vives et des coups de pinceau épais et tourmentés (comme \"La Nuit étoilée\" ou \"Les Tournesols\"). Souffrant de graves problèmes de santé mentale et d'une précarité financière absolue, il n'était soutenu que par son frère marchand d'art, Théo. Totalement incompris de son vivant, son génie n'a été reconnu qu'après son suicide à l'âge de 37 ans.",
+        "secret_file": "<li>Malgré son immense productivité, il n'a vendu qu'un seul et unique tableau de son vivant (\"La Vigne rouge\"), acheté par la sœur d'un de ses amis pour une somme dérisoire.</li><li>Lors de ses graves crises psychologiques, il lui arrivait de manger sa propre peinture (particulièrement les tubes de peinture jaune) car il pensait que cette couleur joyeuse allait le rendre heureux à l'intérieur.</li><li>Après une violente dispute avec le peintre Paul Gauguin à Arles, il s'est tranché l'oreille gauche avec un rasoir et l'a offerte à une femme de ménage d'une maison close.</li>",
+        "clues": [
+            "Je suis un peintre européen du 19e siècle dont l'œuvre est très colorée et tourbillonnante.",
+            "J'ai peint des toiles célébrissimes comme \"Les Tournesols\" ou \"La Chambre à coucher\".",
+            "Je suis célèbre pour avoir fini ma vie dans la misère et pour m'être coupé une oreille."
+        ],
+        "wiki_search": "Vincent_van_Gogh",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Agatha Christie",
+        "profession": "Romancière",
+        "public_file": "Née au Royaume-Uni en 1890, celle que l'on surnomme la \"Reine du crime\" est l'un des auteurs les plus lus de toute l'histoire de l'humanité, avec plus de deux milliards de livres vendus (juste derrière la Bible et Shakespeare). Elle a écrit 66 romans policiers et de nombreuses nouvelles, renouvelant totalement le genre du mystère avec des intrigues psychologiques brillantes en huis clos. Elle a donné vie à deux des détectives les plus célèbres de la littérature mondiale : le méticuleux détective belge Hercule Poirot, et la perspicace vieille dame Miss Marple.",
+        "secret_file": "<li>En 1926, elle a mystérieusement disparu pendant onze jours, déclenchant une immense chasse à l'homme nationale, avant d'être retrouvée dans un hôtel thermal sous le faux nom de la maîtresse de son mari. Elle n'a jamais expliqué cet épisode.</li><li>Loin de l'image de la romancière pantouflarde, elle adorait le surf et a été l'une des toutes premières femmes britanniques à se tenir debout sur une planche de surf à Hawaï.</li><li>Pendant la Première Guerre mondiale, elle a travaillé comme infirmière puis assistante dans une pharmacie, ce qui lui a donné des connaissances extrêmement précises sur les poisons.</li>",
+        "clues": [
+            "Je suis une écrivaine britannique mondialement célèbre pour mes intrigues à suspense.",
+            "J'ai écrit le roman \"Dix petits nègres\" (récemment rebaptisé \"Ils étaient dix\").",
+            "J'ai donné naissance au détective moustachu Hercule Poirot."
+        ],
+        "wiki_search": "Agatha_Christie",
+        "maxAttempts": 3
+    }, 
+    {
+        "name": "Jules Verne",
+        "profession": "Écrivain et visionnaire",
+        "public_file": "Né à Nantes en 1828, il est l'un des auteurs français les plus traduits dans le monde. Passionné par les sciences et la géographie, il invente avec ses \"Voyages extraordinaires\" le roman d'anticipation et pose les bases de la science-fiction. Dans des œuvres comme \"Vingt Mille Lieues sous les mers\", \"De la Terre à la Lune\" ou \"Le Tour du monde en 80 jours\", il anticipe avec une précision troublante des inventions qui ne verront le jour que des décennies plus tard, comme le sous-marin électrique, l'hélicoptère ou la capsule spatiale.",
+        "secret_file": "<li>À l'âge de 11 ans, il aurait fugué en s'engageant secrètement comme mousse sur un navire en partance pour les Indes, dans le but de rapporter un collier de corail à sa cousine, avant d'être rattrapé in extremis par son père.</li><li>En 1886, son propre neveu, atteint de paranoïa et de troubles mentaux, lui a tiré dessus à bout portant avec un pistolet, le rendant définitivement boiteux.</li><li>Son éditeur, Pierre-Jules Hetzel, l'obligeait très souvent à réécrire la fin de ses romans pour qu'ils soient moins sombres et plus optimistes pour le grand public.</li>",
+        "clues": [
+            "Je suis un auteur français du 19e siècle, passionné d'exploration et de machines futures.",
+            "J'ai créé les personnages inoubliables de Phileas Fogg et du Capitaine Nemo.",
+            "J'ai écrit les romans \"Vingt Mille Lieues sous les mers\" et \"Le Tour du monde en 80 jours\"."
+        ],
+        "wiki_search": "Jules_Verne",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Mata Hari",
+        "profession": "Danseuse, courtisane et espionne",
+        "public_file": "De son vrai nom Margaretha Geertruida Zelle, née aux Pays-Bas en 1876. Fuyant un mariage malheureux aux Indes néerlandaises, elle s'installe à Paris et invente de toutes pièces un personnage de princesse et danseuse exotique javanaise. Ses danses sulfureuses en font la coqueluche du Tout-Paris de la Belle Époque. Pendant la Première Guerre mondiale, fréquentant les hauts dignitaires de tous les camps, elle joue un jeu dangereux d'agent double. Arrêtée par les Français, elle est condamnée pour haute trahison et fusillée en 1917.",
+        "secret_file": "<li>Son célèbre nom de scène, Mata Hari, signifie littéralement \"l'œil du jour\" (le soleil) en langue malaise.</li><li>Devant le peloton d'exécution au fort de Vincennes, elle a refusé avec fierté d'avoir les yeux bandés et aurait envoyé un baiser volant aux soldats avant qu'ils ne fassent feu.</li><li>Après sa mort, personne n'ayant réclamé son corps, sa tête fut embaumée et conservée au musée d'Anatomie de Paris, avant de disparaître mystérieusement dans les années 1950.</li>",
+        "clues": [
+            "Je suis une femme néerlandaise célèbre pour mes danses exotiques à la Belle Époque.",
+            "Mon nom de scène signifie \"le soleil\" en malais.",
+            "J'ai été fusillée par la France en 1917 pour espionnage au profit de l'Allemagne."
+        ],
+        "wiki_search": "Mata_Hari",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Salvador Dalí",
+        "profession": "Artiste peintre et sculpteur",
+        "public_file": "Né en 1904 en Espagne, il est la figure la plus excentrique et la plus médiatique du mouvement surréaliste. Son art explore le monde des rêves, de la psychanalyse et de l'inconscient (ce qu'il appelle sa méthode \"paranoïaque-critique\"). Virtuose de la peinture, il marque l'histoire de l'art avec ses toiles représentant des éléphants aux pattes immenses ou des montres molles fondant au soleil. Grand provocateur, il est finalement exclu du groupe surréaliste par André Breton, qui l'accuse d'être trop cupide et mégalomane.",
+        "secret_file": "<li>Il se promenait parfois dans les rues de Paris et sortait du métro avec un immense fourmilier (tamanoir) tenu en laisse.</li><li>C'est lui qui a dessiné le célèbre logo en forme de marguerite des sucettes Chupa Chups, sur un simple coin de nappe de restaurant, exigeant que le logo soit toujours placé sur le dessus de la sucette.</li><li>Croyant dur comme fer qu'il était la réincarnation de son frère aîné mort neuf mois avant sa naissance, il visitait régulièrement la tombe de celui-ci, qui portait exactement son propre nom : Salvador Dalí.</li>",
+        "clues": [
+            "Je suis un peintre espagnol du 20e siècle extrêmement excentrique.",
+            "J'étais amoureux de ma muse Gala et je portais de fines moustaches en croc recourbées vers le ciel.",
+            "Ma toile la plus célèbre, \"La Persistance de la mémoire\", représente des montres molles."
+        ],
+        "wiki_search": "Salvador_Dalí",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Joséphine Baker",
+        "profession": "Chanteuse, danseuse, résistante et militante",
+        "public_file": "Freda Josephine McDonald, née en 1906 dans le Missouri (États-Unis), fuit la ségrégation et la misère pour s'installer à Paris. Elle devient rapidement la superstar des Années folles avec la \"Revue Nègre\", vêtue d'une simple ceinture de bananes. Pendant la Seconde Guerre mondiale, elle s'engage corps et âme pour la France, devenant agent de renseignement pour la Résistance. Grande militante anti-raciste, elle marche aux côtés de Martin Luther King en 1963. Pour son courage et son art, elle entre au Panthéon en 2021.",
+        "secret_file": "<li>Pendant la guerre, elle cachait des messages militaires top secrets écrits à l'encre sympathique sur ses partitions de musique pour les faire passer en douce aux Alliés.</li><li>Elle se promenait partout avec un guépard de compagnie nommé Chiquita, qui portait un collier de diamants, dormait parfois dans son lit et terrorisait les musiciens de l'orchestre.</li><li>Pour prouver que le racisme n'est pas inné, elle a adopté douze enfants d'origines et de religions différentes, formant sa célèbre \"Tribu arc-en-ciel\" dans son château des Milandes.</li>",
+        "clues": [
+            "Je suis une artiste afro-américaine devenue la reine du music-hall à Paris dans les années 1920.",
+            "J'ai été espionne pour la Résistance française pendant la Seconde Guerre mondiale.",
+            "Je suis la première femme noire à être entrée au Panthéon, en 2021."
+        ],
+        "wiki_search": "Joséphine_Baker",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Grigori Raspoutine",
+        "profession": "Guérisseur et mystique",
+        "public_file": "Né en 1869, ce simple paysan de Sibérie, illettré et mystique errant, parvient à s'introduire au cœur de la cour impériale de Russie. Il prétend être le seul capable d'arrêter les hémorragies du tsarévitch Alexis, l'héritier du trône atteint d'hémophilie. Convaincue de ses pouvoirs divins, la tsarine Alexandra Feodorovna lui accorde une confiance aveugle. Raspoutine en profite pour manipuler la cour, placer ses proches et dicter la politique de l'Empire. Cette emprise scandaleuse discrédite totalement les Romanov et accélère la révolution russe.",
+        "secret_file": "<li>Son assassinat est légendaire : il aurait ingéré des gâteaux bourrés de cyanure sans effet, aurait été abattu de plusieurs balles, violemment frappé, puis jeté ligoté dans une rivière glacée. L'autopsie aurait pourtant révélé qu'il est mort d'hypothermie !</li><li>Il refusait catégoriquement de se laver, et ses nombreux détracteurs affirmaient que son odeur corporelle ressemblait à celle d'une chèvre.</li><li>Malgré son statut de \"saint homme\", il organisait des orgies en expliquant à ses fidèles que l'on ne pouvait se repentir et se rapprocher de Dieu qu'après avoir énormément péché.</li>",
+        "clues": [
+            "Je suis un pèlerin sibérien du 19e siècle à l'allure hirsute et au regard perçant.",
+            "J'ai exercé une très forte emprise sur le tsar Nicolas II et son épouse la tsarine.",
+            "La légende raconte que mon assassinat en 1916 fut particulièrement laborieux."
+        ],
+        "wiki_search": "Grigori_Raspoutine",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Aliénor d'Aquitaine",
+        "profession": "Reine de France, puis reine d'Angleterre",
+        "public_file": "Née vers 1122, elle est la femme la plus riche et la plus puissante du Moyen Âge européen. Héritière de l'immense duché d'Aquitaine, elle épouse d'abord le roi de France Louis VII. Jugeant son mari trop pieux et leur union sans héritier mâle, elle obtient l'annulation de son mariage. Huit semaines plus tard, elle épouse Henri Plantagenêt, qui devient roi d'Angleterre. Mère de célèbres monarques comme Richard Cœur de Lion et Jean sans Terre, elle joue un rôle politique militaire et diplomatique majeur pendant près de soixante-dix ans.",
+        "secret_file": "<li>Contrairement aux usages de l'époque pour une femme, elle a exigé de participer activement à la deuxième croisade, chevauchant à la tête de 300 de ses propres vassaux aquitains.</li><li>Elle a commandité et financé la diffusion des légendes du Roi Arthur pour donner un mythe fondateur prestigieux à la cour d'Angleterre.</li><li>Elle a été assignée à résidence et enfermée par son propre mari (le roi d'Angleterre) pendant 15 ans, car elle avait activement soutenu la révolte armée de ses propres fils contre lui.</li>",
+        "clues": [
+            "Je suis l'une des figures politiques féminines les plus importantes du Moyen Âge européen.",
+            "J'ai accompli l'exploit inouï d'être couronnée reine de France, puis reine d'Angleterre.",
+            "Je suis la mère des rois Richard Cœur de Lion et Jean sans Terre."
+        ],
+        "wiki_search": "Aliénor_d'Aquitaine",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Sigmund Freud",
+        "profession": "Médecin neurologue et fondateur de la psychanalyse",
+        "public_file": "Né en 1856 dans l'Empire d'Autriche, il bouleverse totalement la compréhension de l'esprit humain à la fin du 19e siècle. Ses patients, souvent atteints d'hystérie, l'amènent à développer l'idée que nos comportements sont dictés par des forces cachées et des souvenirs refoulés. Il invente la psychanalyse, théorisant des concepts devenus célèbres comme l'inconscient, le complexe d'Œdipe, le lapsus et l'interprétation des rêves. Fuyant l'annexion de l'Autriche par les nazis en 1938, il s'exile in extremis à Londres où il meurt peu après.",
+        "secret_file": "<li>Au début de sa carrière, il était un défenseur acharné de la cocaïne, qu'il considérait comme un remède miracle contre la dépression, avant de se rendre compte de ses effets dévastateurs sur ses patients.</li><li>Il fumait jusqu'à 20 cigares par jour, ce qui lui a causé un grave cancer de la mâchoire l'obligeant à porter une prothèse si douloureuse qu'il l'appelait lui-même \"Le Monstre\".</li><li>Il avait une peur panique et irrationnelle du chiffre 62 et refusait catégoriquement de séjourner dans une chambre d'hôtel portant ce numéro.</li>",
+        "clues": [
+            "Je suis un célèbre médecin autrichien né au 19e siècle.",
+            "J'ai inventé des concepts médicaux comme le refoulement, l'inconscient et le complexe d'Œdipe.",
+            "Je suis considéré dans le monde entier comme le père de la psychanalyse."
+        ],
+        "wiki_search": "Sigmund_Freud",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Giacomo Casanova",
+        "profession": "Écrivain, espion, diplomate et aventurier",
+        "public_file": "Né à Venise en 1725, son nom est aujourd'hui devenu le synonyme universel du grand séducteur. Mais réduire Casanova à ses conquêtes amoureuses (qu'il recense méticuleusement) serait une erreur. Intellectuel brillant, violoniste, mathématicien, charlatan, financier et espion, il a parcouru l'Europe entière, de la cour de Versailles à celle de Russie, côtoyant les rois, les papes, Voltaire ou encore Mozart. Ses monumentales mémoires, intitulées \"Histoire de ma vie\", constituent l'un des témoignages les plus précieux sur la vie quotidienne au 18e siècle.",
+        "secret_file": "<li>Il est entré dans la légende en étant l'un des seuls hommes à avoir réussi à s'évader de la terrible prison des Plombs de Venise, en perçant le plafond de sa cellule pour s'enfuir par les toits du Palais des Doges.</li><li>Pour renflouer les caisses de l'État, il a suggéré la création de la loterie nationale française (l'ancêtre du Loto) à Louis XV, amassant lui-même une fortune colossale qu'il a vite dilapidée.</li><li>Il a fini sa vie vieux, pauvre et aigri, travaillant comme simple bibliothécaire dans le château d'un comte en Bohême, où les domestiques se moquaient de lui.</li>",
+        "clues": [
+            "Je suis un sulfureux aventurier vénitien du 18e siècle.",
+            "Mon évasion par les toits de la prison des Plombs de Venise est entrée dans la légende.",
+            "Mes mémoires sont très détaillées, et mon nom est aujourd'hui synonyme de coureur de jupons."
+        ],
+        "wiki_search": "Giacomo_Casanova",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Che Guevara",
+        "profession": "Médecin, guérillero et révolutionnaire",
+        "public_file": "Né en 1928 en Argentine dans une famille bourgeoise, il entame un long voyage à travers l'Amérique latine sur une vieille moto. Choqué par l'extrême pauvreté et l'exploitation des paysans, il se radicalise. Au Mexique, il fait la rencontre décisive de Fidel Castro. Ensemble, ils mènent une guérilla féroce et renversent le dictateur cubain Batista en 1959. Devenu ministre d'État à Cuba, le \"Che\" refuse de s'installer dans le confort et démissionne pour exporter la révolution marxiste dans le monde. Il part se battre au Congo puis en Bolivie, où il est capturé et exécuté par l'armée bolivienne en 1967.",
+        "secret_file": "<li>Bien qu'il soit l'image même du guerrier robuste survivant dans la jungle, il souffrait depuis l'enfance d'un asthme très sévère et devait souvent être porté par ses hommes lors de ses lourdes crises.</li><li>Pendant sa jeunesse en Argentine, c'était un passionné de rugby (il éditait même une petite revue spécialisée sous le pseudonyme \"Chang-Cho\") et un excellent joueur d'échecs.</li><li>Le portrait pris de lui par Alberto Korda, intitulé \"Guerrillero Heroico\", est considéré comme l'image la plus reproduite et commercialisée de l'histoire de la photographie mondiale.</li>",
+        "clues": [
+            "Je suis un médecin argentin devenu guérillero marxiste au 20e siècle.",
+            "J'ai aidé Fidel Castro à mener la révolution et prendre le pouvoir à Cuba.",
+            "Mon portrait avec les cheveux longs et un béret étoilé est l'un des plus célèbres au monde."
+        ],
+        "wiki_search": "Che_Guevara",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Marie Tussaud",
+        "profession": "Sculptrice sur cire et entrepreneuse",
+        "public_file": "Née Marie Grosholtz à Strasbourg en 1761, elle est initiée par un médecin suisse à l'art de modeler la cire pour reproduire l'anatomie humaine. Son immense talent la conduit à Versailles, où elle enseigne la sculpture à la sœur de Louis XVI. Rattrapée par la Révolution française, elle échappe de peu à la guillotine. Pour survivre, elle est obligée de réaliser les masques mortuaires en cire des célébrités décapitées. Elle s'exile ensuite en Angleterre, sillonne le pays avec ses sculptures fascinantes et macabres, et fonde à Londres le musée qui porte son nom.",
+        "secret_file": "<li>Pendant la Terreur, pour prouver sa loyauté aux révolutionnaires, elle a été forcée de fouiller dans les charrettes de cadavres pour retrouver les têtes sanglantes de ses anciens amis (dont le roi et Marie-Antoinette) afin d'en faire des moulages.</li><li>Son oncle adoptif et maître (le Dr Curtius) créait avec la cire de véritables \"portraits-robots en 3D\" pour aider la police de Paris à identifier les criminels recherchés.</li><li>Devenue une richissime femme d'affaires en Angleterre, elle trônait encore, âgée de plus de 80 ans, à l'entrée de son musée londonien pour encaisser elle-même l'argent des billets d'entrée.</li>",
+        "clues": [
+            "Je suis une sculptrice française du 18e siècle exilée à Londres.",
+            "J'ai sauvé ma tête pendant la Révolution en moulant dans la cire les visages des guillotinés.",
+            "Mon nom est aujourd'hui célèbre grâce à mes musées de statues de cire dans le monde entier."
+        ],
+        "wiki_search": "Marie_Tussaud",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Jules Verne",
+        "profession": "Écrivain et visionnaire",
+        "public_file": "Né à Nantes en 1828, il est l'un des auteurs français les plus traduits dans le monde. Passionné par les sciences et la géographie, il invente avec ses \"Voyages extraordinaires\" le roman d'anticipation et pose les bases de la science-fiction. Dans des œuvres comme \"Vingt Mille Lieues sous les mers\", \"De la Terre à la Lune\" ou \"Le Tour du monde en 80 jours\", il anticipe avec une précision troublante des inventions qui ne verront le jour que des décennies plus tard, comme le sous-marin électrique, l'hélicoptère ou la capsule spatiale. Malgré son succès colossal de son vivant, les critiques littéraires de l'époque l'ont souvent rabaissé à un simple \"auteur pour la jeunesse\".",
+        "secret_file": "<li>À l'âge de 11 ans, il aurait fugué en s'engageant secrètement comme mousse sur un navire en partance pour les Indes, dans le but de rapporter un collier de corail à sa cousine, avant d'être rattrapé in extremis par son père.</li><li>En 1886, son propre neveu (Gaston), atteint de paranoïa et de troubles mentaux, lui a tiré dessus à bout portant avec un pistolet, le blessant à la jambe et le rendant définitivement boiteux.</li><li>Son éditeur, Pierre-Jules Hetzel, l'obligeait très souvent à réécrire la fin de ses romans pour qu'ils soient moins sombres, plus optimistes et mieux adaptés à une lecture familiale.</li>",
+        "clues": [
+            "Je suis un auteur français du 19e siècle, passionné d'exploration et de machines du futur.",
+            "J'ai créé les personnages inoubliables de Phileas Fogg et du mystérieux Capitaine Nemo.",
+            "J'ai écrit les romans \"Vingt Mille Lieues sous les mers\" et \"Le Tour du monde en 80 jours\"."
+        ],
+        "wiki_search": "Jules_Verne",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Hedy Lamarr",
+        "profession": "Actrice et inventrice",
+        "public_file": "Née en Autriche en 1914, elle fuit l'Europe à l'aube de la Seconde Guerre mondiale pour devenir l'une des plus grandes stars de l'âge d'or d'Hollywood. Surnommée par les studios \"la plus belle femme du monde\", elle joue aux côtés de Clark Gable et Spencer Tracy. Mais derrière les projecteurs, elle possède un esprit scientifique exceptionnel. Le soir, dans sa loge, elle travaille sur des inventions militaires. Avec le compositeur George Antheil, elle invente en 1941 un système de communication secrète par \"saut de fréquence\" pour empêcher le brouillage des torpilles alliées. Une invention révolutionnaire qui est aujourd'hui à la base du Wi-Fi, du GPS et du Bluetooth.",
+        "secret_file": "<li>Elle a fui son premier mari (un riche marchand d'armes autrichien pro-nazi qui la gardait prisonnière dans son château) en se déguisant en domestique et en s'enfuyant par la fenêtre.</li><li>Elle n'a jamais touché un seul centime pour son brevet de saut de fréquence, l'armée américaine ayant classé l'invention \"Secret Défense\" avant qu'elle n'expire.</li><li>Elle a inventé un cube effervescent censé transformer l'eau en soda gazeux pour les soldats américains, mais elle a elle-même admis que l'invention était un échec car la boisson avait \"le goût d'un vieux médicament\".</li>",
+        "clues": [
+            "Je suis une star hollywoodienne de la première moitié du 20e siècle.",
+            "J'ai co-inventé une technologie militaire qui est aujourd'hui à la base de votre connexion Wi-Fi.",
+            "D'origine autrichienne, on me surnommait à Hollywood \"la plus belle femme du monde\"."
+        ],
+        "wiki_search": "Hedy_Lamarr",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Gutenberg",
+        "profession": "Imprimeur et inventeur",
+        "public_file": "Né vers 1400 à Mayence (Allemagne), il est l'homme qui a déclenché l'une des plus grandes révolutions culturelles de l'humanité. Avant lui, les livres étaient recopiés à la main par des moines ou imprimés avec des plaques de bois gravées très peu pratiques. Formé comme orfèvre, il a l'idée de génie de fondre des caractères mobiles réutilisables en métal (alliage de plomb) et d'utiliser une presse à bras. En 1455, il achève l'impression de la \"Bible à 42 lignes\" (ou Bible de Gutenberg). Cette invention permet la diffusion massive et rapide du savoir, ouvrant la voie à la Renaissance et à la Réforme protestante.",
+        "secret_file": "<li>La plus grande invention de l'histoire l'a paradoxalement mené à la ruine : son principal créancier (Johann Fust) l'a traîné en justice et a saisi tout son matériel d'imprimerie avant même qu'il ne puisse vendre ses premières Bibles.</li><li>Son véritable nom de famille de naissance était \"Gensfleisch\", un nom de famille allemand assez peu flatteur puisqu'il se traduit littéralement par \"chair d'oie\".</li><li>La recette exacte de son encre d'imprimerie révolutionnaire (qui ne bavait pas sur le papier) est restée si secrète qu'elle brille encore aujourd'hui sur les documents originaux, 500 ans plus tard.</li>",
+        "clues": [
+            "Je suis un artisan allemand ayant vécu au 15e siècle.",
+            "En permettant la reproduction rapide des livres, j'ai bouleversé la transmission du savoir.",
+            "Je suis universellement reconnu comme l'inventeur de l'imprimerie à caractères mobiles en Europe."
+        ],
+        "wiki_search": "Johannes_Gutenberg",
+        "maxAttempts": 3
+    },
+    {
+        "name": "William Shakespeare",
+        "profession": "Dramaturge, poète et acteur",
+        "public_file": "Né en 1564 à Stratford-upon-Avon en Angleterre, il est considéré comme le plus grand poète et écrivain de langue anglaise. Évoluant pendant l'ère élisabéthaine, il écrit et joue pour sa propre troupe de théâtre (Les Hommes du Roi) dans le célèbre théâtre du Globe à Londres. Son œuvre monumentale (39 pièces de théâtre et 154 sonnets) explore toute la complexité de l'âme humaine. Auteur de chefs-d'œuvre mondiaux comme \"Hamlet\", \"Macbeth\", \"Le Songe d'une nuit d'été\" ou \"Roméo et Juliette\", il a également inventé ou popularisé des milliers de mots et expressions que les anglophones utilisent encore quotidiennement.",
+        "secret_file": "<li>Son propre nom de famille a été orthographié de plus de 80 manières différentes dans les registres de l'époque (Shappere, Shaxberd...), et lui-même ne l'épelait quasiment jamais de la même façon sur ses propres signatures.</li><li>Dans son testament, il a pris le soin de préciser qu'il léguait à sa femme, Anne Hathaway, sa \"deuxième meilleure literie\" (un détail qui fait encore débattre les historiens sur leurs relations conjugales).</li><li>Sur sa tombe, il a fait graver une malédiction versifiée promettant le malheur éternel à quiconque oserait un jour creuser la terre pour déplacer ses os.</li>",
+        "clues": [
+            "Je suis un écrivain britannique légendaire de l'époque de la reine Élisabeth Ire.",
+            "J'ai écrit la célèbre tragédie relatant le destin des amants maudits de Vérone.",
+            "La question existentielle \"Être ou ne pas être\" vient de l'une de mes pièces les plus connues."
+        ],
+        "wiki_search": "William_Shakespeare",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Mary Shelley",
+        "profession": "Romancière et essayiste",
+        "public_file": "Née en 1797 à Londres, elle est la fille de la philosophe et pionnière du féminisme Mary Wollstonecraft. Brillante et rebelle, elle s'enfuit jeune avec le poète Percy Bysshe Shelley. En 1816, lors d'un été lugubre et pluvieux passé sur les rives du lac Léman en Suisse en compagnie du célèbre Lord Byron, le groupe se lance un défi littéraire : écrire la meilleure histoire de fantômes. À seulement 18 ans, elle imagine l'histoire vertigineuse d'un savant fou qui assemble des morceaux de cadavres pour leur insuffler la vie. Son roman, \"Frankenstein ou le Prométhée moderne\", est publié anonymement en 1818 et est aujourd'hui considéré comme le tout premier roman de science-fiction de l'histoire de la littérature.",
+        "secret_file": "<li>Le grand public confond souvent le monstre et le docteur. \"Frankenstein\" est le nom du créateur (Victor) ; la créature, elle, n'a pas de nom dans le livre et est simplement appelée \"le monstre\" ou \"le démon\".</li><li>Elle a appris à tracer les lettres de l'alphabet lorsqu'elle était enfant en utilisant ses doigts sur la pierre tombale de sa mère, morte quelques jours après sa naissance.</li><li>Elle a conservé le cœur calcifié de son défunt mari (mort noyé et incinéré sur une plage) dans le tiroir de son bureau, enveloppé dans les pages d'un poème, jusqu'à son propre décès trente ans plus tard.</li>",
+        "clues": [
+            "Je suis une romancière britannique née à la toute fin du 18e siècle.",
+            "Mon œuvre la plus célèbre a été écrite suite à un pari lancé lors d'un été orageux en Suisse.",
+            "J'ai créé le personnage du docteur qui donne vie à une créature terrifiante cousue de cadavres."
+        ],
+        "wiki_search": "Mary_Shelley",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Al Capone",
+        "profession": "Gangster et parrain de la mafia",
+        "public_file": "Né en 1899 à Brooklyn de parents immigrés italiens, il devient le chef incontesté de la mafia de Chicago (L'Outfit) pendant la période de la Prohibition américaine dans les années 1920. Surnommé \"Scarface\" en raison d'une cicatrice sur la joue, il bâtit un immense empire criminel fondé sur la contrebande d'alcool, les paris illégaux et la prostitution. Corrompant les politiciens et la police locale, il élimine violemment ses rivaux, culminant avec le fameux massacre de la Saint-Valentin en 1929. Il incarne à lui seul la figure du crime organisé américain et la période sombre des gangsters en costume rayé.",
+        "secret_file": "<li>Malgré ses innombrables meurtres et son racket à grande échelle, le FBI n'a jamais réussi à le coincer pour ses crimes de sang. Il n'a pu être arrêté et condamné à onze ans de prison que pour de la simple... fraude fiscale.</li><li>Il a été l'un des tout premiers industriels à faire pression pour inscrire des dates de péremption sur les bouteilles de lait américain, après qu'un membre de sa famille soit tombé malade à cause de lait avarié.</li><li>Il a fini sa vie libéré de la prison d'Alcatraz, cloîtré dans son manoir de Floride, car la neurosyphilis non soignée avait réduit ses capacités mentales à celles d'un enfant de 12 ans.</li>",
+        "clues": [
+            "Je suis le plus célèbre parrain de la mafia américaine d'origine italienne.",
+            "J'ai régné par la terreur et la corruption sur la ville de Chicago pendant la Prohibition.",
+            "On me surnommait \"Scarface\" à cause d'une balafre sur mon visage."
+        ],
+        "wiki_search": "Al_Capone",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Diogène de Sinope",
+        "profession": "Philosophe antique",
+        "public_file": "Né vers 413 av. J.-C., il est la figure la plus marquante de l'école cynique en Grèce antique. Prônant une vie de simplicité extrême et de retour à la nature, il méprisait totalement les conventions sociales, le confort matériel et la richesse intellectuelle abstraite de philosophes comme Platon. Bien qu'il n'ait laissé aucun écrit derrière lui, ses actions provocatrices, sa répartie mordante et son mode de vie public ascétique ont profondément marqué l'histoire de la philosophie, faisant de lui le premier grand critique de la société de consommation et des faux-semblants.",
+        "secret_file": "<li>Il vivait délibérément dans une grande jarre en argile (un pithos) renversée en plein milieu de la rue d'Athènes, souvent en compagnie de chiens errants avec lesquels il partageait ses restes.</li><li>À Alexandre le Grand qui s'approchait respectueusement de lui en lui demandant ce qu'il pouvait faire pour l'aider, Diogène, allongé par terre, a répondu sans ménagement : \"Ôte-toi un peu de mon soleil\".</li><li>Il se promenait souvent en plein jour dans les rues animées avec une lanterne allumée. Quand les passants s'étonnaient, il leur expliquait qu'il \"cherchait un homme\" (sous-entendu : un véritable homme vertueux, introuvable à ses yeux).</li>",
+        "clues": [
+            "Je suis un philosophe grec de l'Antiquité, fondateur spirituel du courant \"cynique\".",
+            "La légende retient que j'ai tenu tête au grand conquérant Alexandre le Grand.",
+            "Je vivais comme un mendiant rebelle, dormant dans une jarre en terre cuite."
+        ],
+        "wiki_search": "Diogène_de_Sinope",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Ernest Shackleton",
+        "profession": "Explorateur polaire",
+        "public_file": "Né en 1874, il est une figure de légende de l'âge héroïque de l'exploration en Antarctique. En 1914, il lance l'expédition Endurance dans le but de réaliser la première traversée à pied du continent de glace. Mais la catastrophe frappe : son navire est encerclé, emprisonné puis broyé par la banquise avant même d'avoir atteint la côte. S'en suit une incroyable odyssée de survie de près de deux ans dans le froid absolu, campant sur la glace dérivante puis naviguant sur des canots de sauvetage. Dans un exploit de leadership et de courage inégalé dans l'histoire navale, Shackleton parvient à secourir la totalité de ses 28 hommes.",
+        "secret_file": "<li>La petite annonce passée dans les journaux londoniens pour recruter son équipage disait (selon la légende) : \"Hommes recherchés pour voyage dangereux. Bas salaire, froid intense, longs mois de ténèbres absolues. Retour sain et sauf douteux\".</li><li>Isolée sur la banquise pendant des mois, l'expédition a dû se résoudre au pire pour ne pas mourir de faim : abattre et manger tous les chiens de traîneau, ainsi que le chat adoré de l'équipage.</li><li>Pour chercher du secours, il a navigué 1 300 kilomètres sur l'océan le plus dangereux du monde dans une simple barque non couverte de 7 mètres, guidé uniquement par un sextant.</li>",
+        "clues": [
+            "Je suis un explorateur anglo-irlandais de la première moitié du 20e siècle.",
+            "Mon célèbre navire, coincé et écrasé par les glaces du pôle Sud, s'appelait l'\"Endurance\".",
+            "Je suis mondialement connu pour avoir survécu et sauvé la totalité de mon équipage perdu en Antarctique."
+        ],
+        "wiki_search": "Ernest_Shackleton",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Vercingétorix",
+        "profession": "Chef gaulois",
+        "public_file": "Né vers 80 av. J.-C. en Auvergne (territoire des Arvernes), il réussit l'exploit politique d'unifier une grande partie des tribus gauloises, jusqu'alors rivales, pour repousser l'invasion de la République romaine dirigée par Jules César. Fin tacticien, il utilise la technique de la \"terre brûlée\" pour affamer les légions romaines. Il remporte un succès éclatant lors de la bataille de Gergovie, mais son armée est finalement assiégée et acculée dans la forteresse d'Alésia en 52 av. J.-C. Constatant la défaite inévitable, il se rend en jetant ses armes aux pieds de César pour épargner la vie de ses guerriers survivants.",
+        "secret_file": "<li>Son nom n'est probablement pas un vrai prénom mais plutôt un titre honorifique militaire en langue celtique qui signifie \"Le grand roi des guerriers\" ou \"Le chef suprême\".</li><li>Les manuels scolaires français l'ont souvent dessiné avec de longs cheveux blonds et de grandes moustaches (le stéréotype du barbare), mais les monnaies frappées à son époque le montrent imberbe, rasé de près et aux cheveux courts.</li><li>Après sa reddition glorieuse à Alésia, César ne l'a pas tué sur le champ de bataille : il a été transféré à Rome et a pourri dans un cachot sombre pendant 6 longues années, avant d'être étranglé lors du triomphe de l'empereur.</li>",
+        "clues": [
+            "Je suis une figure majeure de l'histoire antique, perçu comme le premier héros national français.",
+            "J'ai remporté la bataille de Gergovie avant de perdre le siège décisif d'Alésia.",
+            "J'ai déposé mes armes aux pieds du célèbre général romain Jules César."
+        ],
+        "wiki_search": "Vercingétorix",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Hatchepsout",
+        "profession": "Pharaonne d'Égypte",
+        "public_file": "Ayant régné vers 1479 av. J.-C., elle est l'une des rares femmes de l'histoire à avoir obtenu le titre absolu de Pharaon. Fille de Thoutmôsis Ier, elle assume d'abord la régence pour son tout jeune neveu, puis s'arroge habilement le pouvoir suprême. Loin des guerres de conquête, son règne de plus de vingt ans est marqué par une immense prospérité économique, le rétablissement de routes commerciales lucratives (notamment vers le mystérieux pays de Pount), et un gigantesque programme architectural, dont le joyau est son majestueux temple funéraire en terrasses creusé dans la falaise de Deir el-Bahari.",
+        "secret_file": "<li>Pour asseoir son autorité politique et divine dans une société très patriarcale, elle se faisait systématiquement sculpter sur les statues avec tous les attributs d'un pharaon masculin : le torse nu et plat, et la fameuse fausse barbe tressée collée au menton.</li><li>Son successeur (et beau-fils) Thoutmôsis III a ordonné, près de vingt ans après sa mort, de faire marteler, buriner et détruire son nom et son visage sur tous les monuments d'Égypte dans le but d'effacer son règne de l'histoire.</li><li>Lorsqu'on a enfin identifié sa momie en 2007 grâce à une molaire cassée qui correspondait parfaitement à une dent retrouvée dans une urne funéraire portant son nom, on a découvert qu'elle portait du vernis à ongles rouge et noir.</li>",
+        "clues": [
+            "Je suis l'une des femmes les plus puissantes de l'Antiquité égyptienne.",
+            "J'ai fait ériger un majestueux temple à plusieurs terrasses, adossé à une falaise rocheuse.",
+            "Pour légitimer mon pouvoir absolu, je gouvernais en portant la fausse barbe traditionnelle des pharaons."
+        ],
+        "wiki_search": "Hatchepsout",
+        "maxAttempts": 3
     }
 ]
