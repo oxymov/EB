@@ -1,6 +1,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+    /* LE CONTENEUR ANTI-BLOCAGE POUR CARRD */
     #encrier-bleu-app {
         --bg-color: #0b1120;
         --box-bg: #1e293b;
@@ -13,20 +14,24 @@
         --link-red: #ef4444;
         --warning: #f59e0b;
         
-        font-family: 'Inter', sans-serif; 
-        background-color: var(--bg-color); 
-        color: var(--text-main); 
-        margin: 0; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        padding: 20px 10px; 
-        min-height: 100vh; 
-        overflow-x: hidden;
-        position: relative;
-        z-index: 99; /* Force les clics par-dessus Carrd */
-        width: 100%;
-        box-sizing: border-box;
+        font-family: 'Inter', sans-serif !important; 
+        background-color: var(--bg-color) !important; 
+        color: var(--text-main) !important; 
+        margin: 0 !important; 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        padding: 20px 10px !important; 
+        min-height: 100vh !important; 
+        position: relative !important;
+        z-index: 99999 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        pointer-events: auto !important;
+    }
+
+    #encrier-bleu-app * {
+        pointer-events: auto;
     }
 
     #encrier-bleu-app header { text-align: center; margin-bottom: 20px; width: 100%; max-width: 600px; }
@@ -58,7 +63,7 @@
     #encrier-bleu-app .police-file { display: none; background-color: var(--text-main); color: var(--bg-color); border-radius: 8px; padding: 25px; border: 2px solid var(--box-border); width: 100%; box-sizing: border-box; }
     #encrier-bleu-app .tag-success { display: inline-block; background-color: var(--success); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; }
     #encrier-bleu-app .profile-header { display: flex; gap: 20px; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #cbd5e1; }
-    #encrier-bleu-app .mugshot { width: 80px; height: 80px; background-color: #e2e8f0; border-radius: 4px; flex-shrink: 0; }
+    #encrier-bleu-app .mugshot { width: 80px; height: 80px; background-color: #e2e8f0; border-radius: 4px; flex-shrink: 0; object-fit: cover; border: 1px solid var(--box-border); }
     #encrier-bleu-app .section-title { font-size: 1rem; font-weight: 700; margin: 20px 0 10px 0; color: #1e293b; text-transform: uppercase; }
     #encrier-bleu-app .content-text { font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; }
 
@@ -67,8 +72,6 @@
     #encrier-bleu-app .theme-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
     #encrier-bleu-app .theme-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; color: var(--accent-blue); }
     #encrier-bleu-app .theme-status { margin-top: 15px; display: inline-block; background: var(--success); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
-
-    /* Système de difficulté (Étoiles) */
     #encrier-bleu-app .stars-container { display: inline-flex; justify-content: center; align-items: center; margin-top: 15px; padding: 6px 15px; border-radius: 20px; background: rgba(0, 0, 0, 0.3); position: relative; cursor: help; border: 1px solid rgba(255,255,255,0.05); min-width: 150px; height: 32px; box-sizing: border-box; }
     #encrier-bleu-app .stars { color: var(--warning); font-size: 0.9rem; letter-spacing: 2px; transition: opacity 0.3s ease; position: absolute; }
     #encrier-bleu-app .difficulty-text { color: var(--text-main); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; white-space: nowrap; position: absolute; }
@@ -125,6 +128,10 @@
     
     #encrier-bleu-app .timeline-date { display: inline-block; padding: 4px 12px; background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 12px; border: 1px solid rgba(59, 130, 246, 0.3); }
     #encrier-bleu-app .timeline-header { display: flex; align-items: center; justify-content: space-between; font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
+    
+    /* NOUVEAUTÉ : Design pour la miniature Wikipédia de la frise */
+    #encrier-bleu-app .timeline-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue); flex-shrink: 0; }
+
     #encrier-bleu-app .timeline-icon { color: var(--text-muted); transition: transform 0.4s ease; font-size: 0.8rem; background: var(--bg-color); border-radius: 50%; width: 26px; height: 26px; display: flex; justify-content: center; align-items: center; }
     
     #encrier-bleu-app .timeline-details { display: none; background: rgba(15, 23, 42, 0.5); border-top: 1px solid var(--box-border); padding: 15px 20px; }
@@ -199,7 +206,7 @@
         <div id="police-file" class="police-file">
             <span class="tag-success">Enquête Résolue</span>
             <div class="profile-header">
-                <div class="mugshot"></div>
+                <img id="daily-mugshot" class="mugshot" src="" alt="Suspect" />
                 <div>
                     <h2 id="character-name" style="color: #0f172a; margin: 0;">Victor Hugo</h2>
                     <div style="color: #475569; font-size: 0.9rem; margin-top: 4px;">Écrivain, Poète, Homme politique</div>
@@ -223,40 +230,28 @@
             <div class="theme-card" onclick="openTheme('romantiques')">
                 <div class="theme-title">Le Cercle des Romantiques</div>
                 <div style="font-size: 0.9rem; color: var(--text-muted);">Un réseau d'amis, d'amants et de rivaux du 19e siècle.</div>
-                <div class="stars-container">
-                    <div class="stars">⭐</div>
-                    <div class="difficulty-text">Débutant</div>
-                </div><br>
+                <div class="stars-container"><div class="stars">⭐</div><div class="difficulty-text">Débutant</div></div><br>
                 <div id="badge-romantiques" class="theme-status hidden">✅ Dossier Classé</div>
             </div>
 
             <div class="theme-card" onclick="openTheme('roisoleil')">
                 <div class="theme-title">La Cour du Roi-Soleil</div>
                 <div style="font-size: 0.9rem; color: var(--text-muted);">Intrigues, favorites et ministres à Versailles.</div>
-                <div class="stars-container">
-                    <div class="stars">⭐⭐</div>
-                    <div class="difficulty-text">Intermédiaire</div>
-                </div><br>
+                <div class="stars-container"><div class="stars">⭐⭐</div><div class="difficulty-text">Intermédiaire</div></div><br>
                 <div id="badge-roisoleil" class="theme-status hidden">✅ Dossier Classé</div>
             </div>
 
             <div class="theme-card" onclick="openTheme('lumieres')">
                 <div class="theme-title">Les Philosophes des Lumières</div>
                 <div style="font-size: 0.9rem; color: var(--text-muted);">Penseurs, encyclopédistes et souverains.</div>
-                <div class="stars-container">
-                    <div class="stars">⭐⭐⭐</div>
-                    <div class="difficulty-text">Expert</div>
-                </div><br>
+                <div class="stars-container"><div class="stars">⭐⭐⭐</div><div class="difficulty-text">Expert</div></div><br>
                 <div id="badge-lumieres" class="theme-status hidden">✅ Dossier Classé</div>
             </div>
 
             <div class="theme-card" onclick="openTheme('revolution')">
                 <div class="theme-title">La Révolution Française</div>
                 <div style="font-size: 0.9rem; color: var(--text-muted);">Girondins, Montagnards et Terreur.</div>
-                <div class="stars-container" style="border-color: rgba(239, 68, 68, 0.3);">
-                    <div class="stars" style="color: var(--error);">⭐⭐⭐⭐</div>
-                    <div class="difficulty-text" style="color: var(--error);">Cauchemar</div>
-                </div><br>
+                <div class="stars-container" style="border-color: rgba(239, 68, 68, 0.3);"><div class="stars" style="color: var(--error);">⭐⭐⭐⭐</div><div class="difficulty-text" style="color: var(--error);">Cauchemar</div></div><br>
                 <div id="badge-revolution" class="theme-status hidden">✅ Dossier Classé</div>
             </div>
         </div>
@@ -387,7 +382,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">69 av. J.-C. - 30 av. J.-C.</div>
-                        <div class="timeline-header"><span>Cléopâtre</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-cleo" class="timeline-avatar" src="" alt="Cléopâtre" style="display:none;">
+                                <span>Cléopâtre</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -407,7 +408,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1412 - 1431</div>
-                        <div class="timeline-header"><span>Jeanne d'Arc</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-jeanne" class="timeline-avatar" src="" alt="Jeanne d'Arc" style="display:none;">
+                                <span>Jeanne d'Arc</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -427,7 +434,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1452 - 1519</div>
-                        <div class="timeline-header"><span>Léonard de Vinci</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-vinci" class="timeline-avatar" src="" alt="Léonard de Vinci" style="display:none;">
+                                <span>Léonard de Vinci</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -447,7 +460,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1622 - 1673</div>
-                        <div class="timeline-header"><span>Molière</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-moliere" class="timeline-avatar" src="" alt="Molière" style="display:none;">
+                                <span>Molière</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -467,7 +486,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1638 - 1715</div>
-                        <div class="timeline-header"><span>Louis XIV</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-louis" class="timeline-avatar" src="" alt="Louis XIV" style="display:none;">
+                                <span>Louis XIV</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -487,7 +512,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1694 - 1778</div>
-                        <div class="timeline-header"><span>Voltaire</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-voltaire" class="timeline-avatar" src="" alt="Voltaire" style="display:none;">
+                                <span>Voltaire</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -507,7 +538,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1769 - 1821</div>
-                        <div class="timeline-header"><span>Napoléon Bonaparte</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-napoleon" class="timeline-avatar" src="" alt="Napoléon Bonaparte" style="display:none;">
+                                <span>Napoléon Bonaparte</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -527,7 +564,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1840 - 1902</div>
-                        <div class="timeline-header"><span>Émile Zola</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-zola" class="timeline-avatar" src="" alt="Émile Zola" style="display:none;">
+                                <span>Émile Zola</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -547,7 +590,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1867 - 1934</div>
-                        <div class="timeline-header"><span>Marie Curie</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-marie" class="timeline-avatar" src="" alt="Marie Curie" style="display:none;">
+                                <span>Marie Curie</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -567,7 +616,13 @@
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
                         <div class="timeline-date">1879 - 1955</div>
-                        <div class="timeline-header"><span>Albert Einstein</span><span class="timeline-icon">▼</span></div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-einstein" class="timeline-avatar" src="" alt="Albert Einstein" style="display:none;">
+                                <span>Albert Einstein</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
                     </div>
                     <div class="timeline-details">
                         <div class="card-tabs">
@@ -586,6 +641,56 @@
     </div>
 
     <script>
+        // --- 0. RECUPERATION DES IMAGES WIKIPEDIA ---
+        function loadDailyWikipediaImage(characterName) {
+            const title = encodeURIComponent(characterName.replace(/ /g, '_'));
+            const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${title}&prop=pageimages&format=json&pithumbsize=300&origin=*`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const pages = data.query.pages;
+                    const pageId = Object.keys(pages)[0];
+                    if (pageId !== "-1" && pages[pageId].thumbnail) {
+                        document.getElementById('daily-mugshot').src = pages[pageId].thumbnail.source;
+                    }
+                })
+                .catch(err => console.log("Erreur Wikipedia:", err));
+        }
+
+        // Fonction pour récupérer toutes les miniatures de la frise chronologique
+        function loadTimelineImages() {
+            const timelineWikiData = [
+                { id: 'img-cleo', query: 'Cléopâtre_VII' },
+                { id: 'img-jeanne', query: 'Jeanne_d\'Arc' },
+                { id: 'img-vinci', query: 'Léonard_de_Vinci' },
+                { id: 'img-moliere', query: 'Molière' },
+                { id: 'img-louis', query: 'Louis_XIV' },
+                { id: 'img-voltaire', query: 'Voltaire' },
+                { id: 'img-napoleon', query: 'Napoléon_Ier' },
+                { id: 'img-zola', query: 'Émile_Zola' },
+                { id: 'img-marie', query: 'Marie_Curie' },
+                { id: 'img-einstein', query: 'Albert_Einstein' }
+            ];
+
+            timelineWikiData.forEach(item => {
+                const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${item.query}&prop=pageimages&format=json&pithumbsize=100&origin=*`;
+                fetch(url)
+                    .then(r => r.json())
+                    .then(data => {
+                        const pages = data.query.pages;
+                        const pageId = Object.keys(pages)[0];
+                        if (pageId !== "-1" && pages[pageId].thumbnail) {
+                            const img = document.getElementById(item.id);
+                            if(img) {
+                                img.src = pages[pageId].thumbnail.source;
+                                img.style.display = 'block'; // Fait apparaître l'image une fois chargée
+                            }
+                        }
+                    })
+                    .catch(e => console.log(e));
+            });
+        }
+
         // --- GESTION DES ONGLETS PRINCIPAUX ---
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
@@ -606,6 +711,10 @@
         const dailyInputField = document.getElementById('daily-input');
         const dailyAttemptBoxes = document.querySelectorAll('#daily-tracker .attempt-box');
 
+        // Lancement des requêtes Wikipédia au chargement du site
+        loadDailyWikipediaImage(characterOfTheDay.name);
+        loadTimelineImages(); 
+        
         addDailyClueToDOM(0);
 
         function addDailyClueToDOM(index) {
@@ -695,18 +804,18 @@
             "alembert": { answer: "jean le rond d'alembert", aliases: ["d'alembert", "alembert"], title: "D'Alembert", clue: "Mathématicien, j'ai rédigé le Discours préliminaire de l'Encyclopédie.", speech: "« La philosophie n'est autre chose que l'application de la raison. »", unlocks: [] },
             "montesquieu": { answer: "montesquieu", aliases: ["charles de montesquieu"], title: "Montesquieu", clue: "Auteur des Lettres persanes et de De l'esprit des lois.", speech: "« Il faut que le pouvoir arrête le pouvoir. »", unlocks: ["rousseau"] },
             "rousseau": { answer: "jean-jacques rousseau", aliases: ["rousseau"], title: "Rousseau", clue: "Philosophe genevois, auteur du Contrat social.", speech: "« L'homme est né libre et partout il est dans les fers. »", unlocks: [] },
-            "chatelet": { answer: "emilie du chatelet", aliases: ["chatelet", "émilie du châtelet"], title: "Du Châtelet", clue: "Physicienne, traductrice de Newton et compagne de Voltaire.", speech: "« J'aime l'étude avec passion. »", unlocks: ["catherine"] },
-            "catherine": { answer: "catherine ii", aliases: ["catherine la grande", "catherine 2", "catherine deux"], title: "Catherine II", clue: "Impératrice de Russie et correspondante de nombreux philosophes.", speech: "« Je suis aristocrate, c'est mon métier. »", unlocks: [] },
+            "chatelet": { answer: "emilie du chatelet", aliases: ["chatelet", "émilie du châtelet", "emilie du chatelet"], title: "Du Châtelet", clue: "Physicienne, traductrice de Newton et compagne de Voltaire.", speech: "« J'aime l'étude avec passion. »", unlocks: ["catherine"] },
+            "catherine": { answer: "catherine ii", aliases: ["catherine la grande", "catherine 2", "catherine deux", "catherine de russie"], title: "Catherine II", clue: "Impératrice de Russie et correspondante de nombreux philosophes.", speech: "« Je suis aristocrate, c'est mon métier. »", unlocks: [] },
 
             // REVOLUTION
             "lafayette": { answer: "marquis de la fayette", aliases: ["lafayette", "la fayette"], title: "La Fayette", clue: "Héros américain, j'ai ébauché la Déclaration des droits de l'homme.", speech: "« Cur non ? (Pourquoi pas ?) »", unlocks: ["brissot"] },
             "brissot": { answer: "jacques pierre brissot", aliases: ["brissot"], title: "Brissot", clue: "Chef de file des Girondins, j'ai poussé à la guerre en 1792.", speech: "« Il nous faut de grandes trahisons ! »", unlocks: ["roland"] },
-            "roland": { answer: "madame roland", aliases: ["manon roland", "roland"], title: "Mme Roland", clue: "J'ai tenu un célèbre salon pour les Girondins avant d'être guillotinée.", speech: "« Ô Liberté, que de crimes on commet en ton nom ! »", unlocks: [] },
+            "roland": { answer: "madame roland", aliases: ["manon roland", "roland", "jeanne marie roland"], title: "Mme Roland", clue: "J'ai tenu un célèbre salon pour les Girondins avant d'être guillotinée.", speech: "« Ô Liberté, que de crimes on commet en ton nom ! »", unlocks: [] },
             "danton": { answer: "georges danton", aliases: ["danton"], title: "Danton", clue: "Orateur charismatique du Club des Cordeliers et ministre de la Justice.", speech: "« De l'audace, encore de l'audace, toujours de l'audace ! »", unlocks: ["desmoulins"] },
             "desmoulins": { answer: "camille desmoulins", aliases: ["desmoulins"], title: "Desmoulins", clue: "Journaliste, j'ai appelé le peuple aux armes le 12 juillet 1789.", speech: "« Aux armes, citoyens ! »", unlocks: [] },
             "robespierre": { answer: "maximilien robespierre", aliases: ["robespierre", "maximilien de robespierre"], title: "Robespierre", clue: "L'Incorruptible, figure majeure du Comité de salut public.", speech: "« La terreur n'est autre chose que la justice prompte et sévère. »", unlocks: ["saintjust"] },
-            "saintjust": { answer: "louis antoine de saint-just", aliases: ["saint-just", "saint just"], title: "Saint-Just", clue: "Le plus jeune député, surnommé l'Archange de la Terreur.", speech: "« Pas de liberté pour les ennemis de la liberté. »", unlocks: ["fouquier"] },
-            "fouquier": { answer: "antoine quentin fouquier-tinville", aliases: ["fouquier", "fouquier-tinville"], title: "Fouquier", clue: "L'implacable Accusateur public du Tribunal révolutionnaire.", speech: "« C'est la loi qui frappe, ce n'est pas moi. »", unlocks: [] }
+            "saintjust": { answer: "louis antoine de saint-just", aliases: ["saint-just", "saint just", "louis de saint-just"], title: "Saint-Just", clue: "Le plus jeune député, surnommé l'Archange de la Terreur.", speech: "« Pas de liberté pour les ennemis de la liberté. »", unlocks: ["fouquier"] },
+            "fouquier": { answer: "antoine quentin fouquier-tinville", aliases: ["fouquier", "fouquier-tinville", "fouquier tinville"], title: "Fouquier", clue: "L'implacable Accusateur public du Tribunal révolutionnaire.", speech: "« C'est la loi qui frappe, ce n'est pas moi. »", unlocks: [] }
         };
 
         let activeNodeId = null;
