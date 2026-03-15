@@ -1,0 +1,573 @@
+[
+    {
+        "name": "Marie Curie",
+        "profession": "Physicienne et chimiste",
+        "public_file": "Née Maria Skłodowska en 1867 à Varsovie, elle s'installe à Paris pour poursuivre ses études car les universités polonaises étaient interdites aux femmes. Avec son mari Pierre Curie, elle mène des recherches acharnées sur les rayonnements invisibles émis par l'uranium. Elle invente le terme \"radioactivité\" et découvre deux nouveaux éléments chimiques : le polonium et le radium. Elle devient la première femme à recevoir un prix Nobel (Physique, 1903), puis la première personne de l'histoire à en recevoir un second (Chimie, 1911). Pendant la Première Guerre mondiale, elle crée les \"Petites Curies\", des unités chirurgicales mobiles équipées de rayons X pour soigner les soldats au front.",
+        "secret_file": "<li>Ses carnets de notes sont encore si radioactifs aujourd'hui qu'ils sont conservés dans des boîtes en plomb et consultables uniquement avec une combinaison de protection.</li><li>Elle avait l'habitude de transporter des tubes d'isotopes radioactifs directement dans les poches de sa blouse.</li><li>Elle a passé son permis de conduire spécifiquement pour pouvoir conduire elle-même les ambulances radiologiques au front.</li>",
+        "clues": [
+            "Je suis née en Pologne au 19e siècle, mais j'ai mené ma carrière en France.",
+            "J'ai découvert deux éléments chimiques : le polonium et le radium.",
+            "Je suis la première femme à avoir été inhumée au Panthéon pour mes propres mérites."
+        ],
+        "wiki_search": "Marie_Curie",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Léonard de Vinci",
+        "profession": "Peintre, ingénieur, scientifique et inventeur",
+        "public_file": "Né en 1452 en Toscane, il est le symbole absolu de l'esprit de la Renaissance. Formé dans l'atelier d'Andrea del Verrocchio à Florence, il travaille ensuite pour les puissants de Milan, Rome, et finit sa vie en France à la cour de François Ier. S'il n'a laissé qu'une vingtaine de peintures, son héritage réside surtout dans ses milliers de pages de carnets (les codex). Il y étudie l'anatomie humaine avec une précision chirurgicale, l'aérodynamisme, la botanique, et y dessine des plans de machines de guerre et de machines volantes avec des siècles d'avance.",
+        "secret_file": "<li>Il écrivait de droite à gauche (écriture spéculaire) ; il fallait un miroir pour lire ses notes, probablement pour éviter de faire baver l'encre car il était gaucher.</li><li>Il achetait souvent des oiseaux en cage sur les marchés dans le seul but de leur rendre la liberté.</li><li>Il était un excellent joueur de lira da braccio (un instrument à cordes) et adorait chanter en improvisant.</li>",
+        "clues": [
+            "J'ai vécu en Italie (et en France à la fin de ma vie) aux 15e et 16e siècles.",
+            "Dans mes carnets, j'ai dessiné des prototypes de parachutes et d'hélicoptères bien avant leur invention.",
+            "Mon chef-d'œuvre représente une femme au sourire mystérieux, exposée au Louvre."
+        ],
+        "wiki_search": "Léonard_de_Vinci",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Cléopâtre",
+        "profession": "Reine d'Égypte",
+        "public_file": "Cléopâtre VII Théa Philopator (69 - 30 av. J.-C.) est la dernière souveraine de l'Égypte antique. Contrairement à l'image hollywoodienne de la séductrice, c'était avant tout une fine stratège politique, une intellectuelle et une administratrice redoutable. Elle accède au trône dans une Égypte affaiblie et sous la menace constante de l'Empire romain. Pour protéger son pays, elle s'allie d'abord à Jules César, avec qui elle a un fils (Césarion), puis à Marc Antoine. Après la défaite de ses troupes à la bataille d'Actium, elle marque la fin de 3000 ans d'Égypte pharaonique.",
+        "secret_file": "<li>Elle n'avait pas de sang égyptien : elle descendait d'une lignée de généraux grecs (les Ptolémées) placés là par Alexandre le Grand.</li><li>Elle a été la première souveraine de sa dynastie à apprendre la langue égyptienne ancienne, en plus d'en parler au moins huit autres.</li><li>Elle avait créé avec Marc Antoine une sorte de club de beuverie très sélect appelé \"Les Foies Inimitables\".</li>",
+        "clues": [
+            "J'ai régné sur un grand royaume d'Afrique du Nord durant l'Antiquité.",
+            "J'ai eu des liaisons politiques et amoureuses stratégiques avec Jules César et Marc Antoine.",
+            "La légende (parfois contestée) dit que je me suis suicidée en me faisant mordre par un serpent."
+        ],
+        "wiki_search": "Cléopâtre_VII",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Rosa Parks",
+        "profession": "Couturière et militante pour les droits civiques",
+        "public_file": "Née Rosa McCauley en 1913 en Alabama, elle est surnommée la \"mère du mouvement des droits civiques\". Le 1er décembre 1955, à Montgomery, elle refuse de céder sa place à un passager blanc dans un bus, violant ainsi les lois ségrégationnistes en vigueur dans le Sud des États-Unis. Son arrestation déclenche le célèbre boycott des bus de Montgomery, mené par un jeune pasteur alors inconnu : Martin Luther King Jr.",
+        "secret_file": "<li>Le chauffeur de bus qui l'a fait arrêter l'avait déjà forcée à descendre de son bus sous la pluie, douze ans plus tôt, pour une histoire de ticket.</li><li>Le jour de son arrestation, elle n'était pas assise dans la section \"blancs\", mais dans la section \"gens de couleur\" ; on lui a demandé de se lever car la section blanche était pleine.</li><li>Elle était une excellente couturière et portait une robe qu'elle fabriquait elle-même le jour où elle a été arrêtée.</li>",
+        "clues": [
+            "Je suis une femme américaine dont l'action pacifique a changé la loi de mon pays.",
+            "Mon acte de rébellion a déclenché un boycott des transports publics qui a duré 381 jours.",
+            "En 1955, à Montgomery, j'ai refusé de céder ma place dans le bus à un passager blanc."
+        ],
+        "wiki_search": "Rosa_Parks",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Wolfgang Amadeus Mozart",
+        "profession": "Compositeur",
+        "public_file": "Né en 1756 à Salzbourg, il est le plus célèbre enfant prodige de l'histoire de la musique. Poussé par son père, il entame une tournée européenne dès l'âge de six ans, jouant devant les cours royales avec une virtuosité stupéfiante. Devenu adulte, il s'installe à Vienne en tant qu'artiste indépendant. En seulement 35 ans de vie, il compose plus de 600 œuvres touchant à la perfection absolue dans tous les genres musicaux de son époque.",
+        "secret_file": "<li>Il avait un humour très scatologique et a même composé un chœur intitulé \"Lèche-moi le derrière\".</li><li>Il possédait un étourneau (un oiseau) de compagnie qui avait appris à siffler un passage de son Concerto pour piano n°17.</li><li>Il adorait jouer au billard et composait souvent de tête pendant qu'il y jouait.</li>",
+        "clues": [
+            "Je suis un artiste autrichien né au 18e siècle, connu pour avoir été un enfant surdoué.",
+            "J'ai composé des œuvres majeures comme La Flûte enchantée ou Les Noces de Figaro.",
+            "Je suis mort très jeune à 35 ans, laissant mon célèbre Requiem inachevé."
+        ],
+        "wiki_search": "Wolfgang_Amadeus_Mozart",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Frida Kahlo",
+        "profession": "Artiste peintre",
+        "public_file": "Magdalena Carmen Frida Kahlo (1907-1954) est l'une des artistes mexicaines les plus célèbres au monde. Sa vie est marquée par la souffrance physique : atteinte de poliomyélite enfant, son corps est ensuite fracassé dans un grave accident de bus à 18 ans, l'obligeant à subir des dizaines d'opérations. Elle commence à peindre depuis son lit, utilisant un miroir au plafond pour réaliser ses célèbres autoportraits, où elle mêle le réalisme, la symbolique mexicaine et ses douleurs intimes.",
+        "secret_file": "<li>Trop faible pour marcher lors de sa première exposition personnelle au Mexique, elle est arrivée en ambulance et a assisté à la soirée allongée dans son lit à baldaquin.</li><li>Elle mentait sur sa date de naissance (affirmant être née en 1910 au lieu de 1907) pour que sa venue au monde coïncide avec l'année de la Révolution mexicaine.</li><li>Elle possédait une ménagerie d'animaux de compagnie insolites : des singes-araignées, un faon, un aigle et des chiens nus mexicains.</li>",
+        "clues": [
+            "Je suis une femme latino-américaine du 20e siècle à l'univers visuel très coloré.",
+            "Mon art s'inspire beaucoup de mon grave accident de bus survenu quand j'étais jeune.",
+            "Mes couronnes de fleurs dans les cheveux et mes épais sourcils continus sont devenus iconiques."
+        ],
+        "wiki_search": "Frida_Kahlo",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Neil Armstrong",
+        "profession": "Astronaute et ingénieur aérospatial",
+        "public_file": "Né en 1930 dans l'Ohio, il commence sa carrière comme pilote de chasse dans la marine américaine avant de devenir pilote d'essai sur des avions-fusées expérimentaux dépassant Mach 5. Il rejoint la NASA en 1962. Réputé pour son sang-froid légendaire face au danger, il frôle la mort lors de l'entraînement sur simulateur lunaire. Ces qualités font de lui le commandant idéal pour la mission Apollo 11. Le 21 juillet 1969, devant 600 millions de téléspectateurs, il devient le premier être humain à poser le pied sur la Lune.",
+        "secret_file": "<li>Dans son scaphandre sur la Lune, il avait emporté secrètement des morceaux de bois et de toile provenant de l'avion des frères Wright (le premier avion motorisé de 1903).</li><li>Il a un jour menacé d'attaquer son coiffeur en justice parce que ce dernier récupérait ses cheveux coupés pour les revendre à des collectionneurs.</li><li>Étudiant, il payait ses frais d'université en cumulant des petits boulots : il était à la fois pilote d'essai et livreur de journaux.</li>",
+        "clues": [
+            "J'ai été pilote de chasse et pilote d'essai avant de rejoindre un grand programme gouvernemental.",
+            "Le voyage qui m'a rendu célèbre à l'international a eu lieu en juillet 1969.",
+            "J'ai prononcé la phrase : \"C'est un petit pas pour l'homme, un bond de géant pour l'humanité\"."
+        ],
+        "wiki_search": "Neil_Armstrong",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Jeanne d'Arc",
+        "profession": "Cheffe de guerre",
+        "public_file": "Née vers 1412 dans une famille paysanne à Domrémy, elle bouleverse le cours de la guerre de Cent Ans. Affirmant entendre les voix de saints lui ordonnant de sauver la France de l'invasion anglaise, elle parvient à convaincre le dauphin Charles de lui confier une armée. À 17 ans, en armure, elle libère la ville d'Orléans en 1429, ouvrant la voie au sacre du roi Charles VII à Reims. Capturée un an plus tard, elle subit un procès inique et est brûlée vive à Rouen en 1431.",
+        "secret_file": "<li>Elle ne savait ni lire ni écrire et signait ses lettres en traçant une croix ou en recopiant laborieusement son prénom \"Jhanne\".</li><li>Elle refusait d'utiliser son épée, préférant brandir son étendard au cœur des combats, et affirmait n'avoir jamais tué personne elle-même.</li><li>Elle avait un caractère sanguin et passait son temps à crier sur ses soldats s'ils juraient ou s'ils manquaient la messe.</li>",
+        "clues": [
+            "Je suis née en France au 15e siècle en pleine période de guerre.",
+            "J'affirmais entendre des voix divines me disant de chasser les ennemis hors de mon pays.",
+            "Surnommée la \"Pucelle d'Orléans\", j'ai fini brûlée vive sur un bûcher à Rouen."
+        ],
+        "wiki_search": "Jeanne_d'Arc",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Albert Einstein",
+        "profession": "Physicien théoricien",
+        "public_file": "Né en 1879 en Allemagne, il est le scientifique le plus influent du 20e siècle. Alors qu'il n'est qu'un simple employé au bureau des brevets de Berne en 1905, il publie des articles qui révolutionnent la physique, démontrant l'existence des atomes et posant les bases de la relativité restreinte. En 1915, il publie la théorie de la relativité générale. Récompensé par le prix Nobel en 1921, il fuit le régime nazi en 1933 pour s'installer aux États-Unis.",
+        "secret_file": "<li>Il détestait porter des chaussettes, estimant que c'était inutile puisque le gros orteil finissait toujours par les trouer.</li><li>Il adorait faire de la voile sur son petit bateau, mais n'a jamais appris à nager.</li><li>Son cerveau a été volé lors de son autopsie par le médecin légiste, qui l'a conservé dans des bocaux chez lui pendant plusieurs décennies.</li>",
+        "clues": [
+            "Je suis né en Allemagne mais j'ai fini ma vie aux États-Unis au 20e siècle.",
+            "Ma plus célèbre formule mathématique (E=mc²) relie la masse et l'énergie.",
+            "Ma chevelure en bataille et une photo où je tire la langue sont devenues célèbres."
+        ],
+        "wiki_search": "Albert_Einstein",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Nelson Mandela",
+        "profession": "Avocat, homme d'État et militant",
+        "public_file": "Né en 1918, il consacre sa vie à la lutte contre l'apartheid en Afrique du Sud. D'abord partisan de la non-violence, il cofonde ensuite la branche armée de l'ANC face à la répression brutale du gouvernement. Arrêté en 1962, il passe 27 ans en prison, principalement sur Robben Island. Libéré en 1990, il choisit la voie de la réconciliation nationale. Il partage le prix Nobel de la paix en 1993 avec le président de Klerk et devient le premier président noir d'Afrique du Sud en 1994.",
+        "secret_file": "<li>Son vrai prénom n'était pas Nelson, mais Rolihlahla (qui signifie \"le fauteur de troubles\") ; le prénom Nelson lui a été donné par une institutrice.</li><li>Dans sa jeunesse, il était un passionné de boxe, fasciné par la stratégie et la \"science\" des combats poids lourds.</li><li>Il a fait une apparition au cinéma en 1992 dans le film Malcolm X de Spike Lee, où il joue le rôle d'un instituteur à la fin du film.</li>",
+        "clues": [
+            "J'ai passé 27 ans de ma vie en prison pour mes convictions politiques.",
+            "J'ai reçu le prix Nobel de la paix en 1993, conjointement avec Frederik de Klerk.",
+            "Je suis devenu en 1994 le premier président noir d'Afrique du Sud."
+        ],
+        "wiki_search": "Nelson_Mandela",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Charles Darwin",
+        "profession": "Naturaliste et biologiste",
+        "public_file": "Né en 1809 en Angleterre, il a révolutionné notre compréhension du monde vivant. Lors d'un voyage de cinq ans autour du monde à bord du navire HMS Beagle, il observe une multitude d'espèces animales et végétales, notamment aux îles Galápagos. Ces observations le conduisent à formuler sa célèbre théorie de l'évolution par la sélection naturelle. En 1859, il publie son ouvrage majeur, \"De l'origine des espèces\".",
+        "secret_file": "<li>Il faisait partie d'un club universitaire dont le but était de goûter la viande d'animaux exotiques rares (il a notamment mangé du puma et du tatou).</li><li>Il a épousé sa propre cousine germaine, Emma Wedgwood, avec qui il a eu dix enfants.</li><li>Il tenait un registre extrêmement précis de sa santé, notant chaque jour s'il avait eu des flatulences ou des maux d'estomac.</li>",
+        "clues": [
+            "Je suis un scientifique britannique du 19e siècle célèbre pour un long voyage en bateau.",
+            "J'ai étudié les pinsons et les tortues des îles Galápagos.",
+            "Je suis le père de la théorie de l'évolution et de la sélection naturelle."
+        ],
+        "wiki_search": "Charles_Darwin",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Catherine II",
+        "profession": "Impératrice de Russie",
+        "public_file": "Née princesse allemande en 1729, elle arrive en Russie pour épouser l'héritier du trône, le futur Pierre III. Jugeant son mari incapable de gouverner, elle organise un coup d'État avec l'aide de l'armée pour le renverser et prend le pouvoir absolu en 1762. Pendant son règne de 34 ans, elle modernise considérablement l'Empire russe et étend ses frontières. Souveraine éclairée, elle correspondait régulièrement avec de grands philosophes français.",
+        "secret_file": "<li>Elle s'est fait inoculer la variole en premier (l'ancêtre du vaccin) pour prouver à son peuple que la procédure était sans danger.</li><li>Elle se levait tous les jours à 5 heures du matin pour préparer elle-même son café, qu'elle buvait extrêmement fort.</li><li>Elle possédait une pièce secrète dans son palais de Saint-Pétersbourg entièrement décorée de meubles et d'œuvres d'art érotiques.</li>",
+        "clues": [
+            "Née allemande au 18e siècle, j'ai pourtant dirigé le plus grand empire de l'Est de l'Europe.",
+            "J'ai pris le pouvoir en organisant un coup d'État contre mon propre mari.",
+            "On m'a surnommée \"la Grande\" et j'ai régné sur la Russie de 1762 à 1796."
+        ],
+        "wiki_search": "Catherine_II",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Nikola Tesla",
+        "profession": "Inventeur et ingénieur électricien",
+        "public_file": "Né en 1856 dans l'actuelle Croatie, il émigre aux États-Unis où il travaille brièvement pour Thomas Edison avant que les deux hommes ne deviennent de farouches rivaux. Il est le véritable pionnier du système de courant alternatif, qui est aujourd'hui utilisé pour distribuer l'électricité dans le monde entier. Il a déposé plus de 300 brevets et a inventé la bobine Tesla, les bases de la communication radio et de la télécommande à distance.",
+        "secret_file": "<li>Il souffrait de troubles obsessionnels compulsifs sévères, notamment une obsession pour le chiffre 3 (il devait faire trois fois le tour d'un bâtiment avant d'y entrer).</li><li>Il avait une phobie absolue des perles et refusait de parler aux femmes qui en portaient.</li><li>À la fin de sa vie, il est tombé amoureux d'une pigeonne blanche qu'il nourrissait tous les jours.</li>",
+        "clues": [
+            "Je suis un inventeur d'origine serbe parti faire carrière aux États-Unis à la fin du 19e siècle.",
+            "J'ai été le grand rival de Thomas Edison dans ce qu'on a appelé la \"guerre des courants\".",
+            "Mon nom est aujourd'hui utilisé par une célèbre marque de voitures électriques."
+        ],
+        "wiki_search": "Nikola_Tesla",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Mère Teresa",
+        "profession": "Religieuse catholique et missionnaire",
+        "public_file": "Née Anjezë Gonxhe Bojaxhiu en 1910 dans l'Empire ottoman (actuelle Macédoine du Nord), elle prononce ses vœux religieux et part enseigner en Inde. Frappée par la misère qui l'entoure, elle quitte son couvent pour vivre dans les bidonvilles. En 1950, elle fonde la congrégation des Missionnaires de la Charité pour s'occuper des plus démunis. Son dévouement absolu lui vaut une reconnaissance internationale et le prix Nobel de la paix en 1979.",
+        "secret_file": "<li>Ses lettres privées, publiées après sa mort, ont révélé qu'elle a douté de l'existence de Dieu pendant près de 50 ans.</li><li>Lorsqu'elle a remporté le prix Nobel, elle a refusé le banquet de célébration habituel et a demandé que l'argent soit donné aux pauvres.</li><li>Elle parlait couramment cinq langues : l'albanais, le serbo-croate, l'anglais, le bengali et l'hindi.</li>",
+        "clues": [
+            "Je suis une religieuse née en Europe de l'Est au début du 20e siècle.",
+            "J'ai consacré ma vie à aider les plus démunis et les intouchables en Inde, notamment à Calcutta.",
+            "J'ai reçu le prix Nobel de la paix et mon habit blanc à liserés bleus est célèbre dans le monde entier."
+        ],
+        "wiki_search": "Mère_Teresa",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Jules César",
+        "profession": "Général, homme politique et écrivain",
+        "public_file": "Né à Rome en 100 av. J.-C., il est l'une des figures les plus puissantes de l'Antiquité. Brillant stratège militaire, il conquiert la Gaule après sa victoire décisive à Alésia contre Vercingétorix. Craignant son ambition, le Sénat romain lui ordonne de dissoudre son armée. Il refuse et franchit le fleuve Rubicon en prononçant \"Alea jacta est\", déclenchant une guerre civile dont il sort vainqueur. Devenu dictateur à vie, il est assassiné en 44 av. J.-C. par un groupe de sénateurs.",
+        "secret_file": "<li>Jeune homme, il a été enlevé par des pirates. Trouvant la rançon demandée trop basse, il a exigé qu'ils la doublent, et a promis de les faire crucifier une fois libéré (ce qu'il a fait).</li><li>Il était très complexé par sa calvitie naissante et brossait ses cheveux vers l'avant pour la cacher, d'où son amour pour la couronne de lauriers.</li><li>Il souffrait probablement d'épilepsie, qu'il appelait le \"mal comitial\".</li>",
+        "clues": [
+            "Je suis l'un des plus célèbres chefs militaires de l'Antiquité méditerranéenne.",
+            "J'ai prononcé les célèbres phrases \"Alea jacta est\" et \"Veni, vidi, vici\".",
+            "J'ai conquis la Gaule avant de finir assassiné de 23 coups de couteau par les sénateurs de Rome."
+        ],
+        "wiki_search": "Jules_César",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Florence Nightingale",
+        "profession": "Infirmière et statisticienne",
+        "public_file": "Née en 1820, issue d'une riche famille britannique, elle choque ses proches en choisissant la profession d'infirmière. Pendant la guerre de Crimée en 1854, elle est envoyée sur le front pour réorganiser les hôpitaux militaires insalubres. En imposant des règles d'hygiène strictes, elle fait chuter drastiquement le taux de mortalité des soldats. Elle est considérée comme la fondatrice des soins infirmiers modernes.",
+        "secret_file": "<li>Pour convaincre le gouvernement d'améliorer les hôpitaux, elle a inventé une forme de diagramme circulaire (un ancêtre du camembert) pour rendre les statistiques visuelles.</li><li>Pendant la guerre, elle faisait des rondes de nuit seule pour vérifier l'état des blessés, ce qui lui a valu le surnom de \"La dame à la lampe\".</li><li>Elle a sauvé une petite chouette nommée Athena à Athènes et la gardait en permanence dans sa poche.</li>",
+        "clues": [
+            "Je suis une femme britannique du 19e siècle qui a révolutionné le monde médical.",
+            "On m'a surnommée \"La dame à la lampe\" lors de la guerre de Crimée.",
+            "Je suis considérée comme la pionnière des soins infirmiers modernes."
+        ],
+        "wiki_search": "Florence_Nightingale",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Galilée",
+        "profession": "Mathématicien, physicien et astronome",
+        "public_file": "Né à Pise en 1564, il perfectionne la lunette astronomique et est le premier à l'utiliser pour observer le ciel. Il découvre les montagnes de la Lune, les taches solaires et les lunes de Jupiter. Ses observations prouvent la théorie héliocentrique de Copernic : la Terre tourne autour du Soleil. Cela lui vaut un célèbre procès face à l'Inquisition de l'Église catholique en 1633, où il est forcé de renier ses découvertes et finit sa vie assigné à résidence.",
+        "secret_file": "<li>Ses doigts (le majeur, l'index et le pouce) ont été prélevés sur son cadavre au 18e siècle et sont aujourd'hui exposés au musée Galilée de Florence.</li><li>Pour financer ses recherches, il a vendu sa lunette astronomique au gouvernement vénitien en leur expliquant que c'était l'outil militaire parfait pour repérer les navires ennemis de loin.</li><li>Il n'a jamais murmuré \"Et pourtant elle tourne\" à la fin de son procès ; c'est une légende inventée plus tard.</li>",
+        "clues": [
+            "Je suis un grand savant italien né à la Renaissance, célèbre pour mes observations spatiales.",
+            "J'ai perfectionné la lunette astronomique et observé les cratères de la Lune.",
+            "L'Église m'a condamné car je prouvais que la Terre tournait autour du Soleil."
+        ],
+        "wiki_search": "Galilée_(savant)",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Harriet Tubman",
+        "profession": "Militante abolitionniste et espionne",
+        "public_file": "Née esclave dans le Maryland (États-Unis) vers 1822, elle parvient à s'échapper vers le Nord libre à l'âge de 27 ans. Au lieu de rester en sécurité, elle retourne clandestinement dans le Sud à treize reprises pour guider des dizaines d'autres esclaves vers la liberté, devenant la \"conductrice\" la plus célèbre du réseau de fuite appelé le Chemin de fer clandestin. Pendant la guerre de Sécession, elle devient la première femme à diriger une expédition armée pour l'armée de l'Union.",
+        "secret_file": "<li>Jeune esclave, elle a reçu un violent coup à la tête avec un poids en métal qui lui a causé des crises de narcolepsie et des visions tout le reste de sa vie.</li><li>Elle portait toujours un pistolet sur elle lors de ses missions, non seulement pour se protéger des chasseurs d'esclaves, mais aussi pour menacer les fugitifs qui voulaient abandonner.</li><li>On la surnommait \"Moïse\" en référence au personnage biblique qui a guidé son peuple hors d'Égypte.</li>",
+        "clues": [
+            "Je suis une femme afro-américaine née au 19e siècle.",
+            "J'ai été espionne et cheffe de raid militaire pendant la guerre de Sécession américaine.",
+            "Née esclave, je suis devenue la figure de proue du \"Chemin de fer clandestin\" pour aider les autres à fuir."
+        ],
+        "wiki_search": "Harriet_Tubman",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Vincent van Gogh",
+        "profession": "Artiste peintre",
+        "public_file": "Peintre néerlandais né en 1853, il est l'une des figures les plus marquantes du postimpressionnisme. Sa carrière n'a duré qu'une dizaine d'années, pendant lesquelles il a produit plus de 2000 œuvres avec des couleurs vives et des coups de pinceau épais et tourmentés. Souffrant de graves problèmes de santé mentale et soutenu par son frère Théo, son génie n'a été reconnu qu'après son suicide à l'âge de 37 ans.",
+        "secret_file": "<li>Il n'a vendu qu'un seul tableau de son vivant (\"La Vigne rouge\"), acheté par la sœur d'un ami pour une somme modique.</li><li>Lors de ses crises, il lui arrivait de manger sa propre peinture (particulièrement la peinture jaune) car il pensait que cette couleur joyeuse le rendrait heureux.</li><li>Après une violente dispute avec le peintre Paul Gauguin, il s'est tranché l'oreille gauche avec un rasoir.</li>",
+        "clues": [
+            "Je suis un peintre européen du 19e siècle dont l'œuvre est très colorée et tourbillonnante.",
+            "J'ai peint des œuvres célèbres comme \"Les Tournesols\", \"La Chambre à coucher\" ou \"La Nuit étoilée\".",
+            "Je suis célèbre pour avoir fini ma vie dans la misère et pour m'être coupé une oreille."
+        ],
+        "wiki_search": "Vincent_van_Gogh",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Winston Churchill",
+        "profession": "Homme d'État, militaire et écrivain",
+        "public_file": "Né en 1874, il est le Premier ministre du Royaume-Uni qui a tenu tête à l'Allemagne nazie pendant la Seconde Guerre mondiale. Alors que l'Europe tombait sous la domination du Troisième Reich en 1940, sa détermination inébranlable et ses discours radiophoniques magistraux ont galvanisé le peuple britannique. Également journaliste, historien et romancier prolifique, il a reçu le prix Nobel de littérature en 1953 pour ses mémoires de guerre.",
+        "secret_file": "<li>Il fumait entre 8 et 10 cigares cubains par jour, même au lit ou dans son bain.</li><li>Il adorait peindre pour se détendre et a réalisé plus de 500 toiles au cours de sa vie, qu'il signait parfois sous le faux nom de Charles Morin.</li><li>Il avait pour habitude de se promener nu dans sa chambre d'hôtel en dictant des discours et a même croisé le président Roosevelt dans le plus simple appareil à la Maison-Blanche.</li>",
+        "clues": [
+            "Je suis un grand dirigeant politique européen du 20e siècle, célèbre pour mon caractère bien trempé.",
+            "J'ai remporté un prix Nobel de littérature en plus de ma carrière politique.",
+            "J'ai été le Premier ministre britannique pendant la Seconde Guerre mondiale, indissociable de mon cigare."
+        ],
+        "wiki_search": "Winston_Churchill",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Abraham Lincoln",
+        "profession": "Homme d'État et avocat",
+        "public_file": "Né en 1809 dans une cabane en rondins, il devient le 16e président des États-Unis en 1860. Son élection provoque la sécession des États du Sud et le début de la guerre de Sécession. Il dirige le pays pendant cette crise existentielle, préservant l'Union et abolissant l'esclavage avec la Proclamation d'émancipation en 1863. Il est assassiné par un sympathisant sudiste au théâtre Ford de Washington en 1865.",
+        "secret_file": "<li>Il mesurait 1m93, ce qui faisait de lui le plus grand président de l'histoire des États-Unis, et son célèbre chapeau haut de forme le faisait paraître encore plus immense.</li><li>Il conservait souvent des documents importants, des lettres et de l'argent cachés à l'intérieur de son chapeau.</li><li>Il est le seul président américain à avoir obtenu un brevet d'invention, pour un système permettant de soulever les bateaux bloqués sur des hauts-fonds.</li>",
+        "clues": [
+            "Je suis un dirigeant américain du 19e siècle assassiné au théâtre.",
+            "J'ai dirigé mon pays pendant une terrible guerre civile de quatre ans.",
+            "Mon nom est indissociable de l'abolition de l'esclavage aux États-Unis."
+        ],
+        "wiki_search": "Abraham_Lincoln",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Amelia Earhart",
+        "profession": "Aviatrice",
+        "public_file": "Née en 1897, elle est l'une des pionnières de l'aviation américaine. En 1932, elle devient la première femme à traverser l'océan Atlantique en solitaire aux commandes d'un avion. Véritable star de son époque, elle utilise sa notoriété pour promouvoir l'aviation commerciale et défendre les droits des femmes. En 1937, alors qu'elle tente de réaliser le premier tour du monde en avion par l'équateur, elle disparaît mystérieusement au-dessus de l'océan Pacifique.",
+        "secret_file": "<li>Pour financer ses cours de pilotage à ses débuts, elle a travaillé comme photographe, conductrice de camion et sténographe.</li><li>Elle refusait de porter les tenues de vol traditionnelles et préférait concevoir ses propres vêtements, lançant même une ligne de mode féminine.</li><li>Le jour de son mariage, elle a fait remettre à son mari une lettre stipulant qu'elle garderait sa liberté et ne se sentirait pas liée par le code de fidélité.</li>",
+        "clues": [
+            "Je suis une femme américaine célèbre dans les années 1920 et 1930.",
+            "Ma disparition tragique au-dessus de l'océan Pacifique reste l'un des plus grands mystères du 20e siècle.",
+            "J'ai été la première femme à traverser l'Atlantique en avion en solitaire."
+        ],
+        "wiki_search": "Amelia_Earhart",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Mahatma Gandhi",
+        "profession": "Avocat et guide spirituel",
+        "public_file": "Né Mohandas Karamchand Gandhi en 1869, il étudie le droit à Londres avant de partir travailler en Afrique du Sud, où il développe ses méthodes de désobéissance civile non violente. De retour en Inde en 1915, il prend la tête du mouvement pour l'indépendance du pays contre l'Empire britannique. Il mène des campagnes de boycott et la célèbre \"marche du sel\". Il voit l'Inde obtenir son indépendance en 1947, mais est assassiné l'année suivante par un extrémiste.",
+        "secret_file": "<li>Il écrivait constamment des lettres à des dirigeants du monde entier, y compris à Adolf Hitler qu'il appelait \"Cher ami\" pour tenter de le dissuader de déclencher la guerre.</li><li>Malgré sa célébrité, il filait lui-même le coton de ses vêtements tous les jours à l'aide d'un rouet pour protester contre l'industrie textile britannique.</li><li>Il a été nominé cinq fois pour le prix Nobel de la paix, mais ne l'a jamais reçu.</li>",
+        "clues": [
+            "Je suis un grand leader politique et spirituel asiatique du 20e siècle.",
+            "J'ai organisé la célèbre \"marche du sel\" pour défier l'autorité britannique.",
+            "Je suis le pionnier mondial de la résistance par la non-violence pour libérer l'Inde."
+        ],
+        "wiki_search": "Mohandas_Karamchand_Gandhi",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Gengis Khan",
+        "profession": "Fondateur et empereur de l'Empire mongol",
+        "public_file": "Né Temüjin vers 1162 dans les steppes d'Asie centrale, il parvient à unifier les tribus nomades mongoles. Redoutable stratège militaire, il lance de vastes campagnes de conquêtes, créant le plus grand empire contigu de l'histoire. Ses armées de cavaliers archers sèment la terreur, mais son règne permet aussi l'établissement de la \"Pax Mongolica\", facilitant le commerce et les échanges culturels entre l'Orient et l'Occident. Il meurt en 1227.",
+        "secret_file": "<li>Le lieu de sa tombe est l'un des plus grands secrets de l'histoire ; la légende raconte que les soldats de son escorte ont tué tous ceux qu'ils ont croisés, puis se sont suicidés pour protéger le secret.</li><li>Il a instauré l'un des premiers systèmes postaux internationaux au monde, appelé le Yam, utilisant des relais de chevaux.</li><li>Les études génétiques modernes estiment qu'environ 16 millions d'hommes vivant aujourd'hui portent son chromosome Y.</li>",
+        "clues": [
+            "Je suis un redoutable chef de guerre né en Asie au 12e siècle.",
+            "Mon nom de naissance était Temüjin et mes armées se déplaçaient à cheval.",
+            "J'ai fondé et dirigé le gigantesque Empire mongol."
+        ],
+        "wiki_search": "Gengis_Khan",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Marie-Antoinette",
+        "profession": "Reine de France",
+        "public_file": "Née archiduchesse d'Autriche en 1755, elle épouse le futur Louis XVI à l'âge de 14 ans. Devenue reine, elle a du mal à s'adapter à l'étiquette de la cour de Versailles. Rapidement impopulaire, elle est accusée de frivolité et gagne le surnom de \"Madame Déficit\". Lors de la Révolution française, elle tente de fuir avec sa famille mais est arrêtée à Varennes. Emprisonnée, jugée pour trahison, elle est guillotinée à Paris en 1793.",
+        "secret_file": "<li>Elle n'a jamais prononcé la fameuse phrase \"S'ils n'ont pas de pain, qu'ils mangent de la brioche\" ; cette citation existait déjà avant son arrivée en France.</li><li>Elle s'était fait construire un petit village rustique (le Hameau de la Reine) dans les jardins de Versailles où elle aimait jouer à la bergère.</li><li>Enfant, elle a rencontré le jeune Mozart lors d'un concert à la cour de Vienne, et la légende dit qu'il l'a demandée en mariage.</li>",
+        "clues": [
+            "Je suis une souveraine européenne née au 18e siècle dont la fin de vie a été très brutale.",
+            "J'ai vécu au château de Versailles avec mon mari Louis XVI.",
+            "D'origine autrichienne, je suis la reine la plus célèbre de la Révolution française."
+        ],
+        "wiki_search": "Marie-Antoinette_d'Autriche",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Isaac Newton",
+        "profession": "Mathématicien, physicien et astronome",
+        "public_file": "Né en 1642 en Angleterre, il est l'un des plus grands scientifiques de tous les temps. En 1687, il publie les \"Principia Mathematica\", ouvrage fondamental dans lequel il formule les trois lois du mouvement et la loi universelle de la gravitation, expliquant aussi bien la chute d'une pomme que l'orbite des planètes. Il fait également des percées majeures en optique en démontrant que la lumière blanche est composée des couleurs de l'arc-en-ciel.",
+        "secret_file": "<li>Il a passé plus de temps dans sa vie à étudier l'alchimie (essayant de transformer le plomb en or) et l'interprétation occulte de la Bible qu'à faire de la physique.</li><li>Pour étudier l'anatomie de l'œil et la perception des couleurs, il n'a pas hésité à glisser une grosse aiguille entre son œil et son orbite osseuse pour appuyer sur sa propre rétine.</li><li>Il a failli perdre toute sa fortune en investissant dans l'une des pires bulles financières de l'histoire.</li>",
+        "clues": [
+            "Je suis un savant britannique né au 17e siècle qui a révolutionné la physique.",
+            "Mon ouvrage majeur s'intitule \"Principia Mathematica\".",
+            "La légende veut que la chute d'une pomme m'ait inspiré la théorie de la gravité."
+        ],
+        "wiki_search": "Isaac_Newton",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Alexandre le Grand",
+        "profession": "Roi de Macédoine et conquérant",
+        "public_file": "Né en 356 av. J.-C., il est l'élève du philosophe Aristote. Devenu roi à 20 ans, il se lance dans une immense campagne militaire contre le puissant Empire perse. Invaincu au combat, il conquiert un territoire s'étendant de la Grèce jusqu'au nord-ouest de l'Inde, en passant par l'Égypte où il fonde la ville d'Alexandrie. Il meurt d'une mystérieuse fièvre à Babylone à l'âge de 32 ans, laissant un empire qui se disloque rapidement.",
+        "secret_file": "<li>Il dormait souvent avec un exemplaire de l'Iliade d'Homère et un poignard sous son oreiller.</li><li>Son cheval, Bucéphale, était si indomptable que personne ne pouvait le monter. Alexandre a réussi à le dompter en le tournant face au soleil, remarquant qu'il avait peur de son ombre.</li><li>Il a été couronné pharaon en Égypte et a été déclaré \"fils du dieu Zeus-Ammon\" par l'oracle de l'oasis de Siwa.</li>",
+        "clues": [
+            "J'ai eu pour tuteur l'un des plus célèbres philosophes de la Grèce antique.",
+            "J'ai donné mon nom à de nombreuses villes, dont la plus célèbre se trouve en Égypte.",
+            "Jeune roi macédonien, j'ai conquis l'immense Empire perse."
+        ],
+        "wiki_search": "Alexandre_le_Grand",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Anne Frank",
+        "profession": "Écrivaine",
+        "public_file": "Née en 1929 en Allemagne dans une famille juive, elle fuit l'arrivée des nazis pour s'installer aux Pays-Bas. Pendant la Seconde Guerre mondiale, sa famille se cache pendant deux ans dans une \"Annexe\" secrète à Amsterdam. Pendant cette clandestinité, elle tient un journal intime relatant sa vie d'adolescente. La cachette est découverte en 1944. Déportée, Anne meurt du typhus dans le camp de Bergen-Belsen à l'âge de 15 ans. Son père publie son journal en 1947, qui devient l'un des livres les plus lus au monde.",
+        "secret_file": "<li>Elle avait donné un nom à son carnet intime et s'adressait à lui comme à une amie imaginaire qu'elle appelait \"Kitty\".</li><li>Dans l'Annexe, pour ne pas faire de bruit, les clandestins devaient chuchoter et ne pouvaient pas utiliser les toilettes pendant les heures de bureau.</li><li>Elle rêvait de devenir journaliste célèbre ou écrivaine à succès et avait commencé à réécrire son journal pour une éventuelle publication.</li>",
+        "clues": [
+            "Je suis une jeune adolescente européenne ayant vécu pendant la Seconde Guerre mondiale.",
+            "J'ai passé deux ans cachée dans une annexe secrète à Amsterdam.",
+            "Mon journal intime est devenu l'un des témoignages les plus célèbres de la Shoah."
+        ],
+        "wiki_search": "Anne_Frank",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Louis XIV",
+        "profession": "Roi de France",
+        "public_file": "Surnommé le \"Roi-Soleil\", il accède au trône très jeune en 1643, mais c'est à la mort de son ministre Mazarin qu'il décide de gouverner seul, instaurant la monarchie absolue de droit divin. Son règne de 72 ans est marqué par de nombreuses guerres pour étendre les frontières du royaume, mais aussi par un extraordinaire rayonnement culturel. Il transforme le pavillon de chasse de son père en l'éblouissant château de Versailles.",
+        "secret_file": "<li>Il ne prenait presque jamais de bain complet, préférant être frictionné chaque jour avec des linges imbibés d'alcool ou d'esprit de vin.</li><li>Il avait un appétit tellement colossal que son estomac et ses intestins, examinés lors de son autopsie, étaient environ deux fois plus grands que la normale.</li><li>Il était un excellent danseur de ballet et se produisait régulièrement sur scène devant la cour lorsqu'il était jeune.</li>",
+        "clues": [
+            "Je suis un monarque européen du 17e siècle dont le règne a été exceptionnellement long.",
+            "J'ai imposé une étiquette de cour très stricte à mes nobles pour mieux les soumettre.",
+            "Surnommé le \"Roi-Soleil\", j'ai fait construire le château de Versailles."
+        ],
+        "wiki_search": "Louis_XIV",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Marco Polo",
+        "profession": "Marchand et explorateur",
+        "public_file": "Né à Venise en 1254, il entreprend avec son père un immense voyage vers l'Asie à l'âge de 17 ans. Parcourant la route de la soie, ils atteignent la cour de l'empereur mongol Kubilaï Khan en Chine. Marco Polo y passe 24 ans, visitant des régions inconnues des Européens. De retour en Italie, il est fait prisonnier lors d'une guerre navale. Dans sa cellule, il dicte ses mémoires à son compagnon de captivité, donnant naissance au \"Livre des Merveilles du Monde\".",
+        "secret_file": "<li>Beaucoup de ses contemporains pensaient qu'il mentait ou exagérait ses récits, d'où le surnom de son livre \"Le million\" (sous-entendu : un million de mensonges).</li><li>Malgré la précision de ses descriptions sur la Chine, il n'a jamais mentionné la Grande Muraille, ni l'usage des baguettes pour manger.</li><li>Sur son lit de mort, pressé par ses amis d'avouer qu'il avait inventé ses histoires, il aurait répondu : \"Je n'ai pas raconté la moitié de ce que j'ai vu\".</li>",
+        "clues": [
+            "Je suis un marchand italien du 13e siècle.",
+            "J'ai passé plus de 20 ans à la cour de l'empereur de Chine.",
+            "Mon récit de voyage, le \"Livre des merveilles\", a fait rêver des générations d'Européens."
+        ],
+        "wiki_search": "Marco_Polo",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Martin Luther King Jr.",
+        "profession": "Pasteur et militant pour les droits civiques",
+        "public_file": "Né en 1929 à Atlanta, il est la figure majeure du mouvement des droits civiques aux États-Unis. Inspiré par la désobéissance civile de Gandhi, il mène des boycotts et des marches pacifiques pour protester contre la ségrégation raciale. En 1963, il prononce son célèbre discours \"I Have a Dream\" à Washington. Il reçoit le prix Nobel de la paix en 1964. Il est assassiné à Memphis en 1968.",
+        "secret_file": "<li>Son prénom de naissance n'était pas Martin, mais Michael. Son père l'a changé après un voyage en Allemagne en l'honneur du théologien réformateur Martin Luther.</li><li>Il a sauté deux classes au lycée et est entré à l'université à l'âge de 15 ans.</li><li>Grand fan de la série Star Trek, il a convaincu l'actrice Nichelle Nichols (Uhura) de ne pas quitter la série car elle représentait un modèle essentiel pour la communauté afro-américaine.</li>",
+        "clues": [
+            "Je suis un leader américain des droits civiques assassiné dans les années 1960.",
+            "J'étais un pasteur baptiste adepte de la non-violence.",
+            "J'ai prononcé le célèbre discours \"I Have a Dream\"."
+        ],
+        "wiki_search": "Martin_Luther_King",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Christophe Colomb",
+        "profession": "Navigateur et explorateur",
+        "public_file": "Né à Gênes en 1451, il cherche une nouvelle route maritime vers l'Asie en naviguant vers l'ouest. Financé par l'Espagne, il entreprend quatre voyages à travers l'océan Atlantique. En 1492, il touche terre aux Bahamas, ouvrant la voie à la colonisation européenne des Amériques, bien qu'il ait cru jusqu'à sa mort avoir atteint l'Asie. Ses expéditions ont bouleversé le monde, entraînant l'échange colombien.",
+        "secret_file": "<li>Pour convaincre son équipage terrifié de ne pas faire demi-tour, il tenait deux journaux de bord : un vrai pour lui, et un faux avec des distances réduites pour rassurer les marins.</li><li>Il a calculé la circonférence de la Terre avec une énorme erreur, la croyant beaucoup plus petite qu'elle ne l'est.</li><li>Lors de son quatrième voyage, échoué en Jamaïque, il a utilisé ses connaissances d'une éclipse lunaire imminente pour effrayer les autochtones et obtenir d'eux des vivres.</li>",
+        "clues": [
+            "Je suis un navigateur italien au service de la couronne d'Espagne au 15e siècle.",
+            "J'ai traversé l'océan Atlantique avec trois navires, dont la Santa María.",
+            "L'histoire retient que j'ai \"découvert\" l'Amérique en 1492."
+        ],
+        "wiki_search": "Christophe_Colomb",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Simone Veil",
+        "profession": "Magistrate et femme d'État",
+        "public_file": "Née Simone Jacob en 1927 à Nice, elle est déportée à Auschwitz à l'âge de 16 ans. Survivante de la Shoah, elle devient magistrate. Nommée ministre de la Santé en 1974, elle porte le projet de loi dépénalisant l'interruption volontaire de grossesse (IVG) en France, affrontant des attaques d'une grande violence à l'Assemblée nationale. Profondément attachée à l'Europe, elle devient en 1979 la première femme présidente du Parlement européen. Elle repose au Panthéon.",
+        "secret_file": "<li>À son retour des camps, elle a découvert qu'elle avait réussi son baccalauréat, qu'elle avait passé clandestinement juste avant son arrestation.</li><li>Lors des débats tendus sur l'IVG, sa voiture a été couverte de croix gammées et elle recevait des menaces de mort, mais elle conduisait elle-même sans protection particulière.</li><li>Son matricule de déportée, 78651, était tatoué sur son bras gauche, un numéro qu'elle n'a jamais cherché à cacher.</li>",
+        "clues": [
+            "Je suis une femme d'État française du 20e siècle survivante des camps de concentration.",
+            "J'ai été la première femme présidente du Parlement européen.",
+            "J'ai fait adopter la loi qui porte mon nom et qui légalise l'IVG en France en 1975."
+        ],
+        "wiki_search": "Simone_Veil",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Youri Gagarine",
+        "profession": "Cosmonaute et pilote de chasse",
+        "public_file": "Né en 1934 dans une famille de paysans russes, il est recruté pour le programme spatial soviétique en raison de ses excellentes compétences de pilote et de sa petite taille. Le 12 avril 1961, il marque l'histoire de l'humanité en devenant le premier homme à voyager dans l'espace. Son vol orbital dure 108 minutes. Devenu un héros planétaire, les autorités lui interdisent de retourner dans l'espace, le jugeant trop précieux. Il meurt tragiquement dans un accident d'avion lors d'un vol d'entraînement en 1968.",
+        "secret_file": "<li>Lors de son retour sur Terre, il s'est éjecté de sa capsule à 7000 mètres d'altitude pour atterrir en parachute. Les premiers humains qu'il a rencontrés étaient une paysanne et sa fille.</li><li>Le matin de son vol, la navette s'est arrêtée pour qu'il puisse soulager un besoin urgent sur la roue arrière du bus ; c'est devenu une tradition superstitieuse pour tous les cosmonautes russes depuis.</li><li>Pour son vol spatial, on a dû coudre en urgence les lettres \"CCCP\" (URSS) sur son casque pour qu'il ne soit pas pris pour un espion.</li>",
+        "clues": [
+            "Je suis un pilote soviétique célèbre dans le monde entier dans les années 1960.",
+            "J'ai voyagé à bord de la capsule Vostok 1 en 1961.",
+            "Je suis le tout premier être humain à être allé dans l'espace."
+        ],
+        "wiki_search": "Youri_Gagarine",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Napoléon Bonaparte",
+        "profession": "Empereur des Français et chef militaire",
+        "public_file": "Né en Corse en 1769, il connaît une ascension fulgurante pendant la Révolution française grâce à son génie militaire. Devenu Premier Consul par un coup d'État en 1799, il se fait sacrer Empereur en 1804. Il réforme profondément la France (création du Code civil, des lycées, de la Légion d'honneur) et domine l'Europe continentale par une série de victoires éclatantes comme Austerlitz. Après la désastreuse campagne de Russie et l'ultime défaite de Waterloo en 1815, il finit sa vie en exil, prisonnier des Britanniques sur l'îlot isolé de Sainte-Hélène.",
+        "secret_file": "<li>Contrairement au mythe britannique tenace, il n'était pas spécialement petit : il mesurait 1m69, soit la taille moyenne ou légèrement supérieure à la moyenne des hommes de son époque.</li><li>Dans sa jeunesse, avant de devenir un conquérant impitoyable, il a écrit un roman d'amour tragique intitulé \"Clisson et Eugénie\".</li><li>En 1807, lors d'une chasse organisée pour célébrer une victoire, il a été attaqué et forcé de fuir par une horde de centaines de lapins domestiques affamés que son chef d'état-major avait achetés par erreur.</li>",
+        "clues": [
+            "Je suis un grand dirigeant militaire français né sur l'île de Corse.",
+            "J'ai instauré le Code civil et créé les lycées en France.",
+            "J'ai terminé ma vie en exil sur l'île de Sainte-Hélène après la défaite de Waterloo."
+        ],
+        "wiki_search": "Napoléon_Ier",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Ada Lovelace",
+        "profession": "Mathématicienne et pionnière de l'informatique",
+        "public_file": "Née Augusta Ada Byron en 1815, elle est la fille du célèbre poète britannique Lord Byron. Poussée vers les sciences, elle rencontre le mathématicien Charles Babbage et se fascine pour son projet de \"machine analytique\", un ancêtre mécanique de l'ordinateur. En 1843, en traduisant un article sur cette machine, elle y ajoute des notes visionnaires. Elle y décrit comment la machine pourrait manipuler non seulement des nombres, mais aussi des lettres ou de la musique, et rédige le tout premier algorithme destiné à être exécuté par une machine.",
+        "secret_file": "<li>Sa mère l'a poussée à faire des mathématiques intensives depuis sa petite enfance dans le seul but de l'éloigner de la poésie, de peur qu'elle ne devienne \"folle\" comme son père.</li><li>Très joueuse, elle a tenté d'utiliser ses talents mathématiques pour créer un modèle infaillible permettant de gagner aux paris hippiques, ce qui l'a lourdement endettée.</li><li>Le département de la Défense des États-Unis a créé un langage de programmation en 1980 et l'a baptisé \"Ada\" en son honneur.</li>",
+        "clues": [
+            "Je suis une femme britannique du 19e siècle passionnée de mathématiques.",
+            "J'ai travaillé sur le projet de machine analytique de Charles Babbage.",
+            "Je suis historiquement considérée comme la toute première programmeuse informatique."
+        ],
+        "wiki_search": "Ada_Lovelace",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Charlie Chaplin",
+        "profession": "Acteur, réalisateur et compositeur",
+        "public_file": "Né à Londres en 1889 dans une grande misère, il devient la plus grande star du cinéma muet et l'une des figures les plus importantes de l'histoire du 7e art. Exilé aux États-Unis, il crée le personnage emblématique du vagabond (Charlot), mêlant burlesque et profonde critique sociale. En tant que cinéaste indépendant, il réalise des chefs-d'œuvre mondiaux comme \"Les Temps modernes\", \"Les Lumières de la ville\" ou \"Le Dictateur\" (son premier film parlant, dans lequel il se moque ouvertement d'Adolf Hitler).",
+        "secret_file": "<li>Il a un jour participé anonymement à un concours de sosies de lui-même à San Francisco... et n'a même pas réussi à atteindre la finale !</li><li>Il composait lui-même la musique de la plupart de ses films, alors qu'il ne savait ni lire ni écrire une partition (il fredonnait les airs à des arrangeurs professionnels).</li><li>Quelques mois après sa mort en Suisse, son cercueil a été déterré et volé par deux mécaniciens qui exigeaient une rançon à sa famille.</li>",
+        "clues": [
+            "Je suis une légende du cinéma muet, né au Royaume-Uni mais célèbre à Hollywood.",
+            "J'ai réalisé une célèbre satire politique antifasciste intitulée \"Le Dictateur\".",
+            "Mon personnage fétiche porte une petite moustache, un chapeau melon et une canne."
+        ],
+        "wiki_search": "Charlie_Chaplin",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Agatha Christie",
+        "profession": "Romancière",
+        "public_file": "Née en 1890 au Royaume-Uni, celle que l'on surnomme la \"Reine du crime\" est l'un des auteurs les plus lus de l'histoire de l'humanité, juste derrière la Bible et Shakespeare. Elle a écrit 66 romans policiers et de nombreuses nouvelles, renouvelant totalement le genre du mystère. Elle a donné vie à deux des détectives les plus célèbres de la littérature : le méticuleux détective belge Hercule Poirot, et la perspicace vieille dame anglaise Miss Marple.",
+        "secret_file": "<li>En 1926, elle a mystérieusement disparu pendant 11 jours, déclenchant une immense chasse à l'homme nationale, avant d'être retrouvée dans un hôtel thermal sous un faux nom. Le mystère n'a jamais été totalement éclairci.</li><li>Elle adorait le surf et a été l'une des toutes premières femmes britanniques à pratiquer ce sport, à Hawaï et en Afrique du Sud.</li><li>Pendant la Première Guerre mondiale, elle travaillait comme assistante dans une pharmacie d'hôpital, ce qui lui a donné des connaissances expertes sur les poisons, qu'elle a largement réutilisées dans ses livres.</li>",
+        "clues": [
+            "Je suis une écrivaine britannique célèbre pour mes romans policiers haletants.",
+            "J'ai écrit le best-seller \"Dix petits nègres\" (rebaptisé \"Ils étaient dix\").",
+            "J'ai donné naissance au célèbre détective belge Hercule Poirot."
+        ],
+        "wiki_search": "Agatha_Christie",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Gustave Eiffel",
+        "profession": "Ingénieur et industriel",
+        "public_file": "Né en 1832 à Dijon, il est un ingénieur français spécialisé dans l'architecture métallique, une technologie révolutionnaire au 19e siècle. Il construit de nombreux ponts, gares et viaducs audacieux (comme le viaduc de Garabit) à travers le monde. Il conçoit également l'ossature interne en fer de la statue de la Liberté offerte par la France aux États-Unis. Mais son chef-d'œuvre absolu reste la tour monumentale de 300 mètres qu'il fait ériger au cœur de Paris pour l'Exposition universelle de 1889.",
+        "secret_file": "<li>Il s'était fait aménager un luxueux appartement privé au sommet de sa tour parisienne (interdit au public) pour y travailler au calme et y recevoir des invités de marque comme Thomas Edison.</li><li>Il a financé la majeure partie de la construction de sa tour avec son propre argent, l'État ne payant qu'un quart du projet, mais les millions de billets d'entrée vendus l'ont rendu immensément riche.</li><li>Il s'est reconverti dans l'aérodynamisme et la météorologie à la fin de sa vie, utilisant sa tour comme gigantesque laboratoire scientifique pour la sauver de la destruction prévue.</li>",
+        "clues": [
+            "Je suis un grand ingénieur français du 19e siècle spécialisé dans les structures en fer.",
+            "J'ai conçu la complexe charpente interne de la statue de la Liberté de New York.",
+            "J'ai construit le monument en métal le plus célèbre de Paris pour l'Exposition universelle de 1889."
+        ],
+        "wiki_search": "Gustave_Eiffel",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Édith Piaf",
+        "profession": "Chanteuse et parolière",
+        "public_file": "Née Édith Gassion en 1915 dans la misère parisienne, elle commence à chanter dans les rues avant d'être repérée et de devenir l'une des plus grandes voix de la chanson française. Avec son timbre puissant et bouleversant, sa petite taille et sa robe noire emblématique, elle chante l'amour et la rue comme personne (\"L'Hymne à l'amour\", \"La Foule\", \"Milord\"). Sa vie privée est jalonnée de drames, d'addictions et de chagrins, notamment la mort tragique de son grand amour, le boxeur Marcel Cerdan.",
+        "secret_file": "<li>La légende raconte qu'elle serait née sur les marches d'un trottoir de la rue de Belleville à Paris, bien que son acte de naissance prouve qu'elle est en réalité née à l'hôpital.</li><li>Pendant l'Occupation, elle a profité d'une tournée dans des camps de prisonniers en Allemagne pour se faire prendre en photo avec eux ; les clichés ont été discrètement découpés pour leur fabriquer de faux papiers afin de les aider à s'évader.</li><li>Elle a découvert et lancé la carrière de nombreuses immenses stars françaises, dont Yves Montand, Georges Moustaki et Charles Aznavour.</li>",
+        "clues": [
+            "Je suis une chanteuse française emblématique du 20e siècle à la vie tragique.",
+            "J'ai vécu une grande et douloureuse histoire d'amour avec le champion de boxe Marcel Cerdan.",
+            "On me surnommait \"La Môme\" et mes chansons \"La Vie en rose\" et \"Non, je ne regrette rien\" ont fait le tour du monde."
+        ],
+        "wiki_search": "Édith_Piaf",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Alan Turing",
+        "profession": "Mathématicien et cryptologue",
+        "public_file": "Né en 1912 au Royaume-Uni, il est un génie visionnaire considéré comme le père de l'informatique moderne et de l'intelligence artificielle. Pendant la Seconde Guerre mondiale, il joue un rôle secret et décisif en construisant une machine permettant de briser les codes de communication de l'armée allemande (la machine Enigma), sauvant ainsi des millions de vies. Après la guerre, malgré ses immenses services rendus à la nation, il est poursuivi en justice par le gouvernement britannique pour homosexualité. Forcé de subir une castration chimique, il se suicide en 1954.",
+        "secret_file": "<li>C'était un coureur de fond d'un tel niveau athlétique qu'il aurait pu se qualifier pour les Jeux olympiques ; il arrivait souvent à ses réunions de travail en courant sur plusieurs dizaines de kilomètres.</li><li>Très excentrique, pour éviter de se faire voler sa tasse de thé préférée par ses collègues, il l'enchaînait à un radiateur avec un gros cadenas.</li><li>Il a mis fin à ses jours en croquant dans une pomme imbibée de cyanure, une mise en scène macabre inspirée de son conte préféré, Blanche-Neige.</li>",
+        "clues": [
+            "Je suis un mathématicien britannique vu comme le père fondateur de l'informatique.",
+            "J'ai inventé un test célèbre portant mon nom pour évaluer si une machine possède une intelligence artificielle.",
+            "J'ai joué un rôle majeur pour briser le code de la machine allemande Enigma pendant la guerre."
+        ],
+        "wiki_search": "Alan_Turing",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Coco Chanel",
+        "profession": "Créatrice de mode",
+        "public_file": "Née Gabrielle Chanel en 1883 dans un milieu très modeste et élevée dans un orphelinat, elle bouleverse totalement la mode féminine du 20e siècle. Face aux tenues contraignantes de la Belle Époque, elle impose une silhouette libre, épurée et moderne. Elle libère les femmes des corsets, popularise l'usage du pantalon, la fameuse \"petite robe noire\", et les tailleurs en tweed. Ses créations minimalistes et son parfum légendaire, le N°5, en font un empire du luxe qui porte toujours son nom.",
+        "secret_file": "<li>Elle a commencé sa carrière comme chanteuse de beuglant (cabaret), d'où elle a tiré son célèbre surnom en interprétant la chanson \"Qui qu'a vu Coco dans l'Trocadéro ?\".</li><li>Pendant la Seconde Guerre mondiale, elle a vécu au Ritz avec un officier allemand et est devenue une espionne pour les services de renseignements nazis, enregistrée sous le nom de code \"Westminster\".</li><li>Elle a résidé de manière permanente pendant plus de trente ans dans une luxueuse suite de l'hôtel Ritz à Paris, de 1937 jusqu'à sa mort.</li>",
+        "clues": [
+            "Je suis une créatrice de mode française qui a révolutionné la silhouette féminine au 20e siècle.",
+            "J'ai imposé l'élégance minimaliste de la \"petite robe noire\" et du tailleur en tweed.",
+            "Mon parfum le plus emblématique porte le numéro 5."
+        ],
+        "wiki_search": "Coco_Chanel",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Louis Pasteur",
+        "profession": "Scientifique et chimiste",
+        "public_file": "Né en 1822 en France, il est l'un des plus grands héros de la science médicale mondiale. Pionnier de la microbiologie, il démontre que les maladies infectieuses sont causées par des micro-organismes (les microbes), mettant fin à la croyance de la \"génération spontanée\". Il révolutionne l'hygiène dans les hôpitaux, invente un processus de stérilisation qui porte son nom (la pasteurisation) et met au point le tout premier vaccin contre une maladie humaine terrible : la rage, sauvant le jeune Joseph Meister en 1885.",
+        "secret_file": "<li>Il n'était pas médecin de formation mais chimiste, ce qui suscitait la colère et le mépris de l'Académie de médecine qui ne supportait pas qu'un non-médecin vienne leur donner des leçons d'hygiène.</li><li>Il a été victime d'un grave accident vasculaire cérébral à l'âge de 45 ans qui a laissé la moitié gauche de son corps paralysée, ce qui ne l'a pas empêché de faire ses plus grandes découvertes ensuite.</li><li>Avant d'appliquer la pasteurisation au lait, il a d'abord inventé cette technique de chauffage pour l'industrie de l'alcool, afin d'empêcher le vin et la bière de tourner au vinaigre.</li>",
+        "clues": [
+            "Je suis un célèbre et grand savant français du 19e siècle.",
+            "J'ai prouvé que les microbes étaient responsables des maladies infectieuses.",
+            "Je suis devenu un héros national après avoir mis au point le vaccin contre la rage."
+        ],
+        "wiki_search": "Louis_Pasteur",
+        "maxAttempts": 3
+    },
+    {
+        "name": "Marilyn Monroe",
+        "profession": "Actrice et chanteuse",
+        "public_file": "Née Norma Jeane Mortenson en 1926 à Los Angeles, elle connaît une enfance difficile placée dans des familles d'accueil. Devenue l'icône absolue du glamour hollywoodien et un sex-symbol mondial dans les années 1950, elle enchaîne les succès au cinéma (\"Les hommes préfèrent les blondes\", \"Sept ans de réflexion\"). Sous l'image de la blonde naïve que lui imposent les studios, elle est en réalité une actrice talentueuse et une femme tourmentée. Elle décède tragiquement d'une overdose de barbituriques à l'âge de 36 ans.",
+        "secret_file": "<li>Loin de son image superficielle, c'était une grande intellectuelle qui possédait une bibliothèque personnelle de plus de 400 livres classiques complexes et était mariée au brillant dramaturge Arthur Miller.</li><li>Elle a utilisé son influence pour aider la chanteuse noire Ella Fitzgerald à contourner la ségrégation : elle a promis au patron raciste d'un club chic de s'asseoir au premier rang chaque soir si Ella y chantait, attirant ainsi toute la presse.</li><li>La célèbre scène où sa robe blanche est soulevée par une bouche de métro a rendu son mari (le joueur de baseball Joe DiMaggio) tellement fou de jalousie que cela a précipité leur divorce.</li>",
+        "clues": [
+            "Je suis une actrice américaine devenue l'icône glamour absolue des années 1950.",
+            "J'ai chanté de manière très lascive \"Happy Birthday, Mr. President\" à John F. Kennedy.",
+            "Une photographie me montrant avec une robe blanche soulevée par le vent d'une grille de métro est mondialement connue."
+        ],
+        "wiki_search": "Marilyn_Monroe",
+        "maxAttempts": 3
+    }
