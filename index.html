@@ -237,7 +237,7 @@
                 <div class="theme-title">Le Cercle des Romantiques</div>
                 <div style="font-size: 0.9rem; color: var(--text-muted);">Un réseau d'amis, d'amants et de rivaux du 19e siècle.</div>
                 <div class="stars-container"><div class="stars">⭐</div><div class="difficulty-text">Débutant</div></div><br>
-                <div id="badge-romantiques" class="theme-status hidden">✅ Dossier Classé</div>
+                <div id="badge-romantiques" class="theme-status hidden">Dossier Classé</div>
             </div>
 
             <div class="theme-card" onclick="openTheme('roisoleil')">
@@ -914,78 +914,85 @@
         }
 
         // ==============================================================
-        // 1. MOTEUR DU JEU QUOTIDIEN AUTOMATIQUE 
+        // 1. MOTEUR DU JEU QUOTIDIEN AUTOMATIQUE (VIA JSON)
         // ==============================================================
-        const dailyCharacters = [
-            {
-                name: "Victor Hugo", profession: "Écrivain, Poète, Homme politique",
-                public_file: "Auteur d'œuvres monumentales comme 'Les Misérables' et 'Notre-Dame de Paris'. Il a passé une grande partie de sa vie en exil sur les îles anglo-normandes.",
-                secret_file: "<li>Il croyait au spiritisme et organisait des séances de tables tournantes à Jersey pour parler avec sa fille défunte.</li><li>Il a écrit 'Les Misérables' sur un bureau debout, une pratique peu commune à l'époque !</li>",
-                clues: ["J'ai manié la plume comme une arme au 19ème siècle, laissant derrière moi une œuvre colossale.", "J'ai tenu tête à un Empereur que je surnommais 'Le Petit', ce qui m'a valu un long exil sur des îles battues par les vents.", "Mon roman le plus célèbre raconte la quête de rédemption d'un ancien bagnard nommé Jean Valjean."],
-                maxAttempts: 3
-            },
-            {
-                name: "Marie Curie", profession: "Physicienne et Chimiste",
-                public_file: "Scientifique d'origine polonaise, pionnière de l'étude de la radioactivité. Elle a été la première femme professeure à la Sorbonne.",
-                secret_file: "<li>Elle est la seule personne à avoir reçu des prix Nobel dans deux domaines scientifiques différents (physique et chimie).</li><li>Ses carnets de notes sont encore aujourd'hui tellement radioactifs qu'ils sont conservés dans des boîtes en plomb.</li>",
-                clues: ["Je suis née à Varsovie mais j'ai fait la majorité de ma carrière à Paris.", "J'ai inventé des unités chirurgicales mobiles (les 'petites') pendant la Première Guerre mondiale.", "J'ai découvert deux nouveaux éléments : le Polonium (nommé d'après mon pays d'origine) et le Radium."],
-                maxAttempts: 3
-            },
-            {
-                name: "Molière", profession: "Dramaturge et Comédien",
-                public_file: "De son vrai nom Jean-Baptiste Poquelin, il est le maître incontesté de la comédie française du 17e siècle.",
-                secret_file: "<li>Il n'est pas mort sur scène ! Il a fait un malaise en jouant 'Le Malade imaginaire', a fini la pièce dans la douleur, et est décédé chez lui.</li><li>Sa troupe a bénéficié de la protection directe du Roi-Soleil, Louis XIV.</li>",
-                clues: ["J'ai abandonné mon destin de tapissier pour fonder une troupe nommée l'Illustre Théâtre.", "J'ai été accusé d'impiété pour ma pièce dénonçant la fausse dévotion, Tartuffe.", "J'ai fait rire la cour du Roi-Soleil avec des pièces comme L'Avare ou Le Bourgeois Gentilhomme."],
-                maxAttempts: 3
-            }
-        ];
-
-        function getDailyCharacter() {
-            const startDate = new Date(2026, 2, 15); 
-            const today = new Date();
-            startDate.setHours(0,0,0,0); today.setHours(0,0,0,0);
-            const diffDays = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-            return dailyCharacters[Math.max(0, diffDays) % dailyCharacters.length];
-        }
-
-        const characterOfTheDay = getDailyCharacter();
+        let characterOfTheDay = null;
         let dailyAttempt = 0;
         const dailyCluesContainer = document.getElementById('daily-clues');
         const dailyInputField = document.getElementById('daily-input');
         const dailyAttemptBoxes = document.querySelectorAll('#daily-tracker .attempt-box');
-        
-        // --- SAUVEGARDE: Identifiant unique pour aujourd'hui ---
-        const todayStr = new Date().toLocaleDateString('fr-FR');
+
+        // --- GESTION DE LA BASCULE A 21h30 ---
+        function getAdjustedDate() {
+            const now = new Date();
+            // On ajoute 2h30 (9000000 millisecondes) à l'heure actuelle.
+            // Ainsi, à 21h30, l'ordinateur croit qu'il est déjà minuit le jour suivant !
+            now.setTime(now.getTime() + (2 * 60 + 30) * 60 * 1000);
+            return now;
+        }
+
+        const adjustedToday = getAdjustedDate();
+        // C'est cette date (qui bascule à 21h30) qu'on utilise pour la sauvegarde
+        const todayStr = adjustedToday.toLocaleDateString('fr-FR');
         let savedDailyState = JSON.parse(localStorage.getItem('encrierBleuDaily')) || { date: '', attempts: 0, status: 'playing' };
 
-        document.getElementById('display-date').innerText = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
-        loadDailyWikipediaImage(characterOfTheDay.name);
-        loadTimelineImages(); 
+        // On affiche la "vraie" date du personnage en cours sur l'écran
+        document.getElementById('display-date').innerText = adjustedToday.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 
-        // --- SAUVEGARDE: Restauration de l'état du jeu quotidien ---
-        if (savedDailyState.date === todayStr) {
-            dailyAttempt = savedDailyState.attempts;
-            
-            // Remettre les cases rouges pour les tentatives ratées
-            for(let i = 0; i < dailyAttempt; i++) {
-                if (characterOfTheDay.maxAttempts - 1 - i >= 0) {
-                    dailyAttemptBoxes[characterOfTheDay.maxAttempts - 1 - i].classList.add('lost');
+        // --- CHARGEMENT DES SUSPECTS DEPUIS LE FICHIER JSON ---
+        fetch('suspects.json')
+            .then(response => response.json())
+            .then(suspectsList => {
+                // On fixe une date de départ (ex: 1er Janvier 2024)
+                const startDate = new Date(2024, 0, 1); 
+                startDate.setHours(0,0,0,0); 
+                
+                // On utilise notre date "ajustée" pour calculer le jour en cours
+                const adjDate = new Date(adjustedToday);
+                adjDate.setHours(0,0,0,0);
+                const diffDays = Math.floor((adjDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+                
+                // Sélectionne le personnage en fonction du jour calculé
+                characterOfTheDay = suspectsList[Math.max(0, diffDays) % suspectsList.length];
+
+                // Lance le jeu maintenant que le personnage est chargé
+                initDailyGame();
+            })
+            .catch(error => {
+                console.error("Erreur de chargement des suspects:", error);
+                dailyCluesContainer.innerHTML = "<p style='color:var(--error);'>Erreur de connexion aux dossiers. Veuillez recharger la page.</p>";
+            });
+
+        function initDailyGame() {
+            // Utilise en priorité la clé "wiki_search" de ton JSON, sinon le nom par défaut
+            loadDailyWikipediaImage(characterOfTheDay.wiki_search || characterOfTheDay.name);
+            loadTimelineImages(); 
+
+            // --- SAUVEGARDE: Restauration de l'état du jeu quotidien ---
+            if (savedDailyState.date === todayStr) {
+                dailyAttempt = savedDailyState.attempts;
+                
+                // Remettre les cases rouges pour les tentatives ratées
+                for(let i = 0; i < dailyAttempt; i++) {
+                    if (characterOfTheDay.maxAttempts - 1 - i >= 0) {
+                        dailyAttemptBoxes[characterOfTheDay.maxAttempts - 1 - i].classList.add('lost');
+                    }
                 }
-            }
 
-            if (savedDailyState.status === 'won') {
-                showDailyWinScreen();
-            } else if (savedDailyState.status === 'lost') {
-                showDailyLoseScreen();
+                if (savedDailyState.status === 'won') {
+                    showDailyWinScreen();
+                } else if (savedDailyState.status === 'lost') {
+                    showDailyLoseScreen();
+                } else {
+                    for(let i = 0; i <= dailyAttempt && i < characterOfTheDay.maxAttempts; i++) {
+                        addDailyClueToDOM(i);
+                    }
+                }
             } else {
-                for(let i = 0; i <= dailyAttempt && i < characterOfTheDay.maxAttempts; i++) {
-                    addDailyClueToDOM(i);
-                }
+                savedDailyState = { date: todayStr, attempts: 0, status: 'playing' };
+                localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
+                addDailyClueToDOM(0);
             }
-        } else {
-            savedDailyState = { date: todayStr, attempts: 0, status: 'playing' };
-            localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
-            addDailyClueToDOM(0);
         }
 
         function addDailyClueToDOM(index) {
@@ -1009,12 +1016,14 @@
                 <div class="clue-row" style="text-align:center; border-color: var(--error);">
                     <h2 style="color: var(--error); margin-bottom: 10px;">Échec</h2>
                     <p>Le suspect était : <strong>${characterOfTheDay.name}</strong></p>
-                    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px;">Revenez demain pour une nouvelle enquête.</p>
+                    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px;">Revenez demain à 21h30 pour une nouvelle enquête.</p>
                 </div>
             `;
         }
 
         function checkDailyGuess() {
+            if (!characterOfTheDay) return; // Sécurité si le JSON n'est pas encore chargé
+            
             const input = dailyInputField.value.trim();
             if(!input) return;
             const val = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -1067,6 +1076,9 @@
         }
 
 
+        // ==============================================================
+        // 2. DOSSIERS ET 3. CHRONOLOGIE SONT INCHANGÉS
+        // ==============================================================
         const themesConfig = { 'romantiques': { total: 4, solved: 0, badge: 'badge-romantiques', title: 'Le Cercle des Romantiques' }, 'roisoleil': { total: 5, solved: 0, badge: 'badge-roisoleil', title: 'La Cour du Roi-Soleil' }, 'lumieres': { total: 6, solved: 0, badge: 'badge-lumieres', title: 'Les Philosophes des Lumières' }, 'revolution': { total: 8, solved: 0, badge: 'badge-revolution', title: 'La Révolution Française' } };
         let currentTheme = null;
         const treeData = { "dumas": { answer: "alexandre dumas", aliases: ["dumas"], title: "A. Dumas", clue: "Auteur des Trois Mousquetaires.", speech: "« L'histoire est un clou auquel j'accroche mes romans. »", unlocks: ["dantes"] }, "dantes": { answer: "edmond dantes", aliases: ["dantes", "le comte de monte-cristo", "monte-cristo"], title: "Edmond Dantès", clue: "Marin emprisonné à tort au Château d'If.", speech: "« Attendre et espérer ! »", unlocks: [] }, "sand": { answer: "george sand", aliases: ["sand"], title: "George Sand", clue: "Auteure de La Mare au Diable.", speech: "« Le souvenir est le parfum de l'âme. »", unlocks: ["musset"] }, "musset": { answer: "alfred de musset", aliases: ["musset"], title: "A. de Musset", clue: "Poète maudit, auteur des Caprices de Marianne.", speech: "« Les plus désespérés sont les chants les plus beaux. »", unlocks: [] }, "colbert": { answer: "jean-baptiste colbert", aliases: ["colbert"], title: "Colbert", clue: "Ministre d'État de Louis XIV, j'ai fondé l'Académie des sciences.", speech: "« Il faut agir avec grand soin. »", unlocks: ["fouquet"] }, "fouquet": { answer: "nicolas fouquet", aliases: ["fouquet"], title: "Fouquet", clue: "Surintendant, mon château de Vaux-le-Vicomte a rendu le roi jaloux.", speech: "« Quo non ascendet ? »", unlocks: [] }, "montespan": { answer: "madame de montespan", aliases: ["montespan", "marquise de montespan"], title: "Montespan", clue: "Favorite du roi pendant des années, je lui ai donné 7 enfants.", speech: "« Je suis l'égale du roi. »", unlocks: ["maintenon"] }, "maintenon": { answer: "madame de maintenon", aliases: ["maintenon", "marquise de maintenon"], title: "Maintenon", clue: "Gouvernante des enfants illégitimes du roi, j'ai fini par l'épouser.", speech: "« Je veux bien qu'on me respecte. »", unlocks: ["voisin"] }, "voisin": { answer: "la voisin", aliases: ["catherine despot", "voisin", "catherine montvoisin"], title: "La Voisin", clue: "Célèbre empoisonneuse brûlée vive lors de l'affaire des poisons.", speech: "« Je connais les secrets de tout Paris. »", unlocks: [] }, "diderot": { answer: "denis diderot", aliases: ["diderot"], title: "Diderot", clue: "Philosophe et maître d'œuvre de l'Encyclopédie.", speech: "« Aucun homme n'a reçu le droit de commander aux autres. »", unlocks: ["alembert"] }, "alembert": { answer: "jean le rond d'alembert", aliases: ["d'alembert", "alembert"], title: "D'Alembert", clue: "Mathématicien, j'ai rédigé le Discours préliminaire de l'Encyclopédie.", speech: "« La philosophie n'est autre chose que l'application de la raison. »", unlocks: [] }, "montesquieu": { answer: "montesquieu", aliases: ["charles de montesquieu"], title: "Montesquieu", clue: "Auteur des Lettres persanes et de De l'esprit des lois.", speech: "« Il faut que le pouvoir arrête le pouvoir. »", unlocks: ["rousseau"] }, "rousseau": { answer: "jean-jacques rousseau", aliases: ["rousseau"], title: "Rousseau", clue: "Philosophe genevois, auteur du Contrat social.", speech: "« L'homme est né libre et partout il est dans les fers. »", unlocks: [] }, "chatelet": { answer: "emilie du chatelet", aliases: ["chatelet", "émilie du châtelet", "emilie du chatelet"], title: "Du Châtelet", clue: "Physicienne, traductrice de Newton et compagne de Voltaire.", speech: "« J'aime l'étude avec passion. »", unlocks: ["catherine"] }, "catherine": { answer: "catherine ii", aliases: ["catherine la grande", "catherine 2", "catherine deux", "catherine de russie"], title: "Catherine II", clue: "Impératrice de Russie et correspondante de nombreux philosophes.", speech: "« Je suis aristocrate, c'est mon métier. »", unlocks: [] }, "lafayette": { answer: "marquis de la fayette", aliases: ["lafayette", "la fayette"], title: "La Fayette", clue: "Héros américain, j'ai ébauché la Déclaration des droits de l'homme.", speech: "« Cur non ? (Pourquoi pas ?) »", unlocks: ["brissot"] }, "brissot": { answer: "jacques pierre brissot", aliases: ["brissot"], title: "Brissot", clue: "Chef de file des Girondins, j'ai poussé à la guerre en 1792.", speech: "« Il nous faut de grandes trahisons ! »", unlocks: ["roland"] }, "roland": { answer: "madame roland", aliases: ["manon roland", "roland", "jeanne marie roland"], title: "Mme Roland", clue: "J'ai tenu un célèbre salon pour les Girondins avant d'être guillotinée.", speech: "« Ô Liberté, que de crimes on commet en ton nom ! »", unlocks: [] }, "danton": { answer: "georges danton", aliases: ["danton"], title: "Danton", clue: "Orateur charismatique du Club des Cordeliers et ministre de la Justice.", speech: "« De l'audace, encore de l'audace, toujours de l'audace ! »", unlocks: ["desmoulins"] }, "desmoulins": { answer: "camille desmoulins", aliases: ["desmoulins"], title: "Desmoulins", clue: "Journaliste, j'ai appelé le peuple aux armes le 12 juillet 1789.", speech: "« Aux armes, citoyens ! »", unlocks: [] }, "robespierre": { answer: "maximilien robespierre", aliases: ["robespierre", "maximilien de robespierre"], title: "Robespierre", clue: "L'Incorruptible, figure majeure du Comité de salut public.", speech: "« La terreur n'est autre chose que la justice prompte et sévère. »", unlocks: ["saintjust"] }, "saintjust": { answer: "louis antoine de saint-just", aliases: ["saint-just", "saint just", "louis de saint-just"], title: "Saint-Just", clue: "Le plus jeune député, surnommé l'Archange de la Terreur.", speech: "« Pas de liberté pour les ennemis de la liberté. »", unlocks: ["fouquier"] }, "fouquier": { answer: "antoine quentin fouquier-tinville", aliases: ["fouquier", "fouquier-tinville", "fouquier tinville"], title: "Fouquier", clue: "L'implacable Accusateur public du Tribunal révolutionnaire.", speech: "« C'est la loi qui frappe, ce n'est pas moi. »", unlocks: [] } };
