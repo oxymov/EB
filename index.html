@@ -108,15 +108,19 @@
 
     /* LA FRISE CHRONOLOGIQUE */
     #encrier-bleu-app .timeline-container { position: relative; width: 100%; margin: 30px auto; }
-    #encrier-bleu-app .timeline-container::after { content: ''; position: absolute; width: 4px; background: linear-gradient(to bottom, #93c5fd, #3b82f6, #1d4ed8, #0f172a); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+    #encrier-bleu-app .timeline-container::after { content: ''; position: absolute; width: 4px; background: linear-gradient(to bottom, #93c5fd, #3b82f6, #1d4ed8, #0f172a); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px; z-index: 0; }
     
-    #encrier-bleu-app .timeline-item { padding: 10px 30px; position: relative; width: 50%; box-sizing: border-box; perspective: 1000px; margin-bottom: 20px; }
+    #encrier-bleu-app .timeline-item { padding: 10px 30px; position: relative; width: 50%; box-sizing: border-box; perspective: 1000px; margin-bottom: 20px; z-index: 1; }
     #encrier-bleu-app .timeline-item:nth-child(odd) { left: 0; }
     #encrier-bleu-app .timeline-item:nth-child(even) { left: 50%; }
     
-    #encrier-bleu-app .timeline-dot { position: absolute; width: 12px; height: 12px; background: var(--box-border); border-radius: 50%; top: 28px; z-index: 2; transition: all 0.3s; }
-    #encrier-bleu-app .timeline-item:nth-child(odd) .timeline-dot { right: -6px; }
-    #encrier-bleu-app .timeline-item:nth-child(even) .timeline-dot { left: -6px; }
+    #encrier-bleu-app .timeline-item::before { content: ''; position: absolute; height: 2px; background: var(--box-border); top: 33px; width: 30px; z-index: 1; transition: background 0.3s; }
+    #encrier-bleu-app .timeline-item:nth-child(odd)::before { right: 0; }
+    #encrier-bleu-app .timeline-item:nth-child(even)::before { left: 0; }
+    
+    #encrier-bleu-app .timeline-dot { position: absolute; width: 12px; height: 12px; background: var(--box-border); border: 4px solid var(--bg-color); box-sizing: content-box; border-radius: 50%; top: 24px; z-index: 10; transition: all 0.3s; }
+    #encrier-bleu-app .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+    #encrier-bleu-app .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
     
     #encrier-bleu-app .timeline-card { background: var(--box-bg); border: 1px solid var(--box-border); border-radius: 12px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative; z-index: 3; text-align: left; overflow: hidden; }
     #encrier-bleu-app .timeline-clickable-area { padding: 20px; cursor: pointer; }
@@ -124,14 +128,12 @@
     @media (hover: hover) {
         #encrier-bleu-app .timeline-item:hover .timeline-card { transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
         #encrier-bleu-app .timeline-item:hover .timeline-dot { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
+        #encrier-bleu-app .timeline-item:hover::before { background: var(--accent-blue); }
     }
     
     #encrier-bleu-app .timeline-date { display: inline-block; padding: 4px 12px; background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 12px; border: 1px solid rgba(59, 130, 246, 0.3); }
     #encrier-bleu-app .timeline-header { display: flex; align-items: center; justify-content: space-between; font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
-    
-    /* NOUVEAUTÉ : Design pour la miniature Wikipédia de la frise */
     #encrier-bleu-app .timeline-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue); flex-shrink: 0; }
-
     #encrier-bleu-app .timeline-icon { color: var(--text-muted); transition: transform 0.4s ease; font-size: 0.8rem; background: var(--bg-color); border-radius: 50%; width: 26px; height: 26px; display: flex; justify-content: center; align-items: center; }
     
     #encrier-bleu-app .timeline-details { display: none; background: rgba(15, 23, 42, 0.5); border-top: 1px solid var(--box-border); padding: 15px 20px; }
@@ -146,6 +148,7 @@
     #encrier-bleu-app .timeline-item.active .timeline-card { border-color: var(--accent-blue); }
     #encrier-bleu-app .timeline-item.active .timeline-icon { transform: rotate(180deg); color: white; background: var(--accent-blue); }
     #encrier-bleu-app .timeline-item.active .timeline-dot { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
+    #encrier-bleu-app .timeline-item.active::before { background: var(--accent-blue); }
 
     /* RESPONSIVE DESIGN */
     @media screen and (max-width: 600px) {
@@ -161,7 +164,10 @@
         #encrier-bleu-app .timeline-container::after { left: 20px; }
         #encrier-bleu-app .timeline-item { width: 100%; padding-left: 45px; padding-right: 0; }
         #encrier-bleu-app .timeline-item:nth-child(even) { left: 0; }
-        #encrier-bleu-app .timeline-item:nth-child(odd) .timeline-dot, #encrier-bleu-app .timeline-item:nth-child(even) .timeline-dot { left: 14px; right: auto; }
+        
+        #encrier-bleu-app .timeline-item:nth-child(odd) .timeline-dot, #encrier-bleu-app .timeline-item:nth-child(even) .timeline-dot { left: 10px; right: auto; }
+        #encrier-bleu-app .timeline-item::before { width: 25px; left: 20px !important; right: auto !important; }
+        
         #encrier-bleu-app .timeline-details { padding: 15px 15px; }
         #encrier-bleu-app .card-tab-btn { font-size: 0.8rem; padding: 5px; }
     }
@@ -178,7 +184,7 @@
 <div id="encrier-bleu-app">
     <header>
         <h1>Encrier Bleu</h1>
-        <div class="subtitle">Trouvez la personnalité du jour</div>
+        <div class="subtitle">L'Enquête Quotidienne</div>
     </header>
 
     <nav class="tabs">
@@ -189,6 +195,7 @@
 
     <div id="game-tab" class="tab-content active">
         <div id="game-core">
+            <h3 style="text-align: center; color: var(--text-muted); margin-bottom: 5px;">Le Suspect du <span id="display-date">jour</span></h3>
             <div class="tracker" id="daily-tracker">
                 <div class="attempt-box"></div>
                 <div class="attempt-box"></div>
@@ -208,16 +215,15 @@
             <div class="profile-header">
                 <img id="daily-mugshot" class="mugshot" src="" alt="Suspect" />
                 <div>
-                    <h2 id="character-name" style="color: #0f172a; margin: 0;">Victor Hugo</h2>
-                    <div style="color: #475569; font-size: 0.9rem; margin-top: 4px;">Écrivain, Poète, Homme politique</div>
+                    <h2 id="pf-name" style="color: #0f172a; margin: 0;">-</h2>
+                    <div id="pf-job" style="color: #475569; font-size: 0.9rem; margin-top: 4px;">-</div>
                 </div>
             </div>
             <div class="section-title">Dossier Public</div>
-            <p class="content-text">Auteur d'œuvres monumentales comme "Les Misérables" et "Notre-Dame de Paris". Il a passé une grande partie de sa vie en exil sur les îles anglo-normandes.</p>
+            <p id="pf-public" class="content-text">-</p>
             <div class="section-title">Confidentiel</div>
-            <ul class="content-text" style="padding-left: 20px; margin-top: 5px;">
-                <li style="margin-bottom: 8px;">Il croyait au spiritisme et organisait des séances de tables tournantes à Jersey pour parler avec sa fille défunte.</li>
-                <li>Il a écrit "Les Misérables" sur un bureau debout, une pratique peu commune à l'époque !</li>
+            <ul id="pf-secret" class="content-text" style="padding-left: 20px; margin-top: 5px;">
+                -
             </ul>
             <button id="share-btn" class="btn-primary" style="margin-top: 15px; background-color: var(--bg-color); border: 2px solid var(--box-border);" onclick="shareDailyResult()">Partager mon résultat</button>
         </div>
@@ -373,7 +379,7 @@
 
     <div id="timeline-tab" class="tab-content">
         <h3 style="text-align: center; color: var(--text-muted); margin-bottom: 5px;">Les Archives du Temps</h3>
-        <p style="text-align: center; font-size: 0.85rem; margin-top: 0; color: var(--text-muted);">Explorez l'histoire à travers les époques.</p>
+        <p style="text-align: center; font-size: 0.85rem; margin-top: 0; color: var(--text-muted);">Explorez l'histoire de la science et des arts.</p>
         
         <div class="timeline-container">
             
@@ -448,9 +454,35 @@
                             <button class="card-tab-btn" onclick="switchCardTab(event, 'vinci-faits')">Génie</button>
                             <button class="card-tab-btn" onclick="switchCardTab(event, 'vinci-secret')">Le Saviez-vous ?</button>
                         </div>
-                        <div id="vinci-bio" class="card-tab-content active">Figure de la Renaissance. À la fois peintre, sculpteur, inventeur, ingénieur et scientifique.</div>
-                        <div id="vinci-faits" class="card-tab-content">- Auteur de La Joconde et La Cène.<br>- Conception de l'hélicoptère et du parachute.</div>
-                        <div id="vinci-secret" class="card-tab-content">Il écrivait la plupart de ses carnets de droite à gauche. Ses notes ne pouvaient être lues qu'à l'aide d'un miroir !</div>
+                        <div id="vinci-bio" class="card-tab-content active">Figure de la Renaissance. À la fois peintre, sculpteur, inventeur, ingénieur et scientifique italien.</div>
+                        <div id="vinci-faits" class="card-tab-content">- Auteur de La Joconde et La Cène.<br>- Conception théorique de l'hélicoptère et du parachute.</div>
+                        <div id="vinci-secret" class="card-tab-content">Il écrivait la plupart de ses carnets de droite à gauche (écriture spéculaire). Ses notes ne pouvaient être lues qu'à l'aide d'un miroir !</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="item-galilee">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1564 - 1642</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-galilee" class="timeline-avatar" src="" alt="Galilée" style="display:none;">
+                                <span>Galilée</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'galilee-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'galilee-faits')">Découvertes</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'galilee-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="galilee-bio" class="card-tab-content active">Mathématicien, géomètre, physicien et astronome italien. Il est considéré comme l'un des pères de la science moderne.</div>
+                        <div id="galilee-faits" class="card-tab-content">- Perfectionnement de la lunette astronomique.<br>- Découverte des lunes de Jupiter et défense de l'héliocentrisme.</div>
+                        <div id="galilee-secret" class="card-tab-content">Il n'a jamais dit "Et pourtant elle tourne" (E pur si muove) après sa condamnation par l'Inquisition. C'est une légende inventée un siècle plus tard !</div>
                     </div>
                 </div>
             </div>
@@ -507,6 +539,32 @@
                 </div>
             </div>
 
+            <div class="timeline-item" id="item-newton">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1642 - 1727</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-newton" class="timeline-avatar" src="" alt="Isaac Newton" style="display:none;">
+                                <span>Isaac Newton</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'newton-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'newton-faits')">Découvertes</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'newton-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="newton-bio" class="card-tab-content active">Mathématicien et physicien anglais, il est l'une des figures emblématiques de la révolution scientifique.</div>
+                        <div id="newton-faits" class="card-tab-content">- Loi universelle de la gravitation.<br>- Décomposition de la lumière blanche par un prisme.<br>- Création du calcul infinitésimal.</div>
+                        <div id="newton-secret" class="card-tab-content">Il a passé beaucoup plus de temps à étudier l'alchimie et la théologie (cherchant des codes cachés dans la Bible) qu'à faire de la physique !</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="timeline-item" id="item-voltaire">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -559,6 +617,58 @@
                 </div>
             </div>
             
+            <div class="timeline-item" id="item-darwin">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1809 - 1882</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-darwin" class="timeline-avatar" src="" alt="Charles Darwin" style="display:none;">
+                                <span>Charles Darwin</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'darwin-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'darwin-faits')">Sciences</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'darwin-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="darwin-bio" class="card-tab-content active">Naturaliste et paléontologue britannique. Ses travaux ont totalement révolutionné la biologie et la façon dont nous comprenons la vie sur Terre.</div>
+                        <div id="darwin-faits" class="card-tab-content">- Son célèbre voyage exploratoire sur le HMS Beagle.<br>- Publication de "L'Origine des espèces" (1859).<br>- Théorie de la sélection naturelle.</div>
+                        <div id="darwin-secret" class="card-tab-content">Il a attendu plus de 20 ans avant de publier sa théorie ! Il avait extrêmement peur des réactions religieuses et du scandale que cela allait provoquer dans la société.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="item-pasteur">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1822 - 1895</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-pasteur" class="timeline-avatar" src="" alt="Louis Pasteur" style="display:none;">
+                                <span>Louis Pasteur</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'pasteur-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'pasteur-faits')">Découvertes</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'pasteur-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="pasteur-bio" class="card-tab-content active">Scientifique français illustre, pionnier de la microbiologie, dont les travaux ont sauvé des millions de vies humaines.</div>
+                        <div id="pasteur-faits" class="card-tab-content">- Mise au point du vaccin contre la rage (1885).<br>- Invention de la pasteurisation.<br>- Réfutation définitive de la génération spontanée.</div>
+                        <div id="pasteur-secret" class="card-tab-content">Il n'était pas médecin ! C'était un chimiste de formation. Il a donc dû s'associer avec de vrais médecins pour avoir le droit d'administrer ses vaccins aux patients.</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="timeline-item" id="item-zola">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -581,6 +691,32 @@
                         <div id="zola-bio" class="card-tab-content active">Chef de file du naturalisme, ce romancier a dépeint la société française avec une précision quasi scientifique.</div>
                         <div id="zola-faits" class="card-tab-content">- Fresque des "Rougon-Macquart" (Germinal).<br>- Son cri "J'accuse...!" lors de l'affaire Dreyfus.</div>
                         <div id="zola-secret" class="card-tab-content">Aussi incroyable que cela paraisse, il a raté son baccalauréat deux fois de suite, écopant même d'un zéro en littérature !</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="item-tesla">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1856 - 1943</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-tesla" class="timeline-avatar" src="" alt="Nikola Tesla" style="display:none;">
+                                <span>Nikola Tesla</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'tesla-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'tesla-faits')">Inventions</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'tesla-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="tesla-bio" class="card-tab-content active">Inventeur et ingénieur d'origine serbe, brillant pionnier de l'ingénierie électrique et rival historique de Thomas Edison.</div>
+                        <div id="tesla-faits" class="card-tab-content">- Développement massif du courant alternatif (CA).<br>- Invention de la bobine Tesla.<br>- Découvertes sur la radiodiffusion et la transmission sans fil.</div>
+                        <div id="tesla-secret" class="card-tab-content">Il souffrait de tocs intenses : il était obsédé par le chiffre 3 (il faisait le tour d'un bâtiment 3 fois avant d'y entrer) et avait une peur phobique des perles et des bijoux ronds.</div>
                     </div>
                 </div>
             </div>
@@ -636,58 +772,136 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="timeline-item" id="item-turing">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1912 - 1954</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-turing" class="timeline-avatar" src="" alt="Alan Turing" style="display:none;">
+                                <span>Alan Turing</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'turing-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'turing-faits')">Génie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'turing-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="turing-bio" class="card-tab-content active">Mathématicien et cryptologue britannique. Il est unanimement considéré comme l'un des pères fondateurs de l'informatique moderne et de l'intelligence artificielle.</div>
+                        <div id="turing-faits" class="card-tab-content">- A aidé à décrypter la redoutable machine Enigma pendant la Seconde Guerre mondiale.<br>- A inventé le concept de la "Machine de Turing" et le "Test de Turing".</div>
+                        <div id="turing-secret" class="card-tab-content">En plus de son immense cerveau, il avait un physique hors norme : il était un coureur de fond de niveau quasi olympique et courait souvent pour se rendre à des réunions à plusieurs dizaines de kilomètres !</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="item-franklin">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1920 - 1958</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-franklin" class="timeline-avatar" src="" alt="Rosalind Franklin" style="display:none;">
+                                <span>Rosalind Franklin</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'franklin-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'franklin-faits')">Découverte</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'franklin-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="franklin-bio" class="card-tab-content active">Physico-chimiste britannique, elle a été la grande pionnière de la cristallographie aux rayons X appliquée à la biologie.</div>
+                        <div id="franklin-faits" class="card-tab-content">- Elle a réalisé le fameux "Cliché 51", qui a été la toute première preuve visuelle de la structure en double hélice de l'ADN.</div>
+                        <div id="franklin-secret" class="card-tab-content">C'est la grande oubliée de l'histoire des sciences : ses travaux et clichés cruciaux ont été utilisés par Watson et Crick à son insu pour modéliser l'ADN et remporter le prix Nobel de médecine... sans la citer.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" id="item-hawking">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                        <div class="timeline-date">1942 - 2018</div>
+                        <div class="timeline-header">
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img id="img-hawking" class="timeline-avatar" src="" alt="Stephen Hawking" style="display:none;">
+                                <span>Stephen Hawking</span>
+                            </div>
+                            <span class="timeline-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="timeline-details">
+                        <div class="card-tabs">
+                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'hawking-bio')">Biographie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'hawking-faits')">Astronomie</button>
+                            <button class="card-tab-btn" onclick="switchCardTab(event, 'hawking-secret')">Le Saviez-vous ?</button>
+                        </div>
+                        <div id="hawking-bio" class="card-tab-content active">Physicien théoricien et cosmologiste britannique de génie, dont la brillance scientifique n'a eu d'égal que sa résilience face à la maladie de Charcot.</div>
+                        <div id="hawking-faits" class="card-tab-content">- Découverte de la "Radiation de Hawking" (les trous noirs s'évaporent).<br>- Auteur du best-seller mondial de vulgarisation "Une brève histoire du temps".</div>
+                        <div id="hawking-secret" class="card-tab-content">Il avait un grand sens de l'humour, assumait pleinement son statut d'icône pop-culture, et a même joué son propre rôle dans des séries comme Les Simpson, Futurama et The Big Bang Theory.</div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
 
     <script>
-        // --- 0. RECUPERATION DES IMAGES WIKIPEDIA ---
+        // ==============================================================
+        // 0. RECUPERATION DES IMAGES WIKIPEDIA
+        // ==============================================================
         function loadDailyWikipediaImage(characterName) {
             const title = encodeURIComponent(characterName.replace(/ /g, '_'));
             const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${title}&prop=pageimages&format=json&pithumbsize=300&origin=*`;
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
+            fetch(url).then(r => r.json()).then(data => {
+                const pages = data.query.pages;
+                const pageId = Object.keys(pages)[0];
+                if (pageId !== "-1" && pages[pageId].thumbnail) {
+                    document.getElementById('daily-mugshot').src = pages[pageId].thumbnail.source;
+                }
+            }).catch(e => console.log(e));
+        }
+
+        function loadTimelineImages() {
+            const timelineWikiData = [
+                { id: 'img-cleo', query: 'Cléopâtre_VII' }, 
+                { id: 'img-jeanne', query: 'Jeanne_d\'Arc' },
+                { id: 'img-vinci', query: 'Léonard_de_Vinci' }, 
+                { id: 'img-galilee', query: 'Galilée_(savant)' },
+                { id: 'img-moliere', query: 'Molière' },
+                { id: 'img-louis', query: 'Louis_XIV' }, 
+                { id: 'img-newton', query: 'Isaac_Newton' },
+                { id: 'img-voltaire', query: 'Voltaire' },
+                { id: 'img-napoleon', query: 'Napoléon_Ier' }, 
+                { id: 'img-darwin', query: 'Charles_Darwin' },
+                { id: 'img-pasteur', query: 'Louis_Pasteur' },
+                { id: 'img-zola', query: 'Émile_Zola' },
+                { id: 'img-tesla', query: 'Nikola_Tesla' },
+                { id: 'img-marie', query: 'Marie_Curie' }, 
+                { id: 'img-einstein', query: 'Albert_Einstein' },
+                { id: 'img-turing', query: 'Alan_Turing' },
+                { id: 'img-franklin', query: 'Rosalind_Franklin' },
+                { id: 'img-hawking', query: 'Stephen_Hawking' }
+            ];
+            
+            timelineWikiData.forEach(item => {
+                const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${item.query}&prop=pageimages&format=json&pithumbsize=100&origin=*`;
+                fetch(url).then(r => r.json()).then(data => {
                     const pages = data.query.pages;
                     const pageId = Object.keys(pages)[0];
                     if (pageId !== "-1" && pages[pageId].thumbnail) {
-                        document.getElementById('daily-mugshot').src = pages[pageId].thumbnail.source;
+                        const img = document.getElementById(item.id);
+                        if(img) { img.src = pages[pageId].thumbnail.source; img.style.display = 'block'; }
                     }
-                })
-                .catch(err => console.log("Erreur Wikipedia:", err));
-        }
-
-        // Fonction pour récupérer toutes les miniatures de la frise chronologique
-        function loadTimelineImages() {
-            const timelineWikiData = [
-                { id: 'img-cleo', query: 'Cléopâtre_VII' },
-                { id: 'img-jeanne', query: 'Jeanne_d\'Arc' },
-                { id: 'img-vinci', query: 'Léonard_de_Vinci' },
-                { id: 'img-moliere', query: 'Molière' },
-                { id: 'img-louis', query: 'Louis_XIV' },
-                { id: 'img-voltaire', query: 'Voltaire' },
-                { id: 'img-napoleon', query: 'Napoléon_Ier' },
-                { id: 'img-zola', query: 'Émile_Zola' },
-                { id: 'img-marie', query: 'Marie_Curie' },
-                { id: 'img-einstein', query: 'Albert_Einstein' }
-            ];
-
-            timelineWikiData.forEach(item => {
-                const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${item.query}&prop=pageimages&format=json&pithumbsize=100&origin=*`;
-                fetch(url)
-                    .then(r => r.json())
-                    .then(data => {
-                        const pages = data.query.pages;
-                        const pageId = Object.keys(pages)[0];
-                        if (pageId !== "-1" && pages[pageId].thumbnail) {
-                            const img = document.getElementById(item.id);
-                            if(img) {
-                                img.src = pages[pageId].thumbnail.source;
-                                img.style.display = 'block'; // Fait apparaître l'image une fois chargée
-                            }
-                        }
-                    })
-                    .catch(e => console.log(e));
+                }).catch(e => console.log(e));
             });
         }
 
@@ -699,29 +913,105 @@
             event.currentTarget.classList.add('active');
         }
 
-        // --- 1. JEU QUOTIDIEN ---
-        const characterOfTheDay = { name: "Victor Hugo", clues: [
-            "J'ai manié la plume comme une arme au 19ème siècle, laissant derrière moi une œuvre colossale.",
-            "J'ai tenu tête à un Empereur que je surnommais 'Le Petit', ce qui m'a valu un long exil sur des îles battues par les vents.",
-            "Mon roman le plus célèbre raconte la quête de rédemption d'un ancien bagnard nommé Jean Valjean."
-        ], maxAttempts: 3 };
+        // ==============================================================
+        // 1. MOTEUR DU JEU QUOTIDIEN AUTOMATIQUE 
+        // ==============================================================
+        const dailyCharacters = [
+            {
+                name: "Victor Hugo", profession: "Écrivain, Poète, Homme politique",
+                public_file: "Auteur d'œuvres monumentales comme 'Les Misérables' et 'Notre-Dame de Paris'. Il a passé une grande partie de sa vie en exil sur les îles anglo-normandes.",
+                secret_file: "<li>Il croyait au spiritisme et organisait des séances de tables tournantes à Jersey pour parler avec sa fille défunte.</li><li>Il a écrit 'Les Misérables' sur un bureau debout, une pratique peu commune à l'époque !</li>",
+                clues: ["J'ai manié la plume comme une arme au 19ème siècle, laissant derrière moi une œuvre colossale.", "J'ai tenu tête à un Empereur que je surnommais 'Le Petit', ce qui m'a valu un long exil sur des îles battues par les vents.", "Mon roman le plus célèbre raconte la quête de rédemption d'un ancien bagnard nommé Jean Valjean."],
+                maxAttempts: 3
+            },
+            {
+                name: "Marie Curie", profession: "Physicienne et Chimiste",
+                public_file: "Scientifique d'origine polonaise, pionnière de l'étude de la radioactivité. Elle a été la première femme professeure à la Sorbonne.",
+                secret_file: "<li>Elle est la seule personne à avoir reçu des prix Nobel dans deux domaines scientifiques différents (physique et chimie).</li><li>Ses carnets de notes sont encore aujourd'hui tellement radioactifs qu'ils sont conservés dans des boîtes en plomb.</li>",
+                clues: ["Je suis née à Varsovie mais j'ai fait la majorité de ma carrière à Paris.", "J'ai inventé des unités chirurgicales mobiles (les 'petites') pendant la Première Guerre mondiale.", "J'ai découvert deux nouveaux éléments : le Polonium (nommé d'après mon pays d'origine) et le Radium."],
+                maxAttempts: 3
+            },
+            {
+                name: "Molière", profession: "Dramaturge et Comédien",
+                public_file: "De son vrai nom Jean-Baptiste Poquelin, il est le maître incontesté de la comédie française du 17e siècle.",
+                secret_file: "<li>Il n'est pas mort sur scène ! Il a fait un malaise en jouant 'Le Malade imaginaire', a fini la pièce dans la douleur, et est décédé chez lui.</li><li>Sa troupe a bénéficié de la protection directe du Roi-Soleil, Louis XIV.</li>",
+                clues: ["J'ai abandonné mon destin de tapissier pour fonder une troupe nommée l'Illustre Théâtre.", "J'ai été accusé d'impiété pour ma pièce dénonçant la fausse dévotion, Tartuffe.", "J'ai fait rire la cour du Roi-Soleil avec des pièces comme L'Avare ou Le Bourgeois Gentilhomme."],
+                maxAttempts: 3
+            }
+        ];
 
+        function getDailyCharacter() {
+            const startDate = new Date(2026, 2, 15); 
+            const today = new Date();
+            startDate.setHours(0,0,0,0); today.setHours(0,0,0,0);
+            const diffDays = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+            return dailyCharacters[Math.max(0, diffDays) % dailyCharacters.length];
+        }
+
+        const characterOfTheDay = getDailyCharacter();
         let dailyAttempt = 0;
         const dailyCluesContainer = document.getElementById('daily-clues');
         const dailyInputField = document.getElementById('daily-input');
         const dailyAttemptBoxes = document.querySelectorAll('#daily-tracker .attempt-box');
+        
+        // --- SAUVEGARDE: Identifiant unique pour aujourd'hui ---
+        const todayStr = new Date().toLocaleDateString('fr-FR');
+        let savedDailyState = JSON.parse(localStorage.getItem('encrierBleuDaily')) || { date: '', attempts: 0, status: 'playing' };
 
-        // Lancement des requêtes Wikipédia au chargement du site
+        document.getElementById('display-date').innerText = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
         loadDailyWikipediaImage(characterOfTheDay.name);
         loadTimelineImages(); 
-        
-        addDailyClueToDOM(0);
+
+        // --- SAUVEGARDE: Restauration de l'état du jeu quotidien ---
+        if (savedDailyState.date === todayStr) {
+            dailyAttempt = savedDailyState.attempts;
+            
+            // Remettre les cases rouges pour les tentatives ratées
+            for(let i = 0; i < dailyAttempt; i++) {
+                if (characterOfTheDay.maxAttempts - 1 - i >= 0) {
+                    dailyAttemptBoxes[characterOfTheDay.maxAttempts - 1 - i].classList.add('lost');
+                }
+            }
+
+            if (savedDailyState.status === 'won') {
+                showDailyWinScreen();
+            } else if (savedDailyState.status === 'lost') {
+                showDailyLoseScreen();
+            } else {
+                for(let i = 0; i <= dailyAttempt && i < characterOfTheDay.maxAttempts; i++) {
+                    addDailyClueToDOM(i);
+                }
+            }
+        } else {
+            savedDailyState = { date: todayStr, attempts: 0, status: 'playing' };
+            localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
+            addDailyClueToDOM(0);
+        }
 
         function addDailyClueToDOM(index) {
             const clueDiv = document.createElement('div');
             clueDiv.className = 'clue-row';
             clueDiv.innerHTML = `<span class="clue-number">Indice ${index + 1} / 3</span>${characterOfTheDay.clues[index]}`;
             dailyCluesContainer.appendChild(clueDiv);
+        }
+
+        function showDailyWinScreen() {
+            document.getElementById('pf-name').innerText = characterOfTheDay.name;
+            document.getElementById('pf-job').innerText = characterOfTheDay.profession;
+            document.getElementById('pf-public').innerText = characterOfTheDay.public_file;
+            document.getElementById('pf-secret').innerHTML = characterOfTheDay.secret_file;
+            document.getElementById('game-core').classList.add('hidden');
+            document.getElementById('police-file').style.display = 'block';
+        }
+
+        function showDailyLoseScreen() {
+            document.getElementById('game-core').innerHTML = `
+                <div class="clue-row" style="text-align:center; border-color: var(--error);">
+                    <h2 style="color: var(--error); margin-bottom: 10px;">Échec</h2>
+                    <p>Le suspect était : <strong>${characterOfTheDay.name}</strong></p>
+                    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px;">Revenez demain pour une nouvelle enquête.</p>
+                </div>
+            `;
         }
 
         function checkDailyGuess() {
@@ -731,31 +1021,32 @@
             const target = characterOfTheDay.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
             if (val === target) {
-                document.getElementById('game-core').classList.add('hidden');
-                document.getElementById('police-file').style.display = 'block';
+                savedDailyState.status = 'won';
+                localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
+                showDailyWinScreen();
             } else {
                 dailyInputField.classList.remove('shake'); void dailyInputField.offsetWidth; dailyInputField.classList.add('shake');
                 dailyInputField.value = "";
-                dailyAttemptBoxes[characterOfTheDay.maxAttempts - 1 - dailyAttempt].classList.add('lost');
+                
+                if (characterOfTheDay.maxAttempts - 1 - dailyAttempt >= 0) {
+                    dailyAttemptBoxes[characterOfTheDay.maxAttempts - 1 - dailyAttempt].classList.add('lost');
+                }
+                
                 dailyAttempt++;
+                savedDailyState.attempts = dailyAttempt;
 
                 if (dailyAttempt < characterOfTheDay.maxAttempts) {
                     addDailyClueToDOM(dailyAttempt);
+                    localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
                 } else {
-                    document.getElementById('game-core').innerHTML = `
-                        <div class="clue-row" style="text-align:center; border-color: var(--error);">
-                            <h2 style="color: var(--error); margin-bottom: 10px;">Échec</h2>
-                            <p>Le suspect était : <strong>${characterOfTheDay.name}</strong></p>
-                            <button class="btn-primary" style="margin-top:15px;" onclick="location.reload()">Réessayer</button>
-                        </div>
-                    `;
+                    savedDailyState.status = 'lost';
+                    localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
+                    showDailyLoseScreen();
                 }
             }
         }
 
-        dailyInputField.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") { event.preventDefault(); checkDailyGuess(); }
-        });
+        dailyInputField.addEventListener("keypress", function(event) { if (event.key === "Enter") { event.preventDefault(); checkDailyGuess(); } });
 
         function shareDailyResult() {
             const shareText = `🖋️ Encrier Bleu\nJ'ai démasqué le suspect du jour en ${dailyAttempt + 1}/3 indices !\n\nViens enquêter sur encrierbleu.fr`;
@@ -776,163 +1067,112 @@
         }
 
 
-        // --- 2. DOSSIERS ---
-        const themesConfig = {
-            'romantiques': { total: 4, solved: 0, badge: 'badge-romantiques', title: 'Le Cercle des Romantiques' },
-            'roisoleil': { total: 5, solved: 0, badge: 'badge-roisoleil', title: 'La Cour du Roi-Soleil' },
-            'lumieres': { total: 6, solved: 0, badge: 'badge-lumieres', title: 'Les Philosophes des Lumières' },
-            'revolution': { total: 8, solved: 0, badge: 'badge-revolution', title: 'La Révolution Française' }
-        };
+        const themesConfig = { 'romantiques': { total: 4, solved: 0, badge: 'badge-romantiques', title: 'Le Cercle des Romantiques' }, 'roisoleil': { total: 5, solved: 0, badge: 'badge-roisoleil', title: 'La Cour du Roi-Soleil' }, 'lumieres': { total: 6, solved: 0, badge: 'badge-lumieres', title: 'Les Philosophes des Lumières' }, 'revolution': { total: 8, solved: 0, badge: 'badge-revolution', title: 'La Révolution Française' } };
         let currentTheme = null;
+        const treeData = { "dumas": { answer: "alexandre dumas", aliases: ["dumas"], title: "A. Dumas", clue: "Auteur des Trois Mousquetaires.", speech: "« L'histoire est un clou auquel j'accroche mes romans. »", unlocks: ["dantes"] }, "dantes": { answer: "edmond dantes", aliases: ["dantes", "le comte de monte-cristo", "monte-cristo"], title: "Edmond Dantès", clue: "Marin emprisonné à tort au Château d'If.", speech: "« Attendre et espérer ! »", unlocks: [] }, "sand": { answer: "george sand", aliases: ["sand"], title: "George Sand", clue: "Auteure de La Mare au Diable.", speech: "« Le souvenir est le parfum de l'âme. »", unlocks: ["musset"] }, "musset": { answer: "alfred de musset", aliases: ["musset"], title: "A. de Musset", clue: "Poète maudit, auteur des Caprices de Marianne.", speech: "« Les plus désespérés sont les chants les plus beaux. »", unlocks: [] }, "colbert": { answer: "jean-baptiste colbert", aliases: ["colbert"], title: "Colbert", clue: "Ministre d'État de Louis XIV, j'ai fondé l'Académie des sciences.", speech: "« Il faut agir avec grand soin. »", unlocks: ["fouquet"] }, "fouquet": { answer: "nicolas fouquet", aliases: ["fouquet"], title: "Fouquet", clue: "Surintendant, mon château de Vaux-le-Vicomte a rendu le roi jaloux.", speech: "« Quo non ascendet ? »", unlocks: [] }, "montespan": { answer: "madame de montespan", aliases: ["montespan", "marquise de montespan"], title: "Montespan", clue: "Favorite du roi pendant des années, je lui ai donné 7 enfants.", speech: "« Je suis l'égale du roi. »", unlocks: ["maintenon"] }, "maintenon": { answer: "madame de maintenon", aliases: ["maintenon", "marquise de maintenon"], title: "Maintenon", clue: "Gouvernante des enfants illégitimes du roi, j'ai fini par l'épouser.", speech: "« Je veux bien qu'on me respecte. »", unlocks: ["voisin"] }, "voisin": { answer: "la voisin", aliases: ["catherine despot", "voisin", "catherine montvoisin"], title: "La Voisin", clue: "Célèbre empoisonneuse brûlée vive lors de l'affaire des poisons.", speech: "« Je connais les secrets de tout Paris. »", unlocks: [] }, "diderot": { answer: "denis diderot", aliases: ["diderot"], title: "Diderot", clue: "Philosophe et maître d'œuvre de l'Encyclopédie.", speech: "« Aucun homme n'a reçu le droit de commander aux autres. »", unlocks: ["alembert"] }, "alembert": { answer: "jean le rond d'alembert", aliases: ["d'alembert", "alembert"], title: "D'Alembert", clue: "Mathématicien, j'ai rédigé le Discours préliminaire de l'Encyclopédie.", speech: "« La philosophie n'est autre chose que l'application de la raison. »", unlocks: [] }, "montesquieu": { answer: "montesquieu", aliases: ["charles de montesquieu"], title: "Montesquieu", clue: "Auteur des Lettres persanes et de De l'esprit des lois.", speech: "« Il faut que le pouvoir arrête le pouvoir. »", unlocks: ["rousseau"] }, "rousseau": { answer: "jean-jacques rousseau", aliases: ["rousseau"], title: "Rousseau", clue: "Philosophe genevois, auteur du Contrat social.", speech: "« L'homme est né libre et partout il est dans les fers. »", unlocks: [] }, "chatelet": { answer: "emilie du chatelet", aliases: ["chatelet", "émilie du châtelet", "emilie du chatelet"], title: "Du Châtelet", clue: "Physicienne, traductrice de Newton et compagne de Voltaire.", speech: "« J'aime l'étude avec passion. »", unlocks: ["catherine"] }, "catherine": { answer: "catherine ii", aliases: ["catherine la grande", "catherine 2", "catherine deux", "catherine de russie"], title: "Catherine II", clue: "Impératrice de Russie et correspondante de nombreux philosophes.", speech: "« Je suis aristocrate, c'est mon métier. »", unlocks: [] }, "lafayette": { answer: "marquis de la fayette", aliases: ["lafayette", "la fayette"], title: "La Fayette", clue: "Héros américain, j'ai ébauché la Déclaration des droits de l'homme.", speech: "« Cur non ? (Pourquoi pas ?) »", unlocks: ["brissot"] }, "brissot": { answer: "jacques pierre brissot", aliases: ["brissot"], title: "Brissot", clue: "Chef de file des Girondins, j'ai poussé à la guerre en 1792.", speech: "« Il nous faut de grandes trahisons ! »", unlocks: ["roland"] }, "roland": { answer: "madame roland", aliases: ["manon roland", "roland", "jeanne marie roland"], title: "Mme Roland", clue: "J'ai tenu un célèbre salon pour les Girondins avant d'être guillotinée.", speech: "« Ô Liberté, que de crimes on commet en ton nom ! »", unlocks: [] }, "danton": { answer: "georges danton", aliases: ["danton"], title: "Danton", clue: "Orateur charismatique du Club des Cordeliers et ministre de la Justice.", speech: "« De l'audace, encore de l'audace, toujours de l'audace ! »", unlocks: ["desmoulins"] }, "desmoulins": { answer: "camille desmoulins", aliases: ["desmoulins"], title: "Desmoulins", clue: "Journaliste, j'ai appelé le peuple aux armes le 12 juillet 1789.", speech: "« Aux armes, citoyens ! »", unlocks: [] }, "robespierre": { answer: "maximilien robespierre", aliases: ["robespierre", "maximilien de robespierre"], title: "Robespierre", clue: "L'Incorruptible, figure majeure du Comité de salut public.", speech: "« La terreur n'est autre chose que la justice prompte et sévère. »", unlocks: ["saintjust"] }, "saintjust": { answer: "louis antoine de saint-just", aliases: ["saint-just", "saint just", "louis de saint-just"], title: "Saint-Just", clue: "Le plus jeune député, surnommé l'Archange de la Terreur.", speech: "« Pas de liberté pour les ennemis de la liberté. »", unlocks: ["fouquier"] }, "fouquier": { answer: "antoine quentin fouquier-tinville", aliases: ["fouquier", "fouquier-tinville", "fouquier tinville"], title: "Fouquier", clue: "L'implacable Accusateur public du Tribunal révolutionnaire.", speech: "« C'est la loi qui frappe, ce n'est pas moi. »", unlocks: [] } };
+        let activeNodeId = null; let failsOnCurrentNode = 0;
 
-        const treeData = {
-            // ROMANTIQUES
-            "dumas": { answer: "alexandre dumas", aliases: ["dumas"], title: "A. Dumas", clue: "Auteur des Trois Mousquetaires.", speech: "« L'histoire est un clou auquel j'accroche mes romans. »", unlocks: ["dantes"] },
-            "dantes": { answer: "edmond dantes", aliases: ["dantes", "le comte de monte-cristo", "monte-cristo"], title: "Edmond Dantès", clue: "Marin emprisonné à tort au Château d'If.", speech: "« Attendre et espérer ! »", unlocks: [] },
-            "sand": { answer: "george sand", aliases: ["sand"], title: "George Sand", clue: "Auteure de La Mare au Diable.", speech: "« Le souvenir est le parfum de l'âme. »", unlocks: ["musset"] },
-            "musset": { answer: "alfred de musset", aliases: ["musset"], title: "A. de Musset", clue: "Poète maudit, auteur des Caprices de Marianne.", speech: "« Les plus désespérés sont les chants les plus beaux. »", unlocks: [] },
-            
-            // ROI SOLEIL
-            "colbert": { answer: "jean-baptiste colbert", aliases: ["colbert"], title: "Colbert", clue: "Ministre d'État de Louis XIV, j'ai fondé l'Académie des sciences.", speech: "« Il faut agir avec grand soin. »", unlocks: ["fouquet"] },
-            "fouquet": { answer: "nicolas fouquet", aliases: ["fouquet"], title: "Fouquet", clue: "Surintendant, mon château de Vaux-le-Vicomte a rendu le roi jaloux.", speech: "« Quo non ascendet ? »", unlocks: [] },
-            "montespan": { answer: "madame de montespan", aliases: ["montespan", "marquise de montespan"], title: "Montespan", clue: "Favorite du roi pendant des années, je lui ai donné 7 enfants.", speech: "« Je suis l'égale du roi. »", unlocks: ["maintenon"] },
-            "maintenon": { answer: "madame de maintenon", aliases: ["maintenon", "marquise de maintenon"], title: "Maintenon", clue: "Gouvernante des enfants illégitimes du roi, j'ai fini par l'épouser.", speech: "« Je veux bien qu'on me respecte. »", unlocks: ["voisin"] },
-            "voisin": { answer: "la voisin", aliases: ["catherine despot", "voisin", "catherine montvoisin"], title: "La Voisin", clue: "Célèbre empoisonneuse brûlée vive lors de l'affaire des poisons.", speech: "« Je connais les secrets de tout Paris. »", unlocks: [] },
+        // --- SAUVEGARDE: Restauration des Dossiers (Sprints) ---
+        let savedSprintState = JSON.parse(localStorage.getItem('encrierBleuSprints')) || [];
+        
+        function restoreSprintState() {
+            savedSprintState.forEach(nodeId => {
+                const data = treeData[nodeId];
+                if(!data) return;
+                const nodeElement = document.getElementById('node-' + nodeId);
+                if(nodeElement) {
+                    nodeElement.classList.remove('playable', 'active', 'locked');
+                    nodeElement.classList.add('solved');
+                    nodeElement.onclick = null;
+                    nodeElement.querySelector('.node-photo').innerText = "✓";
+                    nodeElement.querySelector('.node-title').innerText = data.title;
+                    nodeElement.querySelector('.node-title').style.color = "var(--text-main)";
+                    
+                    data.unlocks.forEach(childId => {
+                        const childNode = document.getElementById('node-' + childId);
+                        if(childNode && !savedSprintState.includes(childId)) {
+                            childNode.classList.remove('locked');
+                            childNode.classList.add('playable');
+                            childNode.setAttribute('onclick', `selectNode('${childId}')`);
+                        }
+                    });
+                }
+            });
 
-            // LUMIERES
-            "diderot": { answer: "denis diderot", aliases: ["diderot"], title: "Diderot", clue: "Philosophe et maître d'œuvre de l'Encyclopédie.", speech: "« Aucun homme n'a reçu le droit de commander aux autres. »", unlocks: ["alembert"] },
-            "alembert": { answer: "jean le rond d'alembert", aliases: ["d'alembert", "alembert"], title: "D'Alembert", clue: "Mathématicien, j'ai rédigé le Discours préliminaire de l'Encyclopédie.", speech: "« La philosophie n'est autre chose que l'application de la raison. »", unlocks: [] },
-            "montesquieu": { answer: "montesquieu", aliases: ["charles de montesquieu"], title: "Montesquieu", clue: "Auteur des Lettres persanes et de De l'esprit des lois.", speech: "« Il faut que le pouvoir arrête le pouvoir. »", unlocks: ["rousseau"] },
-            "rousseau": { answer: "jean-jacques rousseau", aliases: ["rousseau"], title: "Rousseau", clue: "Philosophe genevois, auteur du Contrat social.", speech: "« L'homme est né libre et partout il est dans les fers. »", unlocks: [] },
-            "chatelet": { answer: "emilie du chatelet", aliases: ["chatelet", "émilie du châtelet", "emilie du chatelet"], title: "Du Châtelet", clue: "Physicienne, traductrice de Newton et compagne de Voltaire.", speech: "« J'aime l'étude avec passion. »", unlocks: ["catherine"] },
-            "catherine": { answer: "catherine ii", aliases: ["catherine la grande", "catherine 2", "catherine deux", "catherine de russie"], title: "Catherine II", clue: "Impératrice de Russie et correspondante de nombreux philosophes.", speech: "« Je suis aristocrate, c'est mon métier. »", unlocks: [] },
-
-            // REVOLUTION
-            "lafayette": { answer: "marquis de la fayette", aliases: ["lafayette", "la fayette"], title: "La Fayette", clue: "Héros américain, j'ai ébauché la Déclaration des droits de l'homme.", speech: "« Cur non ? (Pourquoi pas ?) »", unlocks: ["brissot"] },
-            "brissot": { answer: "jacques pierre brissot", aliases: ["brissot"], title: "Brissot", clue: "Chef de file des Girondins, j'ai poussé à la guerre en 1792.", speech: "« Il nous faut de grandes trahisons ! »", unlocks: ["roland"] },
-            "roland": { answer: "madame roland", aliases: ["manon roland", "roland", "jeanne marie roland"], title: "Mme Roland", clue: "J'ai tenu un célèbre salon pour les Girondins avant d'être guillotinée.", speech: "« Ô Liberté, que de crimes on commet en ton nom ! »", unlocks: [] },
-            "danton": { answer: "georges danton", aliases: ["danton"], title: "Danton", clue: "Orateur charismatique du Club des Cordeliers et ministre de la Justice.", speech: "« De l'audace, encore de l'audace, toujours de l'audace ! »", unlocks: ["desmoulins"] },
-            "desmoulins": { answer: "camille desmoulins", aliases: ["desmoulins"], title: "Desmoulins", clue: "Journaliste, j'ai appelé le peuple aux armes le 12 juillet 1789.", speech: "« Aux armes, citoyens ! »", unlocks: [] },
-            "robespierre": { answer: "maximilien robespierre", aliases: ["robespierre", "maximilien de robespierre"], title: "Robespierre", clue: "L'Incorruptible, figure majeure du Comité de salut public.", speech: "« La terreur n'est autre chose que la justice prompte et sévère. »", unlocks: ["saintjust"] },
-            "saintjust": { answer: "louis antoine de saint-just", aliases: ["saint-just", "saint just", "louis de saint-just"], title: "Saint-Just", clue: "Le plus jeune député, surnommé l'Archange de la Terreur.", speech: "« Pas de liberté pour les ennemis de la liberté. »", unlocks: ["fouquier"] },
-            "fouquier": { answer: "antoine quentin fouquier-tinville", aliases: ["fouquier", "fouquier-tinville", "fouquier tinville"], title: "Fouquier", clue: "L'implacable Accusateur public du Tribunal révolutionnaire.", speech: "« C'est la loi qui frappe, ce n'est pas moi. »", unlocks: [] }
-        };
-
-        let activeNodeId = null;
-        let failsOnCurrentNode = 0;
-
-        function openTheme(themeId) {
-            currentTheme = themeId;
-            document.getElementById('theme-menu').classList.add('hidden');
-            document.querySelectorAll('.theme-tree').forEach(tree => tree.classList.add('hidden'));
-            
-            document.getElementById('tree-' + themeId).classList.remove('hidden');
-            document.getElementById('sprint-game-area').classList.remove('hidden');
-            document.getElementById('sprint-theme-title').innerText = themesConfig[themeId].title;
+            // Re-calculer les thèmes complétés
+            Object.keys(themesConfig).forEach(themeKey => {
+                const treeEl = document.getElementById('tree-' + themeKey);
+                if(treeEl) {
+                   const solvedCount = treeEl.querySelectorAll('.node.solved').length - 1; // -1 car le noeud central est déjà "solved" de base
+                   themesConfig[themeKey].solved = solvedCount;
+                   if(solvedCount >= themesConfig[themeKey].total) {
+                       document.getElementById(themesConfig[themeKey].badge).classList.remove('hidden');
+                   }
+                }
+            });
         }
+        
+        // On lance la restauration des dossiers au chargement
+        restoreSprintState();
 
-        function closeTheme() {
-            document.getElementById('sprint-game-area').classList.add('hidden');
-            document.getElementById('theme-menu').classList.remove('hidden');
-            document.getElementById('sprint-interaction').classList.add('hidden');
-            if(activeNodeId) {
-                document.getElementById('node-' + activeNodeId).classList.remove('active');
-                activeNodeId = null;
-            }
-        }
-
-        function selectNode(nodeId) {
-            const nodeElement = document.getElementById('node-' + nodeId);
-            if (!nodeElement.classList.contains('playable')) return;
-
-            if (activeNodeId) document.getElementById('node-' + activeNodeId).classList.remove('active');
+        function openTheme(themeId) { currentTheme = themeId; document.getElementById('theme-menu').classList.add('hidden'); document.querySelectorAll('.theme-tree').forEach(tree => tree.classList.add('hidden')); document.getElementById('tree-' + themeId).classList.remove('hidden'); document.getElementById('sprint-game-area').classList.remove('hidden'); document.getElementById('sprint-theme-title').innerText = themesConfig[themeId].title; }
+        
+        function closeTheme() { document.getElementById('sprint-game-area').classList.add('hidden'); document.getElementById('theme-menu').classList.remove('hidden'); document.getElementById('sprint-interaction').classList.add('hidden'); if(activeNodeId) { document.getElementById('node-' + activeNodeId).classList.remove('active'); activeNodeId = null; } }
+        
+        function selectNode(nodeId) { const nodeElement = document.getElementById('node-' + nodeId); if (!nodeElement.classList.contains('playable')) return; if (activeNodeId) document.getElementById('node-' + activeNodeId).classList.remove('active'); nodeElement.classList.add('active'); activeNodeId = nodeId; failsOnCurrentNode = 0; const data = treeData[nodeId]; document.getElementById('sprint-interaction').classList.remove('hidden'); document.getElementById('sprint-target-name').innerText = "Cible : " + nodeElement.querySelector('.node-relation').innerText; document.getElementById('sprint-clue').innerText = data.clue; document.getElementById('sprint-input').value = ""; document.getElementById('sprint-input').focus(); document.getElementById('sprint-speech').style.display = 'none'; }
+        
+        function checkSprintGuess() { 
+            if (!activeNodeId) return; 
+            const input = document.getElementById('sprint-input'); 
+            const data = treeData[activeNodeId]; 
+            const val = input.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+            const target = data.answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+            const aliases = (data.aliases || []).map(a => a.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")); 
             
-            nodeElement.classList.add('active');
-            activeNodeId = nodeId;
-            failsOnCurrentNode = 0;
-
-            const data = treeData[nodeId];
-            document.getElementById('sprint-interaction').classList.remove('hidden');
-            document.getElementById('sprint-target-name').innerText = "Cible : " + nodeElement.querySelector('.node-relation').innerText;
-            document.getElementById('sprint-clue').innerText = data.clue;
-            document.getElementById('sprint-input').value = "";
-            document.getElementById('sprint-input').focus();
-            document.getElementById('sprint-speech').style.display = 'none';
-        }
-
-        function checkSprintGuess() {
-            if (!activeNodeId) return;
-
-            const input = document.getElementById('sprint-input');
-            const data = treeData[activeNodeId];
-            
-            const val = input.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            const target = data.answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            const aliases = (data.aliases || []).map(a => a.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
-
-            if (val === target || aliases.includes(val)) {
-                const nodeElement = document.getElementById('node-' + activeNodeId);
-                nodeElement.classList.remove('playable', 'active');
-                nodeElement.classList.add('solved');
-                nodeElement.onclick = null;
-                nodeElement.querySelector('.node-photo').innerText = "✓";
-                nodeElement.querySelector('.node-title').innerText = data.title;
-                nodeElement.querySelector('.node-title').style.color = "var(--text-main)";
-
-                const childrenToUnlock = data.unlocks;
-                childrenToUnlock.forEach(childId => {
-                    const childNode = document.getElementById('node-' + childId);
-                    childNode.classList.remove('locked');
-                    childNode.classList.add('playable');
-                    childNode.setAttribute('onclick', `selectNode('${childId}')`);
-                });
-
-                document.getElementById('sprint-interaction').classList.add('hidden');
-                activeNodeId = null;
+            if (val === target || aliases.includes(val)) { 
+                const nodeElement = document.getElementById('node-' + activeNodeId); 
+                nodeElement.classList.remove('playable', 'active'); 
+                nodeElement.classList.add('solved'); 
+                nodeElement.onclick = null; 
+                nodeElement.querySelector('.node-photo').innerText = "✓"; 
+                nodeElement.querySelector('.node-title').innerText = data.title; 
+                nodeElement.querySelector('.node-title').style.color = "var(--text-main)"; 
                 
-                themesConfig[currentTheme].solved++;
-                if (themesConfig[currentTheme].solved === themesConfig[currentTheme].total) {
-                    document.getElementById(themesConfig[currentTheme].badge).classList.remove('hidden');
-                    setTimeout(() => {
-                        alert("Félicitations ! Vous avez complété le dossier : " + themesConfig[currentTheme].title + " !");
-                        closeTheme();
-                    }, 800);
-                }
-            } else {
-                input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake');
-                input.value = "";
-                failsOnCurrentNode++;
+                // --- SAUVEGARDE DU NOUVEAU NOEUD ---
+                savedSprintState.push(activeNodeId);
+                localStorage.setItem('encrierBleuSprints', JSON.stringify(savedSprintState));
 
-                if (failsOnCurrentNode >= 2) {
-                    const speechBox = document.getElementById('sprint-speech');
-                    speechBox.innerText = data.speech;
-                    speechBox.style.display = 'block';
-                }
-            }
+                const childrenToUnlock = data.unlocks; 
+                childrenToUnlock.forEach(childId => { 
+                    const childNode = document.getElementById('node-' + childId); 
+                    childNode.classList.remove('locked'); 
+                    childNode.classList.add('playable'); 
+                    childNode.setAttribute('onclick', `selectNode('${childId}')`); 
+                }); 
+                
+                document.getElementById('sprint-interaction').classList.add('hidden'); 
+                activeNodeId = null; 
+                themesConfig[currentTheme].solved++; 
+                
+                if (themesConfig[currentTheme].solved === themesConfig[currentTheme].total) { 
+                    document.getElementById(themesConfig[currentTheme].badge).classList.remove('hidden'); 
+                    setTimeout(() => { alert("Félicitations ! Vous avez complété le dossier : " + themesConfig[currentTheme].title + " !"); closeTheme(); }, 800); 
+                } 
+            } else { 
+                input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake'); input.value = ""; 
+                failsOnCurrentNode++; 
+                if (failsOnCurrentNode >= 2) { 
+                    const speechBox = document.getElementById('sprint-speech'); 
+                    speechBox.innerText = data.speech; 
+                    speechBox.style.display = 'block'; 
+                } 
+            } 
         }
 
-        document.getElementById('sprint-input').addEventListener("keypress", function(event) {
-            if (event.key === "Enter") { event.preventDefault(); checkSprintGuess(); }
-        });
-
-        // --- 3. FRISE CHRONOLOGIQUE ---
-        function toggleTimeline(element) {
-            const allItems = document.querySelectorAll('.timeline-item');
-            if (element.classList.contains('active')) {
-                element.classList.remove('active');
-                return;
-            }
-            allItems.forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
-        }
-
-        function switchCardTab(event, tabId) {
-            event.stopPropagation();
-            const detailsContainer = event.target.closest('.timeline-details');
-            detailsContainer.querySelectorAll('.card-tab-btn').forEach(btn => btn.classList.remove('active'));
-            detailsContainer.querySelectorAll('.card-tab-content').forEach(content => content.classList.remove('active'));
-            event.target.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-        }
+        document.getElementById('sprint-input').addEventListener("keypress", function(event) { if (event.key === "Enter") { event.preventDefault(); checkSprintGuess(); } });
+        
+        function toggleTimeline(element) { const allItems = document.querySelectorAll('.timeline-item'); if (element.classList.contains('active')) { element.classList.remove('active'); return; } allItems.forEach(item => item.classList.remove('active')); element.classList.add('active'); }
+        
+        function switchCardTab(event, tabId) { event.stopPropagation(); const detailsContainer = event.target.closest('.timeline-details'); detailsContainer.querySelectorAll('.card-tab-btn').forEach(btn => btn.classList.remove('active')); detailsContainer.querySelectorAll('.card-tab-content').forEach(content => content.classList.remove('active')); event.target.classList.add('active'); document.getElementById(tabId).classList.add('active'); }
     </script>
 </div>
