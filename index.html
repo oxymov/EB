@@ -44,6 +44,73 @@
         pointer-events: auto;
     }
 
+    /* --- NOUVELLE MISE EN PAGE : DIVISION DES COLONNES --- */
+    #encrier-bleu-app .main-layout {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        width: 100%;
+        max-width: 1100px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    #encrier-bleu-app .left-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    /* Panneau droit caché par défaut (mobile) */
+    #encrier-bleu-app .right-panel {
+        display: none; 
+    }
+    
+    /* Affichage du panneau droit uniquement sur grand écran (ordinateur) */
+    @media screen and (min-width: 950px) {
+        #encrier-bleu-app .right-panel {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 420px;
+            background-color: var(--box-bg);
+            border: 2px solid var(--box-border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+            position: sticky;
+            top: 30px;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    }
+
+    /* Styles pour l'article historique */
+    #encrier-bleu-app .article-header-tag {
+        color: var(--warning);
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+    #encrier-bleu-app #article-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: white;
+        margin: 0 0 10px 0;
+        text-transform: uppercase;
+        line-height: 1.1;
+    }
+    #encrier-bleu-app #article-content {
+        font-size: 0.95rem; 
+        line-height: 1.6; 
+        color: var(--text-muted); 
+        text-align: justify; 
+        margin-top: 15px;
+    }
+
     /* HEADER STYLE TUSMO */
     #encrier-bleu-app header { 
         display: flex;
@@ -128,7 +195,6 @@
         transition: transform 0.1s, box-shadow 0.1s;
     }
 
-    /* ANIMATION DE CLIC DYNAMIQUE POUR LE MENU */
     @keyframes btnPopAnim {
         0% { transform: scale(1); filter: brightness(1); }
         50% { transform: scale(0.92) translateY(4px); filter: brightness(1.2); box-shadow: 0 2px 0 var(--box-border); }
@@ -162,7 +228,6 @@
     #encrier-bleu-app .tab-content { display: none; width: 100%; max-width: 600px; }
     #encrier-bleu-app .tab-content.active { display: flex; flex-direction: column; gap: 15px; animation: popIn 0.3s ease-out; }
 
-    /* Éléments de formulaire partagés */
     #encrier-bleu-app .input-section { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; width: 100%; }
     #encrier-bleu-app input[type="text"] { width: 100%; padding: 16px; background-color: var(--bg-color); border: 2px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--text-main); font-size: 1.1rem; text-align: center; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     #encrier-bleu-app input[type="text"]:focus { outline: none; border-color: white; background: rgba(255,255,255,0.1); }
@@ -284,7 +349,7 @@
     #encrier-bleu-app .timeline-item.active::before { background: white; }
 
     /* RESPONSIVE DESIGN */
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 950px) {
         #encrier-bleu-app h1 { font-size: 1.8rem; }
         #encrier-bleu-app .profile-header { flex-direction: column; text-align: center; gap: 10px; }
         #encrier-bleu-app .police-file { padding: 15px; }
@@ -303,8 +368,7 @@
         #encrier-bleu-app .timeline-details { padding: 15px 15px; }
         #encrier-bleu-app .card-tab-btn { font-size: 0.8rem; padding: 5px; }
         
-        /* Ajustement de l'alerte pour mobile */
-        #sci-fi-alert h2 { font-size: 2.2rem; letter-spacing: 2px; }
+        #sci-fi-alert h2 { font-size: 2.2rem; letter-spacing: 2px; text-align: center; }
         #sci-fi-alert p { font-size: 1rem; letter-spacing: 4px; text-align: center;}
     }
 
@@ -317,683 +381,698 @@
     .hidden { display: none !important; }
 </style>
 
-<!-- LE DIV CACHÉ DE L'ALERTE SCI-FI -->
+<!-- ALERTE SCI-FI -->
 <div id="sci-fi-alert">
     <h2>Alerte Rouge</h2>
     <p>Échec Critique - Accès Refusé</p>
 </div>
 
 <div id="encrier-bleu-app">
-    <header>
-        <button id="header-home-btn" class="home-btn" onclick="goHome()">🏠</button>
-        <h1>Encrier Bleu</h1>
-        <div class="subtitle">Enquêtes & Mystères</div>
-    </header>
-
-    <!-- MENU PRINCIPAL TUSMO-STYLE AVEC ANIMATION -->
-    <div id="main-menu" class="tusmo-menu">
-        <button class="tusmo-btn" onclick="animateAndOpen(this, 'game-tab')">
-            <div class="tusmo-btn-content dashed">
-                <div class="tusmo-icon"></div>
-                L'Enquête du Jour
-            </div>
-        </button>
-        <button class="tusmo-btn" onclick="animateAndOpen(this, 'sprint-tab')">
-            <div class="tusmo-btn-content dashed">
-                <div class="tusmo-icon"></div>
-                Dossiers Secrets
-            </div>
-        </button>
-        <button class="tusmo-btn" onclick="animateAndOpen(this, 'timeline-tab')">
-            <div class="tusmo-btn-content dashed">
-                <div class="tusmo-icon"></div>
-                Chronologie
-            </div>
-        </button>
-    </div>
-
-    <!-- ONGLETS -->
-    <div id="game-tab" class="tab-content">
-        <div id="game-core">
-            <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Le Suspect du <span id="display-date" style="color: var(--warning);">jour</span></h3>
-            <div class="tracker" id="daily-tracker">
-                <div class="attempt-box"></div>
-                <div class="attempt-box"></div>
-                <div class="attempt-box"></div>
-            </div>
-            
-            <div id="daily-clues" style="display: flex; flex-direction: column; gap: 10px;"></div>
-
-            <div class="input-section">
-                <input type="text" id="daily-input" placeholder="Qui est-ce ?" autocomplete="off">
-                <button class="btn-primary" onclick="checkDailyGuess()">Valider l'accusation</button>
-            </div>
-        </div>
-
-        <div id="police-file" class="police-file">
-            <span class="tag-success">Enquête Résolue</span>
-            <div class="profile-header">
-                <img id="daily-mugshot" class="mugshot" src="" alt="Suspect" />
-                <div>
-                    <h2 id="pf-name" style="color: #0f172a; margin: 0; font-weight: 800;">-</h2>
-                    <div id="pf-job" style="color: #475569; font-size: 0.9rem; margin-top: 4px; font-weight: 600;">-</div>
-                </div>
-            </div>
-            <div class="section-title">Dossier Public</div>
-            <p id="pf-public" class="content-text">-</p>
-            <div class="section-title">Confidentiel</div>
-            <ul id="pf-secret" class="content-text" style="padding-left: 20px; margin-top: 5px;">
-                -
-            </ul>
-            <button id="share-btn" class="btn-primary" style="margin-top: 15px;" onclick="shareDailyResult()">Partager mon résultat</button>
-        </div>
-    </div>
-
-    <div id="sprint-tab" class="tab-content">
-        <div id="theme-menu" style="display: flex; flex-direction: column; gap: 15px;">
-            <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Sélectionnez un dossier</h3>
-            
-            <div class="theme-card" onclick="openTheme('romantiques')">
-                <div class="theme-title">Le Cercle des Romantiques</div>
-                <div style="font-size: 0.9rem; color: var(--text-muted);">Un réseau d'amis, d'amants et de rivaux du 19e siècle.</div>
-                <div class="stars-container"><div class="stars">⭐</div><div class="difficulty-text">Débutant</div></div><br>
-                <div id="badge-romantiques" class="theme-status hidden">✅ Dossier Classé</div>
-            </div>
-
-            <div class="theme-card" onclick="openTheme('roisoleil')">
-                <div class="theme-title">La Cour du Roi-Soleil</div>
-                <div style="font-size: 0.9rem; color: var(--text-muted);">Intrigues, favorites et ministres à Versailles.</div>
-                <div class="stars-container"><div class="stars">⭐⭐</div><div class="difficulty-text">Intermédiaire</div></div><br>
-                <div id="badge-roisoleil" class="theme-status hidden">✅ Dossier Classé</div>
-            </div>
-
-            <div class="theme-card" onclick="openTheme('lumieres')">
-                <div class="theme-title">Les Philosophes des Lumières</div>
-                <div style="font-size: 0.9rem; color: var(--text-muted);">Penseurs, encyclopédistes et souverains.</div>
-                <div class="stars-container"><div class="stars">⭐⭐⭐</div><div class="difficulty-text">Expert</div></div><br>
-                <div id="badge-lumieres" class="theme-status hidden">✅ Dossier Classé</div>
-            </div>
-
-            <div class="theme-card" onclick="openTheme('revolution')">
-                <div class="theme-title">La Révolution Française</div>
-                <div style="font-size: 0.9rem; color: var(--text-muted);">Girondins, Montagnards et Terreur.</div>
-                <div class="stars-container" style="border-color: rgba(239, 68, 68, 0.3);"><div class="stars" style="color: var(--error);">⭐⭐⭐⭐</div><div class="difficulty-text" style="color: var(--error);">Cauchemar</div></div><br>
-                <div id="badge-revolution" class="theme-status hidden">✅ Dossier Classé</div>
-            </div>
-        </div>
-
-        <div id="sprint-game-area" class="hidden">
-            <div class="sprint-header">
-                <button class="back-btn" onclick="closeTheme()">← Retour</button>
-                <div style="text-align: right;">
-                    <div id="sprint-theme-title" style="font-weight: 800; color: white; text-transform: uppercase;">Titre du thème</div>
-                    <div style="font-size: 0.8rem; color: var(--warning); font-weight: bold;">Complétez l'arbre</div>
-                </div>
-            </div>
-
-            <div id="tree-romantiques" class="tree-container theme-tree hidden">
-                <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Victor Hugo</div><div class="node-relation">Le Centre</div></div>
-                <div class="line-vertical"></div>
-                <div class="branches">
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-dumas" onclick="selectNode('dumas')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">Son rival prolifique</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-dantes"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">Son personnage fétiche</div></div>
-                    </div>
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-sand" onclick="selectNode('sand')"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Amie de lettres</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-musset"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">Son amant maudit</div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tree-roisoleil" class="tree-container theme-tree hidden">
-                <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Louis XIV</div><div class="node-relation">Le Roi Soleil</div></div>
-                <div class="line-vertical"></div>
-                <div class="branches">
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-colbert" onclick="selectNode('colbert')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">Le grand ministre</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-fouquet"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Surintendant déchu</div></div>
-                    </div>
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-montespan" onclick="selectNode('montespan')"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">Favorite rayonnante</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-maintenon"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">L'épouse secrète</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-voisin"><div class="node-photo">?</div><div class="node-title">Suspect E</div><div class="node-relation">L'empoisonneuse</div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tree-lumieres" class="tree-container theme-tree hidden">
-                <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Voltaire</div><div class="node-relation">Patriarche</div></div>
-                <div class="line-vertical"></div>
-                <div class="branches">
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-diderot" onclick="selectNode('diderot')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">L'Encyclopédie</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-alembert"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Son co-directeur</div></div>
-                    </div>
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-montesquieu" onclick="selectNode('montesquieu')"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">Séparation des pouvoirs</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-rousseau"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">Le Contrat Social</div></div>
-                    </div>
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-chatelet" onclick="selectNode('chatelet')"><div class="node-photo">?</div><div class="node-title">Suspect E</div><div class="node-relation">Amante et Savante</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-catherine"><div class="node-photo">?</div><div class="node-title">Suspect F</div><div class="node-relation">La Tsarine éclairée</div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tree-revolution" class="tree-container theme-tree hidden">
-                <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Louis XVI</div><div class="node-relation">Le Roi déchu</div></div>
-                <div class="line-vertical"></div>
-                <div class="branches">
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-lafayette" onclick="selectNode('lafayette')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">Héros des 2 mondes</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-brissot"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Chef des Girondins</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-roland"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">L'égérie girondine</div></div>
-                    </div>
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-danton" onclick="selectNode('danton')"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">Le tribun cordelier</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-desmoulins"><div class="node-photo">?</div><div class="node-title">Suspect E</div><div class="node-relation">Le journaliste acerbe</div></div>
-                    </div>
-                    <div class="branch-col">
-                        <div class="line-vertical"></div>
-                        <div class="node playable" id="node-robespierre" onclick="selectNode('robespierre')"><div class="node-photo">?</div><div class="node-title">Suspect F</div><div class="node-relation">L'Incorruptible</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-saintjust"><div class="node-photo">?</div><div class="node-title">Suspect G</div><div class="node-relation">L'Archange de la Terreur</div></div>
-                        <div class="line-vertical"></div>
-                        <div class="node locked" id="node-fouquier"><div class="node-photo">?</div><div class="node-title">Suspect H</div><div class="node-relation">L'Accusateur public</div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="sprint-interaction" class="hidden">
-                <div class="clue-number" id="sprint-target-name" style="color: var(--warning);">Cible sélectionnée</div>
-                <div id="sprint-clue" style="margin-bottom: 15px;">Sélectionnez un personnage...</div>
-                <div id="sprint-speech" class="speech-bubble"></div>
-                <div class="input-section">
-                    <input type="text" id="sprint-input" placeholder="Qui est-ce ?" autocomplete="off">
-                    <button class="btn-primary" onclick="checkSprintGuess()">Accuser</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="timeline-tab" class="tab-content">
-        <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Les Archives du Temps</h3>
-        <p style="text-align: center; font-size: 0.85rem; margin-top: 0; color: var(--text-muted);">Explorez l'histoire de la science et des arts.</p>
+    <div class="main-layout">
         
-        <div class="timeline-container">
-            <div class="timeline-item" id="item-cleo">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">69 av. J.-C. - 30 av. J.-C.</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-cleo" class="timeline-avatar" src="" alt="Cléopâtre" style="display:none;">
-                                <span>Cléopâtre</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
+        <!-- PANNEAU GAUCHE : LE JEU -->
+        <div class="left-panel">
+            <header>
+                <button id="header-home-btn" class="home-btn" onclick="goHome()">🏠</button>
+                <h1>Encrier Bleu</h1>
+                <div class="subtitle">Enquêtes & Mystères</div>
+            </header>
+
+            <div id="main-menu" class="tusmo-menu">
+                <button class="tusmo-btn" onclick="animateAndOpen(this, 'game-tab')">
+                    <div class="tusmo-btn-content dashed">
+                        <div class="tusmo-icon"></div>
+                        L'Enquête du Jour
+                    </div>
+                </button>
+                <button class="tusmo-btn" onclick="animateAndOpen(this, 'sprint-tab')">
+                    <div class="tusmo-btn-content dashed">
+                        <div class="tusmo-icon"></div>
+                        Dossiers Secrets
+                    </div>
+                </button>
+                <button class="tusmo-btn" onclick="animateAndOpen(this, 'timeline-tab')">
+                    <div class="tusmo-btn-content dashed">
+                        <div class="tusmo-icon"></div>
+                        Chronologie
+                    </div>
+                </button>
+            </div>
+
+            <!-- ONGLETS DU JEU -->
+            <div id="game-tab" class="tab-content">
+                <div id="game-core">
+                    <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Le Suspect du <span id="display-date" style="color: var(--warning);">jour</span></h3>
+                    <div class="tracker" id="daily-tracker">
+                        <div class="attempt-box"></div>
+                        <div class="attempt-box"></div>
+                        <div class="attempt-box"></div>
+                    </div>
+                    
+                    <div id="daily-clues" style="display: flex; flex-direction: column; gap: 10px;"></div>
+
+                    <div class="input-section">
+                        <input type="text" id="daily-input" placeholder="Qui est-ce ?" autocomplete="off">
+                        <button class="btn-primary" onclick="checkDailyGuess()">Valider l'accusation</button>
+                    </div>
+                </div>
+
+                <div id="police-file" class="police-file">
+                    <span class="tag-success">Enquête Résolue</span>
+                    <div class="profile-header">
+                        <img id="daily-mugshot" class="mugshot" src="" alt="Suspect" />
+                        <div>
+                            <h2 id="pf-name" style="color: #0f172a; margin: 0; font-weight: 800;">-</h2>
+                            <div id="pf-job" style="color: #475569; font-size: 0.9rem; margin-top: 4px; font-weight: 600;">-</div>
                         </div>
                     </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'cleo-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'cleo-faits')">Règne</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'cleo-secret')">Le Saviez-vous ?</button>
+                    <div class="section-title">Dossier Public</div>
+                    <p id="pf-public" class="content-text">-</p>
+                    <div class="section-title">Confidentiel</div>
+                    <ul id="pf-secret" class="content-text" style="padding-left: 20px; margin-top: 5px;">
+                        -
+                    </ul>
+                    <button id="share-btn" class="btn-primary" style="margin-top: 15px;" onclick="shareDailyResult()">Partager mon résultat</button>
+                </div>
+            </div>
+
+            <div id="sprint-tab" class="tab-content">
+                <div id="theme-menu" style="display: flex; flex-direction: column; gap: 15px;">
+                    <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Sélectionnez un dossier</h3>
+                    
+                    <div class="theme-card" onclick="openTheme('romantiques')">
+                        <div class="theme-title">Le Cercle des Romantiques</div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Un réseau d'amis, d'amants et de rivaux du 19e siècle.</div>
+                        <div class="stars-container"><div class="stars">⭐</div><div class="difficulty-text">Débutant</div></div><br>
+                        <div id="badge-romantiques" class="theme-status hidden">✅ Dossier Classé</div>
+                    </div>
+
+                    <div class="theme-card" onclick="openTheme('roisoleil')">
+                        <div class="theme-title">La Cour du Roi-Soleil</div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Intrigues, favorites et ministres à Versailles.</div>
+                        <div class="stars-container"><div class="stars">⭐⭐</div><div class="difficulty-text">Intermédiaire</div></div><br>
+                        <div id="badge-roisoleil" class="theme-status hidden">✅ Dossier Classé</div>
+                    </div>
+
+                    <div class="theme-card" onclick="openTheme('lumieres')">
+                        <div class="theme-title">Les Philosophes des Lumières</div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Penseurs, encyclopédistes et souverains.</div>
+                        <div class="stars-container"><div class="stars">⭐⭐⭐</div><div class="difficulty-text">Expert</div></div><br>
+                        <div id="badge-lumieres" class="theme-status hidden">✅ Dossier Classé</div>
+                    </div>
+
+                    <div class="theme-card" onclick="openTheme('revolution')">
+                        <div class="theme-title">La Révolution Française</div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Girondins, Montagnards et Terreur.</div>
+                        <div class="stars-container" style="border-color: rgba(239, 68, 68, 0.3);"><div class="stars" style="color: var(--error);">⭐⭐⭐⭐</div><div class="difficulty-text" style="color: var(--error);">Cauchemar</div></div><br>
+                        <div id="badge-revolution" class="theme-status hidden">✅ Dossier Classé</div>
+                    </div>
+                </div>
+
+                <div id="sprint-game-area" class="hidden">
+                    <div class="sprint-header">
+                        <button class="back-btn" onclick="closeTheme()">← Retour</button>
+                        <div style="text-align: right;">
+                            <div id="sprint-theme-title" style="font-weight: 800; color: white; text-transform: uppercase;">Titre du thème</div>
+                            <div style="font-size: 0.8rem; color: var(--warning); font-weight: bold;">Complétez l'arbre</div>
                         </div>
-                        <div id="cleo-bio" class="card-tab-content active">Dernière reine d'Égypte de la dynastie des Ptolémées, célèbre pour ses relations politiques et amoureuses avec Jules César puis Marc Antoine.</div>
-                        <div id="cleo-faits" class="card-tab-content">- Alliance avec Rome.<br>- Restauration temporaire de la grandeur de l'Égypte antique.</div>
-                        <div id="cleo-secret" class="card-tab-content">Elle n'était pas égyptienne de sang mais macédonienne. Cependant, elle fut la seule de sa dynastie à apprendre la langue égyptienne ancienne.</div>
+                    </div>
+
+                    <div id="tree-romantiques" class="tree-container theme-tree hidden">
+                        <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Victor Hugo</div><div class="node-relation">Le Centre</div></div>
+                        <div class="line-vertical"></div>
+                        <div class="branches">
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-dumas" onclick="selectNode('dumas')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">Son rival prolifique</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-dantes"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">Son personnage fétiche</div></div>
+                            </div>
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-sand" onclick="selectNode('sand')"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Amie de lettres</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-musset"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">Son amant maudit</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tree-roisoleil" class="tree-container theme-tree hidden">
+                        <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Louis XIV</div><div class="node-relation">Le Roi Soleil</div></div>
+                        <div class="line-vertical"></div>
+                        <div class="branches">
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-colbert" onclick="selectNode('colbert')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">Le grand ministre</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-fouquet"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Surintendant déchu</div></div>
+                            </div>
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-montespan" onclick="selectNode('montespan')"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">Favorite rayonnante</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-maintenon"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">L'épouse secrète</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-voisin"><div class="node-photo">?</div><div class="node-title">Suspect E</div><div class="node-relation">L'empoisonneuse</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tree-lumieres" class="tree-container theme-tree hidden">
+                        <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Voltaire</div><div class="node-relation">Patriarche</div></div>
+                        <div class="line-vertical"></div>
+                        <div class="branches">
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-diderot" onclick="selectNode('diderot')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">L'Encyclopédie</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-alembert"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Son co-directeur</div></div>
+                            </div>
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-montesquieu" onclick="selectNode('montesquieu')"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">Séparation des pouvoirs</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-rousseau"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">Le Contrat Social</div></div>
+                            </div>
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-chatelet" onclick="selectNode('chatelet')"><div class="node-photo">?</div><div class="node-title">Suspect E</div><div class="node-relation">Amante et Savante</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-catherine"><div class="node-photo">?</div><div class="node-title">Suspect F</div><div class="node-relation">La Tsarine éclairée</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tree-revolution" class="tree-container theme-tree hidden">
+                        <div class="node solved"><div class="node-photo">✓</div><div class="node-title">Louis XVI</div><div class="node-relation">Le Roi déchu</div></div>
+                        <div class="line-vertical"></div>
+                        <div class="branches">
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-lafayette" onclick="selectNode('lafayette')"><div class="node-photo">?</div><div class="node-title">Suspect A</div><div class="node-relation">Héros des 2 mondes</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-brissot"><div class="node-photo">?</div><div class="node-title">Suspect B</div><div class="node-relation">Chef des Girondins</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-roland"><div class="node-photo">?</div><div class="node-title">Suspect C</div><div class="node-relation">L'égérie girondine</div></div>
+                            </div>
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-danton" onclick="selectNode('danton')"><div class="node-photo">?</div><div class="node-title">Suspect D</div><div class="node-relation">Le tribun cordelier</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-desmoulins"><div class="node-photo">?</div><div class="node-title">Suspect E</div><div class="node-relation">Le journaliste acerbe</div></div>
+                            </div>
+                            <div class="branch-col">
+                                <div class="line-vertical"></div>
+                                <div class="node playable" id="node-robespierre" onclick="selectNode('robespierre')"><div class="node-photo">?</div><div class="node-title">Suspect F</div><div class="node-relation">L'Incorruptible</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-saintjust"><div class="node-photo">?</div><div class="node-title">Suspect G</div><div class="node-relation">L'Archange de la Terreur</div></div>
+                                <div class="line-vertical"></div>
+                                <div class="node locked" id="node-fouquier"><div class="node-photo">?</div><div class="node-title">Suspect H</div><div class="node-relation">L'Accusateur public</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sprint-interaction" class="hidden">
+                        <div class="clue-number" id="sprint-target-name" style="color: var(--warning);">Cible sélectionnée</div>
+                        <div id="sprint-clue" style="margin-bottom: 15px;">Sélectionnez un personnage...</div>
+                        <div id="sprint-speech" class="speech-bubble"></div>
+                        <div class="input-section">
+                            <input type="text" id="sprint-input" placeholder="Qui est-ce ?" autocomplete="off">
+                            <button class="btn-primary" onclick="checkSprintGuess()">Accuser</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="timeline-item" id="item-jeanne">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1412 - 1431</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-jeanne" class="timeline-avatar" src="" alt="Jeanne d'Arc" style="display:none;">
-                                <span>Jeanne d'Arc</span>
+
+            <div id="timeline-tab" class="tab-content">
+                <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Les Archives du Temps</h3>
+                <p style="text-align: center; font-size: 0.85rem; margin-top: 0; color: var(--text-muted);">Explorez l'histoire de la science et des arts.</p>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item" id="item-cleo">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">69 av. J.-C. - 30 av. J.-C.</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-cleo" class="timeline-avatar" src="" alt="Cléopâtre" style="display:none;">
+                                        <span>Cléopâtre</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
                             </div>
-                            <span class="timeline-icon">▼</span>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'cleo-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'cleo-faits')">Règne</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'cleo-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="cleo-bio" class="card-tab-content active">Dernière reine d'Égypte de la dynastie des Ptolémées, célèbre pour ses relations politiques et amoureuses avec Jules César puis Marc Antoine.</div>
+                                <div id="cleo-faits" class="card-tab-content">- Alliance avec Rome.<br>- Restauration temporaire de la grandeur de l'Égypte antique.</div>
+                                <div id="cleo-secret" class="card-tab-content">Elle n'était pas égyptienne de sang mais macédonienne. Cependant, elle fut la seule de sa dynastie à apprendre la langue égyptienne ancienne.</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'jeanne-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'jeanne-faits')">Faits d'armes</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'jeanne-secret')">Le Saviez-vous ?</button>
+                    <div class="timeline-item" id="item-jeanne">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1412 - 1431</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-jeanne" class="timeline-avatar" src="" alt="Jeanne d'Arc" style="display:none;">
+                                        <span>Jeanne d'Arc</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'jeanne-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'jeanne-faits')">Faits d'armes</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'jeanne-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="jeanne-bio" class="card-tab-content active">Née à Domrémy pendant la guerre de Cent Ans, cette jeune paysanne affirme avoir reçu des voix célestes pour délivrer la France des Anglais.</div>
+                                <div id="jeanne-faits" class="card-tab-content">- Libération d'Orléans en 1429.<br>- Conduite de Charles VII à Reims pour son sacre.</div>
+                                <div id="jeanne-secret" class="card-tab-content">Elle portait souvent un étendard blanc pour encourager ses troupes, préférant cela au fait de verser le sang elle-même.</div>
+                            </div>
                         </div>
-                        <div id="jeanne-bio" class="card-tab-content active">Née à Domrémy pendant la guerre de Cent Ans, cette jeune paysanne affirme avoir reçu des voix célestes pour délivrer la France des Anglais.</div>
-                        <div id="jeanne-faits" class="card-tab-content">- Libération d'Orléans en 1429.<br>- Conduite de Charles VII à Reims pour son sacre.</div>
-                        <div id="jeanne-secret" class="card-tab-content">Elle portait souvent un étendard blanc pour encourager ses troupes, préférant cela au fait de verser le sang elle-même.</div>
+                    </div>
+                    <div class="timeline-item" id="item-vinci">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1452 - 1519</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-vinci" class="timeline-avatar" src="" alt="Léonard de Vinci" style="display:none;">
+                                        <span>Léonard de Vinci</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'vinci-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'vinci-faits')">Génie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'vinci-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="vinci-bio" class="card-tab-content active">Figure de la Renaissance. À la fois peintre, sculpteur, inventeur, ingénieur et scientifique italien.</div>
+                                <div id="vinci-faits" class="card-tab-content">- Auteur de La Joconde et La Cène.<br>- Conception théorique de l'hélicoptère et du parachute.</div>
+                                <div id="vinci-secret" class="card-tab-content">Il écrivait la plupart de ses carnets de droite à gauche (écriture spéculaire). Ses notes ne pouvaient être lues qu'à l'aide d'un miroir !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-galilee">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1564 - 1642</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-galilee" class="timeline-avatar" src="" alt="Galilée" style="display:none;">
+                                        <span>Galilée</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'galilee-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'galilee-faits')">Découvertes</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'galilee-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="galilee-bio" class="card-tab-content active">Mathématicien, géomètre, physicien et astronome italien. Il est considéré comme l'un des pères de la science moderne.</div>
+                                <div id="galilee-faits" class="card-tab-content">- Perfectionnement de la lunette astronomique.<br>- Découverte des lunes de Jupiter et défense de l'héliocentrisme.</div>
+                                <div id="galilee-secret" class="card-tab-content">Il n'a jamais dit "Et pourtant elle tourne" (E pur si muove) après sa condamnation par l'Inquisition. C'est une légende inventée un siècle plus tard !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-moliere">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1622 - 1673</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-moliere" class="timeline-avatar" src="" alt="Molière" style="display:none;">
+                                        <span>Molière</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'moliere-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'moliere-faits')">Œuvres</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'moliere-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="moliere-bio" class="card-tab-content active">Jean-Baptiste Poquelin a renoncé à la tapisserie pour fonder l'Illustre Théâtre, devenant le protégé de Louis XIV.</div>
+                                <div id="moliere-faits" class="card-tab-content">- L'Avare (1668)<br>- Le Bourgeois Gentilhomme (1670)<br>- Le Malade imaginaire (1673)</div>
+                                <div id="moliere-secret" class="card-tab-content">Il n'est pas mort sur scène ! Il a fait un malaise en jouant, a fini la pièce, et est décédé quelques heures plus tard chez lui.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-louis">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1638 - 1715</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-louis" class="timeline-avatar" src="" alt="Louis XIV" style="display:none;">
+                                        <span>Louis XIV</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'louis-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'louis-faits')">Règne</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'louis-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="louis-bio" class="card-tab-content active">Le "Roi-Soleil" incarne l'apogée de la monarchie absolue en France. Son règne de 72 ans est l'un des plus longs d'Europe.</div>
+                                <div id="louis-faits" class="card-tab-content">- Agrandissement de Versailles.<br>- Rayonnement culturel sans précédent.</div>
+                                <div id="louis-secret" class="card-tab-content">Malgré le luxe, il ne prenait presque jamais de bain dans l'eau ! Il se frottait avec des linges secs ou imbibés d'alcool parfumé.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-newton">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1642 - 1727</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-newton" class="timeline-avatar" src="" alt="Isaac Newton" style="display:none;">
+                                        <span>Isaac Newton</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'newton-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'newton-faits')">Découvertes</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'newton-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="newton-bio" class="card-tab-content active">Mathématicien et physicien anglais, il est l'une des figures emblématiques de la révolution scientifique.</div>
+                                <div id="newton-faits" class="card-tab-content">- Loi universelle de la gravitation.<br>- Décomposition de la lumière blanche par un prisme.<br>- Création du calcul infinitésimal.</div>
+                                <div id="newton-secret" class="card-tab-content">Il a passé beaucoup plus de temps à étudier l'alchimie et la théologie (cherchant des codes cachés dans la Bible) qu'à faire de la physique !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-voltaire">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1694 - 1778</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-voltaire" class="timeline-avatar" src="" alt="Voltaire" style="display:none;">
+                                        <span>Voltaire</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'voltaire-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'voltaire-faits')">Idées</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'voltaire-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="voltaire-bio" class="card-tab-content active">Écrivain et philosophe majeur des Lumières, ardent défenseur de la liberté d'expression et de la tolérance.</div>
+                                <div id="voltaire-faits" class="card-tab-content">- Auteur du conte "Candide".<br>- Engagement pour réhabiliter Jean Calas.</div>
+                                <div id="voltaire-secret" class="card-tab-content">"Voltaire" est un pseudonyme. Il a fait fortune non pas grâce à ses livres, mais en exploitant une faille mathématique de la loterie nationale !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-napoleon">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1769 - 1821</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-napoleon" class="timeline-avatar" src="" alt="Napoléon Bonaparte" style="display:none;">
+                                        <span>Napoléon Bonaparte</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'napo-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'napo-faits')">Héritage</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'napo-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="napo-bio" class="card-tab-content active">Général sous la Révolution, il prend le pouvoir en 1799 et se fait sacrer Empereur des Français en 1804.</div>
+                                <div id="napo-faits" class="card-tab-content">- Code Civil (1804).<br>- Lycées et Légion d'honneur.</div>
+                                <div id="napo-secret" class="card-tab-content">Il mesurait environ 1m69, la taille moyenne de l'époque. Le mythe du "petit" vient d'une erreur de conversion des mesures par les Anglais.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-darwin">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1809 - 1882</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-darwin" class="timeline-avatar" src="" alt="Charles Darwin" style="display:none;">
+                                        <span>Charles Darwin</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'darwin-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'darwin-faits')">Sciences</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'darwin-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="darwin-bio" class="card-tab-content active">Naturaliste et paléontologue britannique. Ses travaux ont totalement révolutionné la biologie et la façon dont nous comprenons la vie sur Terre.</div>
+                                <div id="darwin-faits" class="card-tab-content">- Son célèbre voyage exploratoire sur le HMS Beagle.<br>- Publication de "L'Origine des espèces" (1859).<br>- Théorie de la sélection naturelle.</div>
+                                <div id="darwin-secret" class="card-tab-content">Il a attendu plus de 20 ans avant de publier sa théorie ! Il avait extrêmement peur des réactions religieuses et du scandale que cela allait provoquer dans la société.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-pasteur">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1822 - 1895</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-pasteur" class="timeline-avatar" src="" alt="Louis Pasteur" style="display:none;">
+                                        <span>Louis Pasteur</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'pasteur-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'pasteur-faits')">Découvertes</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'pasteur-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="pasteur-bio" class="card-tab-content active">Scientifique français illustre, pionnier de la microbiologie, dont les travaux ont sauvé des millions de vies humaines.</div>
+                                <div id="pasteur-faits" class="card-tab-content">- Mise au point du vaccin contre la rage (1885).<br>- Invention de la pasteurisation.<br>- Réfutation définitive de la génération spontanée.</div>
+                                <div id="pasteur-secret" class="card-tab-content">Il n'était pas médecin ! C'était un chimiste de formation. Il a donc dû s'associer avec de vrais médecins pour avoir le droit d'administrer ses vaccins aux patients.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-zola">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1840 - 1902</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-zola" class="timeline-avatar" src="" alt="Émile Zola" style="display:none;">
+                                        <span>Émile Zola</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'zola-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'zola-faits')">Œuvres</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'zola-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="zola-bio" class="card-tab-content active">Chef de file du naturalisme, ce romancier a dépeint la société française avec une précision quasi scientifique.</div>
+                                <div id="zola-faits" class="card-tab-content">- Fresque des "Rougon-Macquart" (Germinal).<br>- Son cri "J'accuse...!" lors de l'affaire Dreyfus.</div>
+                                <div id="zola-secret" class="card-tab-content">Aussi incroyable que cela paraisse, il a raté son baccalauréat deux fois de suite, écopant même d'un zéro en littérature !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-tesla">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1856 - 1943</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-tesla" class="timeline-avatar" src="" alt="Nikola Tesla" style="display:none;">
+                                        <span>Nikola Tesla</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'tesla-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'tesla-faits')">Inventions</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'tesla-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="tesla-bio" class="card-tab-content active">Inventeur et ingénieur d'origine serbe, brillant pionnier de l'ingénierie électrique et rival historique de Thomas Edison.</div>
+                                <div id="tesla-faits" class="card-tab-content">- Développement massif du courant alternatif (CA).<br>- Invention de la bobine Tesla.<br>- Découvertes sur la radiodiffusion et la transmission sans fil.</div>
+                                <div id="tesla-secret" class="card-tab-content">Il souffrait de tocs intenses : il était obsédé par le chiffre 3 (il faisait le tour d'un bâtiment 3 fois avant d'y entrer) et avait une peur phobique des perles et des bijoux ronds.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-marie">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1867 - 1934</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-marie" class="timeline-avatar" src="" alt="Marie Curie" style="display:none;">
+                                        <span>Marie Curie</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'marie-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'marie-faits')">Découvertes</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'marie-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="marie-bio" class="card-tab-content active">Physicienne et chimiste d'origine polonaise, première femme à recevoir un prix Nobel, et la seule à en avoir reçu deux.</div>
+                                <div id="marie-faits" class="card-tab-content">- Polonium et Radium.<br>- Création des unités chirurgicales "Petites Curies".</div>
+                                <div id="marie-secret" class="card-tab-content">Ses cahiers de laboratoire sont encore radioactifs et conservés dans des boîtes en plomb. Il faut une tenue spéciale pour les lire.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-einstein">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1879 - 1955</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-einstein" class="timeline-avatar" src="" alt="Albert Einstein" style="display:none;">
+                                        <span>Albert Einstein</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'einstein-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'einstein-faits')">Sciences</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'einstein-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="einstein-bio" class="card-tab-content active">Physicien théoricien, il a profondément révolutionné notre compréhension de l'espace, du temps et de la gravité.</div>
+                                <div id="einstein-faits" class="card-tab-content">- Théorie de la relativité (E=mc²).<br>- Prix Nobel de physique en 1921.</div>
+                                <div id="einstein-secret" class="card-tab-content">En 1952, on lui a proposé de devenir le deuxième président de l'État d'Israël. Une offre prestigieuse qu'il a poliment refusée.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-turing">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1912 - 1954</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-turing" class="timeline-avatar" src="" alt="Alan Turing" style="display:none;">
+                                        <span>Alan Turing</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'turing-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'turing-faits')">Génie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'turing-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="turing-bio" class="card-tab-content active">Mathématicien et cryptologue britannique. Il est unanimement considéré comme l'un des pères fondateurs de l'informatique moderne et de l'intelligence artificielle.</div>
+                                <div id="turing-faits" class="card-tab-content">- A aidé à décrypter la redoutable machine Enigma pendant la Seconde Guerre mondiale.<br>- A inventé le concept de la "Machine de Turing" et le "Test de Turing".</div>
+                                <div id="turing-secret" class="card-tab-content">En plus de son immense cerveau, il avait un physique hors norme : il était un coureur de fond de niveau quasi olympique et courait souvent pour se rendre à des réunions à plusieurs dizaines de kilomètres !</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-franklin">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1920 - 1958</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-franklin" class="timeline-avatar" src="" alt="Rosalind Franklin" style="display:none;">
+                                        <span>Rosalind Franklin</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'franklin-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'franklin-faits')">Découverte</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'franklin-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="franklin-bio" class="card-tab-content active">Physico-chimiste britannique, elle a été la grande pionnière de la cristallographie aux rayons X appliquée à la biologie.</div>
+                                <div id="franklin-faits" class="card-tab-content">- Elle a réalisé le fameux "Cliché 51", qui a été la toute première preuve visuelle de la structure en double hélice de l'ADN.</div>
+                                <div id="franklin-secret" class="card-tab-content">C'est la grande oubliée de l'histoire des sciences : ses travaux et clichés cruciaux ont été utilisés par Watson et Crick à son insu pour modéliser l'ADN et remporter le prix Nobel de médecine... sans la citer.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="item-hawking">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
+                                <div class="timeline-date">1942 - 2018</div>
+                                <div class="timeline-header">
+                                    <div style="display:flex; align-items:center; gap:12px;">
+                                        <img id="img-hawking" class="timeline-avatar" src="" alt="Stephen Hawking" style="display:none;">
+                                        <span>Stephen Hawking</span>
+                                    </div>
+                                    <span class="timeline-icon">▼</span>
+                                </div>
+                            </div>
+                            <div class="timeline-details">
+                                <div class="card-tabs">
+                                    <button class="card-tab-btn active" onclick="switchCardTab(event, 'hawking-bio')">Biographie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'hawking-faits')">Astronomie</button>
+                                    <button class="card-tab-btn" onclick="switchCardTab(event, 'hawking-secret')">Le Saviez-vous ?</button>
+                                </div>
+                                <div id="hawking-bio" class="card-tab-content active">Physicien théoricien et cosmologiste britannique de génie, dont la brillance scientifique n'a eu d'égal que sa résilience face à la maladie de Charcot.</div>
+                                <div id="hawking-faits" class="card-tab-content">- Découverte de la "Radiation de Hawking" (les trous noirs s'évaporent).<br>- Auteur du best-seller mondial de vulgarisation "Une brève histoire du temps".</div>
+                                <div id="hawking-secret" class="card-tab-content">Il avait un grand sens de l'humour, assumait pleinement son statut d'icône pop-culture, et a même joué son propre rôle dans des séries comme Les Simpson, Futurama et The Big Bang Theory.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="timeline-item" id="item-vinci">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1452 - 1519</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-vinci" class="timeline-avatar" src="" alt="Léonard de Vinci" style="display:none;">
-                                <span>Léonard de Vinci</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'vinci-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'vinci-faits')">Génie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'vinci-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="vinci-bio" class="card-tab-content active">Figure de la Renaissance. À la fois peintre, sculpteur, inventeur, ingénieur et scientifique italien.</div>
-                        <div id="vinci-faits" class="card-tab-content">- Auteur de La Joconde et La Cène.<br>- Conception théorique de l'hélicoptère et du parachute.</div>
-                        <div id="vinci-secret" class="card-tab-content">Il écrivait la plupart de ses carnets de droite à gauche (écriture spéculaire). Ses notes ne pouvaient être lues qu'à l'aide d'un miroir !</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-galilee">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1564 - 1642</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-galilee" class="timeline-avatar" src="" alt="Galilée" style="display:none;">
-                                <span>Galilée</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'galilee-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'galilee-faits')">Découvertes</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'galilee-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="galilee-bio" class="card-tab-content active">Mathématicien, géomètre, physicien et astronome italien. Il est considéré comme l'un des pères de la science moderne.</div>
-                        <div id="galilee-faits" class="card-tab-content">- Perfectionnement de la lunette astronomique.<br>- Découverte des lunes de Jupiter et défense de l'héliocentrisme.</div>
-                        <div id="galilee-secret" class="card-tab-content">Il n'a jamais dit "Et pourtant elle tourne" (E pur si muove) après sa condamnation par l'Inquisition. C'est une légende inventée un siècle plus tard !</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-moliere">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1622 - 1673</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-moliere" class="timeline-avatar" src="" alt="Molière" style="display:none;">
-                                <span>Molière</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'moliere-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'moliere-faits')">Œuvres</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'moliere-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="moliere-bio" class="card-tab-content active">Jean-Baptiste Poquelin a renoncé à la tapisserie pour fonder l'Illustre Théâtre, devenant le protégé de Louis XIV.</div>
-                        <div id="moliere-faits" class="card-tab-content">- L'Avare (1668)<br>- Le Bourgeois Gentilhomme (1670)<br>- Le Malade imaginaire (1673)</div>
-                        <div id="moliere-secret" class="card-tab-content">Il n'est pas mort sur scène ! Il a fait un malaise en jouant, a fini la pièce, et est décédé quelques heures plus tard chez lui.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-louis">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1638 - 1715</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-louis" class="timeline-avatar" src="" alt="Louis XIV" style="display:none;">
-                                <span>Louis XIV</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'louis-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'louis-faits')">Règne</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'louis-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="louis-bio" class="card-tab-content active">Le "Roi-Soleil" incarne l'apogée de la monarchie absolue en France. Son règne de 72 ans est l'un des plus longs d'Europe.</div>
-                        <div id="louis-faits" class="card-tab-content">- Agrandissement de Versailles.<br>- Rayonnement culturel sans précédent.</div>
-                        <div id="louis-secret" class="card-tab-content">Malgré le luxe, il ne prenait presque jamais de bain dans l'eau ! Il se frottait avec des linges secs ou imbibés d'alcool parfumé.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-newton">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1642 - 1727</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-newton" class="timeline-avatar" src="" alt="Isaac Newton" style="display:none;">
-                                <span>Isaac Newton</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'newton-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'newton-faits')">Découvertes</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'newton-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="newton-bio" class="card-tab-content active">Mathématicien et physicien anglais, il est l'une des figures emblématiques de la révolution scientifique.</div>
-                        <div id="newton-faits" class="card-tab-content">- Loi universelle de la gravitation.<br>- Décomposition de la lumière blanche par un prisme.<br>- Création du calcul infinitésimal.</div>
-                        <div id="newton-secret" class="card-tab-content">Il a passé beaucoup plus de temps à étudier l'alchimie et la théologie (cherchant des codes cachés dans la Bible) qu'à faire de la physique !</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-voltaire">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1694 - 1778</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-voltaire" class="timeline-avatar" src="" alt="Voltaire" style="display:none;">
-                                <span>Voltaire</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'voltaire-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'voltaire-faits')">Idées</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'voltaire-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="voltaire-bio" class="card-tab-content active">Écrivain et philosophe majeur des Lumières, ardent défenseur de la liberté d'expression et de la tolérance.</div>
-                        <div id="voltaire-faits" class="card-tab-content">- Auteur du conte "Candide".<br>- Engagement pour réhabiliter Jean Calas.</div>
-                        <div id="voltaire-secret" class="card-tab-content">"Voltaire" est un pseudonyme. Il a fait fortune non pas grâce à ses livres, mais en exploitant une faille mathématique de la loterie nationale !</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-napoleon">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1769 - 1821</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-napoleon" class="timeline-avatar" src="" alt="Napoléon Bonaparte" style="display:none;">
-                                <span>Napoléon Bonaparte</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'napo-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'napo-faits')">Héritage</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'napo-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="napo-bio" class="card-tab-content active">Général sous la Révolution, il prend le pouvoir en 1799 et se fait sacrer Empereur des Français en 1804.</div>
-                        <div id="napo-faits" class="card-tab-content">- Code Civil (1804).<br>- Lycées et Légion d'honneur.</div>
-                        <div id="napo-secret" class="card-tab-content">Il mesurait environ 1m69, la taille moyenne de l'époque. Le mythe du "petit" vient d'une erreur de conversion des mesures par les Anglais.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-darwin">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1809 - 1882</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-darwin" class="timeline-avatar" src="" alt="Charles Darwin" style="display:none;">
-                                <span>Charles Darwin</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'darwin-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'darwin-faits')">Sciences</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'darwin-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="darwin-bio" class="card-tab-content active">Naturaliste et paléontologue britannique. Ses travaux ont totalement révolutionné la biologie et la façon dont nous comprenons la vie sur Terre.</div>
-                        <div id="darwin-faits" class="card-tab-content">- Son célèbre voyage exploratoire sur le HMS Beagle.<br>- Publication de "L'Origine des espèces" (1859).<br>- Théorie de la sélection naturelle.</div>
-                        <div id="darwin-secret" class="card-tab-content">Il a attendu plus de 20 ans avant de publier sa théorie ! Il avait extrêmement peur des réactions religieuses et du scandale que cela allait provoquer dans la société.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-pasteur">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1822 - 1895</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-pasteur" class="timeline-avatar" src="" alt="Louis Pasteur" style="display:none;">
-                                <span>Louis Pasteur</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'pasteur-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'pasteur-faits')">Découvertes</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'pasteur-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="pasteur-bio" class="card-tab-content active">Scientifique français illustre, pionnier de la microbiologie, dont les travaux ont sauvé des millions de vies humaines.</div>
-                        <div id="pasteur-faits" class="card-tab-content">- Mise au point du vaccin contre la rage (1885).<br>- Invention de la pasteurisation.<br>- Réfutation définitive de la génération spontanée.</div>
-                        <div id="pasteur-secret" class="card-tab-content">Il n'était pas médecin ! C'était un chimiste de formation. Il a donc dû s'associer avec de vrais médecins pour avoir le droit d'administrer ses vaccins aux patients.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-zola">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1840 - 1902</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-zola" class="timeline-avatar" src="" alt="Émile Zola" style="display:none;">
-                                <span>Émile Zola</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'zola-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'zola-faits')">Œuvres</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'zola-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="zola-bio" class="card-tab-content active">Chef de file du naturalisme, ce romancier a dépeint la société française avec une précision quasi scientifique.</div>
-                        <div id="zola-faits" class="card-tab-content">- Fresque des "Rougon-Macquart" (Germinal).<br>- Son cri "J'accuse...!" lors de l'affaire Dreyfus.</div>
-                        <div id="zola-secret" class="card-tab-content">Aussi incroyable que cela paraisse, il a raté son baccalauréat deux fois de suite, écopant même d'un zéro en littérature !</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-tesla">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1856 - 1943</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-tesla" class="timeline-avatar" src="" alt="Nikola Tesla" style="display:none;">
-                                <span>Nikola Tesla</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'tesla-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'tesla-faits')">Inventions</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'tesla-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="tesla-bio" class="card-tab-content active">Inventeur et ingénieur d'origine serbe, brillant pionnier de l'ingénierie électrique et rival historique de Thomas Edison.</div>
-                        <div id="tesla-faits" class="card-tab-content">- Développement massif du courant alternatif (CA).<br>- Invention de la bobine Tesla.<br>- Découvertes sur la radiodiffusion et la transmission sans fil.</div>
-                        <div id="tesla-secret" class="card-tab-content">Il souffrait de tocs intenses : il était obsédé par le chiffre 3 (il faisait le tour d'un bâtiment 3 fois avant d'y entrer) et avait une peur phobique des perles et des bijoux ronds.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-marie">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1867 - 1934</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-marie" class="timeline-avatar" src="" alt="Marie Curie" style="display:none;">
-                                <span>Marie Curie</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'marie-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'marie-faits')">Découvertes</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'marie-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="marie-bio" class="card-tab-content active">Physicienne et chimiste d'origine polonaise, première femme à recevoir un prix Nobel, et la seule à en avoir reçu deux.</div>
-                        <div id="marie-faits" class="card-tab-content">- Polonium et Radium.<br>- Création des unités chirurgicales "Petites Curies".</div>
-                        <div id="marie-secret" class="card-tab-content">Ses cahiers de laboratoire sont encore radioactifs et conservés dans des boîtes en plomb. Il faut une tenue spéciale pour les lire.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-einstein">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1879 - 1955</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-einstein" class="timeline-avatar" src="" alt="Albert Einstein" style="display:none;">
-                                <span>Albert Einstein</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'einstein-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'einstein-faits')">Sciences</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'einstein-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="einstein-bio" class="card-tab-content active">Physicien théoricien, il a profondément révolutionné notre compréhension de l'espace, du temps et de la gravité.</div>
-                        <div id="einstein-faits" class="card-tab-content">- Théorie de la relativité (E=mc²).<br>- Prix Nobel de physique en 1921.</div>
-                        <div id="einstein-secret" class="card-tab-content">En 1952, on lui a proposé de devenir le deuxième président de l'État d'Israël. Une offre prestigieuse qu'il a poliment refusée.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-turing">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1912 - 1954</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-turing" class="timeline-avatar" src="" alt="Alan Turing" style="display:none;">
-                                <span>Alan Turing</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'turing-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'turing-faits')">Génie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'turing-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="turing-bio" class="card-tab-content active">Mathématicien et cryptologue britannique. Il est unanimement considéré comme l'un des pères fondateurs de l'informatique moderne et de l'intelligence artificielle.</div>
-                        <div id="turing-faits" class="card-tab-content">- A aidé à décrypter la redoutable machine Enigma pendant la Seconde Guerre mondiale.<br>- A inventé le concept de la "Machine de Turing" et le "Test de Turing".</div>
-                        <div id="turing-secret" class="card-tab-content">En plus de son immense cerveau, il avait un physique hors norme : il était un coureur de fond de niveau quasi olympique et courait souvent pour se rendre à des réunions à plusieurs dizaines de kilomètres !</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-franklin">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1920 - 1958</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-franklin" class="timeline-avatar" src="" alt="Rosalind Franklin" style="display:none;">
-                                <span>Rosalind Franklin</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'franklin-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'franklin-faits')">Découverte</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'franklin-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="franklin-bio" class="card-tab-content active">Physico-chimiste britannique, elle a été la grande pionnière de la cristallographie aux rayons X appliquée à la biologie.</div>
-                        <div id="franklin-faits" class="card-tab-content">- Elle a réalisé le fameux "Cliché 51", qui a été la toute première preuve visuelle de la structure en double hélice de l'ADN.</div>
-                        <div id="franklin-secret" class="card-tab-content">C'est la grande oubliée de l'histoire des sciences : ses travaux et clichés cruciaux ont été utilisés par Watson et Crick à son insu pour modéliser l'ADN et remporter le prix Nobel de médecine... sans la citer.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item" id="item-hawking">
-                <div class="timeline-dot"></div>
-                <div class="timeline-card">
-                    <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
-                        <div class="timeline-date">1942 - 2018</div>
-                        <div class="timeline-header">
-                            <div style="display:flex; align-items:center; gap:12px;">
-                                <img id="img-hawking" class="timeline-avatar" src="" alt="Stephen Hawking" style="display:none;">
-                                <span>Stephen Hawking</span>
-                            </div>
-                            <span class="timeline-icon">▼</span>
-                        </div>
-                    </div>
-                    <div class="timeline-details">
-                        <div class="card-tabs">
-                            <button class="card-tab-btn active" onclick="switchCardTab(event, 'hawking-bio')">Biographie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'hawking-faits')">Astronomie</button>
-                            <button class="card-tab-btn" onclick="switchCardTab(event, 'hawking-secret')">Le Saviez-vous ?</button>
-                        </div>
-                        <div id="hawking-bio" class="card-tab-content active">Physicien théoricien et cosmologiste britannique de génie, dont la brillance scientifique n'a eu d'égal que sa résilience face à la maladie de Charcot.</div>
-                        <div id="hawking-faits" class="card-tab-content">- Découverte de la "Radiation de Hawking" (les trous noirs s'évaporent).<br>- Auteur du best-seller mondial de vulgarisation "Une brève histoire du temps".</div>
-                        <div id="hawking-secret" class="card-tab-content">Il avait un grand sens de l'humour, assumait pleinement son statut d'icône pop-culture, et a même joué son propre rôle dans des séries comme Les Simpson, Futurama et The Big Bang Theory.</div>
-                    </div>
-                </div>
-            </div>
+        </div> <!-- FIN DU PANNEAU GAUCHE -->
+
+        <!-- PANNEAU DROIT (DESKTOP SEULEMENT) : ARTICLE HISTORIQUE -->
+        <div class="right-panel" id="daily-article-container">
+            <div class="article-header-tag">Dossier Historique du Jour</div>
+            <h2 id="article-title">Chargement...</h2>
+            <div id="article-subtitle" class="subtitle" style="display:inline-block; margin-bottom: 15px;"></div>
+            <img id="article-img" src="" alt="Illustration historique" style="width: 100%; border-radius: 8px; margin-bottom: 15px; display: none; border: 2px solid var(--box-border); box-shadow: 0 4px 0 rgba(0,0,0,0.2);">
+            <div id="article-content"></div>
         </div>
-    </div>
+
+    </div> <!-- FIN DU MAIN LAYOUT -->
 
     <script>
         function loadDailyWikipediaImage(characterName) {
@@ -1083,6 +1162,7 @@
 
         document.getElementById('display-date').innerText = adjustedToday.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 
+        // --- FETCH SUSPECTS ---
         fetch('suspects.json')
             .then(r => r.json())
             .then(suspectsList => {
@@ -1097,6 +1177,41 @@
             .catch(e => {
                 console.error(e);
                 dailyCluesContainer.innerHTML = "<p style='color:white;'>Erreur de connexion aux dossiers. Veuillez recharger la page.</p>";
+            });
+
+        // --- FETCH ARTICLES HISTORIQUES (PANNEAU DROIT DESKTOP) ---
+        fetch('articles.json')
+            .then(r => r.json())
+            .then(articlesList => {
+                const startDate = new Date(2024, 0, 1); 
+                startDate.setHours(0,0,0,0);
+                const adjDate = new Date(adjustedToday);
+                adjDate.setHours(0,0,0,0);
+                const diffDays = Math.floor((adjDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+                const articleOfTheDay = articlesList[Math.max(0, diffDays) % articlesList.length];
+                
+                document.getElementById('article-title').innerText = articleOfTheDay.title;
+                document.getElementById('article-subtitle').innerText = articleOfTheDay.subtitle;
+                document.getElementById('article-content').innerHTML = articleOfTheDay.content;
+                
+                // Charger la photo Wikipédia
+                const title = encodeURIComponent(articleOfTheDay.wiki_search.replace(/ /g, '_'));
+                const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${title}&prop=pageimages&format=json&pithumbsize=500&origin=*`;
+                fetch(url).then(r => r.json()).then(data => {
+                    const pages = data.query.pages;
+                    const pageId = Object.keys(pages)[0];
+                    if (pageId !== "-1" && pages[pageId].thumbnail) {
+                        const img = document.getElementById('article-img');
+                        img.src = pages[pageId].thumbnail.source;
+                        img.style.display = 'block';
+                    }
+                }).catch(e => console.log(e));
+            })
+            .catch(e => {
+                console.error("Erreur chargement articles historiques :", e);
+                // Si erreur, on cache le panneau droit
+                const rightPanel = document.getElementById('daily-article-container');
+                if(rightPanel) rightPanel.style.display = 'none';
             });
 
         function initDailyGame() {
@@ -1167,12 +1282,9 @@
                 dailyInputField.classList.add('shake');
                 setTimeout(() => dailyInputField.classList.remove('shake'), 400);
                 dailyInputField.value = "";
-                
                 if (dailyAttemptBoxes[2 - dailyAttempt]) dailyAttemptBoxes[2 - dailyAttempt].classList.add('lost');
-                
                 dailyAttempt++;
                 savedDailyState.attempts = dailyAttempt;
-                
                 if (dailyAttempt < 3) {
                     addDailyClueToDOM(dailyAttempt);
                     localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
@@ -1180,15 +1292,14 @@
                     savedDailyState.status = 'lost';
                     localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
                     
-                    // --- DÉCLENCHEMENT DE L'ALERTE SCI-FI AVANT L'ÉCRAN DE FIN ---
-                    dailyInputField.disabled = true; // Empêche de retaper pendant l'animation
+                    dailyInputField.disabled = true; 
                     const alertDiv = document.getElementById('sci-fi-alert');
                     alertDiv.style.display = 'flex';
                     
                     setTimeout(() => {
                         alertDiv.style.display = 'none';
                         showDailyLoseScreen();
-                    }, 2500); // 2.5 secondes de flash rouge
+                    }, 2500); 
                 }
             }
         }
