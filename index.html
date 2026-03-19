@@ -44,7 +44,7 @@
         pointer-events: auto;
     }
 
-    /* --- NOUVELLE MISE EN PAGE : DIVISION DES COLONNES --- */
+    /* --- MISE EN PAGE : DIVISION DES COLONNES --- */
     #encrier-bleu-app .main-layout {
         display: flex;
         flex-direction: row;
@@ -83,7 +83,40 @@
             position: sticky;
             top: 30px;
             animation: fadeIn 0.5s ease-out forwards;
+            overflow: hidden; /* Pour que le flou ne déborde pas des coins arrondis */
         }
+    }
+
+    /* --- OVERLAY DE VERROUILLAGE DE L'ARTICLE --- */
+    #article-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(30, 41, 59, 0.65); /* Fond semi-transparent */
+        backdrop-filter: blur(12px); /* L'effet de flou magique */
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    #article-overlay.unlocked {
+        opacity: 0;
+        transform: scale(1.1); /* Petit effet de zoom à l'ouverture */
+        pointer-events: none;
+    }
+    #article-overlay .lock-icon {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+        animation: floatLock 3s ease-in-out infinite;
+    }
+    @keyframes floatLock {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
     }
 
     /* Styles pour l'article historique */
@@ -398,6 +431,7 @@
                 <div class="subtitle">Enquêtes & Mystères</div>
             </header>
 
+            <!-- MENU PRINCIPAL -->
             <div id="main-menu" class="tusmo-menu">
                 <button class="tusmo-btn" onclick="animateAndOpen(this, 'game-tab')">
                     <div class="tusmo-btn-content dashed">
@@ -1065,12 +1099,25 @@
 
         <!-- PANNEAU DROIT (DESKTOP SEULEMENT) : ARTICLE HISTORIQUE -->
         <div class="right-panel" id="daily-article-container">
-            <div class="article-header-tag">Dossier Historique du Jour</div>
-            <h2 id="article-title">Chargement...</h2>
-            <div id="article-subtitle" class="subtitle" style="display:inline-block; margin-bottom: 15px;"></div>
-            <img id="article-img" src="" alt="Illustration historique" style="width: 100%; border-radius: 8px; margin-bottom: 15px; display: none; border: 2px solid var(--box-border); box-shadow: 0 4px 0 rgba(0,0,0,0.2);">
-            <div id="article-content"></div>
-        </div>
+            
+            <!-- Le vrai contenu (flouté tant que le cadenas est là) -->
+            <div id="article-actual-content">
+                <div class="article-header-tag">Dossier Historique du Jour</div>
+                <h2 id="article-title">Chargement...</h2>
+                <div id="article-subtitle" class="subtitle" style="display:inline-block; margin-bottom: 15px;"></div>
+                <img id="article-img" src="" alt="Illustration historique" style="width: 100%; border-radius: 8px; margin-bottom: 15px; display: none; border: 2px solid var(--box-border); box-shadow: 0 4px 0 rgba(0,0,0,0.2);">
+                <div id="article-content"></div>
+            </div>
+
+            <!-- OVERLAY DE VERROUILLAGE -->
+            <div id="article-overlay">
+                <div class="lock-icon">🔒</div>
+                <h3 style="color: white; margin: 0; text-transform: uppercase; font-weight: 800; text-align: center;">Dossier Verrouillé</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; text-align: center; margin: 5px 20px 15px 20px;">Le savoir n'attend que vous.</p>
+                <button class="btn-primary" style="width: auto; padding: 12px 24px; font-size: 1rem;" onclick="unlockArticle()">Découvrir l'article</button>
+            </div>
+
+        </div> <!-- FIN DU PANNEAU DROIT -->
 
     </div> <!-- FIN DU MAIN LAYOUT -->
 
@@ -1158,7 +1205,10 @@
 
         const adjustedToday = getAdjustedDate();
         const todayStr = adjustedToday.toLocaleDateString('fr-FR');
-        let savedDailyState = JSON.parse(localStorage.getItem('encrierBleuDaily')) || { date: '', attempts: 0, status: 'playing' };
+        
+        // Ajout de "articleUnlocked" dans la sauvegarde locale
+        let savedDailyState = JSON.parse(localStorage.getItem('encrierBleuDaily')) || { date: '', attempts: 0, status: 'playing', articleUnlocked: false };
+        if (typeof savedDailyState.articleUnlocked === 'undefined') savedDailyState.articleUnlocked = false; // Sécurité si un ancien joueur revient
 
         document.getElementById('display-date').innerText = adjustedToday.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 
@@ -1209,10 +1259,22 @@
             })
             .catch(e => {
                 console.error("Erreur chargement articles historiques :", e);
-                // Si erreur, on cache le panneau droit
                 const rightPanel = document.getElementById('daily-article-container');
                 if(rightPanel) rightPanel.style.display = 'none';
             });
+
+        // Fonction pour déverrouiller l'article
+        function unlockArticle() {
+            const overlay = document.getElementById('article-overlay');
+            overlay.classList.add('unlocked');
+            
+            savedDailyState.articleUnlocked = true;
+            localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500); 
+        }
 
         function initDailyGame() {
             loadDailyWikipediaImage(characterOfTheDay.wiki_search || characterOfTheDay.name);
@@ -1233,10 +1295,20 @@
                         addDailyClueToDOM(i);
                     }
                 }
+
+                // Masquer le verrou si l'utilisateur l'a déjà ouvert aujourd'hui
+                if (savedDailyState.articleUnlocked) {
+                    document.getElementById('article-overlay').style.display = 'none';
+                }
             } else {
-                savedDailyState = { date: todayStr, attempts: 0, status: 'playing' };
+                savedDailyState = { date: todayStr, attempts: 0, status: 'playing', articleUnlocked: false };
                 localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
                 addDailyClueToDOM(0);
+                
+                // S'assurer que le verrou est visible au nouveau jour
+                const overlay = document.getElementById('article-overlay');
+                overlay.style.display = 'flex';
+                overlay.classList.remove('unlocked');
             }
         }
 
