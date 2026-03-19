@@ -1,18 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrier Bleu - L'Enquête Quotidienne</title>
+</head>
+<body>
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
     /* LE CONTENEUR ANTI-BLOCAGE POUR CARRD */
     #encrier-bleu-app {
-        --bg-color: #0b1120;
-        --box-bg: #1e293b;
-        --box-border: #334155;
+        /* NOUVELLE PALETTE INSPIRÉE DE TUSMO */
+        --bg-color: #0b4b61; /* Bleu canard profond TUSMO */
+        --box-bg: #1e293b; /* Conservé pour les éléments de jeu sombres */
+        --box-border: #152b36; /* Ombre profonde */
         --text-main: #f8fafc;
-        --text-muted: #94a3b8;
+        --text-muted: #cbd5e1;
         --accent-blue: #3b82f6;
         --success: #10b981;
         --error: #ef4444;
-        --link-red: #ef4444;
         --warning: #f59e0b;
+        --tusmo-btn-text: #0b4b61;
+        --tusmo-dashed: #3494a3;
         
         font-family: 'Inter', sans-serif !important; 
         background-color: var(--bg-color) !important; 
@@ -34,126 +45,228 @@
         pointer-events: auto;
     }
 
-    #encrier-bleu-app header { text-align: center; margin-bottom: 20px; width: 100%; max-width: 600px; }
-    #encrier-bleu-app h1 { font-size: 1.8rem; font-weight: 700; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
-    #encrier-bleu-app .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
+    /* HEADER STYLE TUSMO */
+    #encrier-bleu-app header { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; 
+        margin-bottom: 30px; 
+        width: 100%; 
+        max-width: 600px; 
+        position: relative;
+    }
+    
+    #encrier-bleu-app h1 { 
+        font-size: 2.5rem; 
+        font-weight: 800; 
+        margin: 0; 
+        letter-spacing: 2px; 
+        text-transform: uppercase; 
+        color: white;
+        text-shadow: 0 4px 0 var(--box-border); /* Ombre 3D sur le texte */
+    }
+    
+    #encrier-bleu-app .subtitle { 
+        color: white; 
+        font-size: 1rem; 
+        font-weight: 600;
+        margin-top: 5px; 
+        background: var(--warning);
+        padding: 4px 12px;
+        border-radius: 20px;
+        box-shadow: 0 2px 0 var(--box-border);
+    }
 
-    /* Navigation */
-    #encrier-bleu-app .tabs { display: flex; justify-content: center; gap: 10px; width: 100%; max-width: 600px; border-bottom: 1px solid var(--box-border); margin-bottom: 20px; flex-wrap: wrap; }
-    #encrier-bleu-app .tab-btn { background: none; color: var(--text-muted); border: none; padding: 10px 15px; font-size: 0.95rem; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; font-family: 'Inter', sans-serif; }
-    #encrier-bleu-app .tab-btn:hover { color: var(--text-main); }
-    #encrier-bleu-app .tab-btn.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); font-weight: 600; }
+    /* BOUTON RETOUR MENU (MAISON) */
+    #encrier-bleu-app .home-btn {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: white;
+        color: var(--tusmo-btn-text);
+        border: none;
+        border-radius: 8px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 4px 0 var(--box-border);
+        display: none; /* Masqué par défaut */
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.1s, box-shadow 0.1s;
+    }
+    #encrier-bleu-app .home-btn:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 var(--box-border);
+    }
+
+    /* --- NOUVEAU MENU PRINCIPAL STYLE TUSMO --- */
+    #encrier-bleu-app .tusmo-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 350px;
+        margin-top: 10px;
+    }
+
+    #encrier-bleu-app .tusmo-btn {
+        background: #ffffff;
+        color: var(--tusmo-btn-text);
+        font-size: 1.1rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 6px;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 6px 0 var(--box-border);
+        cursor: pointer;
+        width: 100%;
+        font-family: 'Inter', sans-serif;
+        transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    #encrier-bleu-app .tusmo-btn:active {
+        transform: translateY(6px);
+        box-shadow: 0 0 0 var(--box-border);
+    }
+
+    #encrier-bleu-app .tusmo-btn-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+        border-radius: 8px;
+    }
+
+    #encrier-bleu-app .tusmo-btn-content.dashed {
+        border: 4px dashed var(--tusmo-dashed);
+    }
+
+    #encrier-bleu-app .tusmo-icon {
+        width: 22px;
+        height: 22px;
+        border: 3px solid var(--tusmo-btn-text);
+        border-radius: 6px;
+        flex-shrink: 0;
+        background: white;
+    }
+
+    /* Le contenu des onglets masqué par défaut */
     #encrier-bleu-app .tab-content { display: none; width: 100%; max-width: 600px; }
-    #encrier-bleu-app .tab-content.active { display: flex; flex-direction: column; gap: 15px; }
+    #encrier-bleu-app .tab-content.active { display: flex; flex-direction: column; gap: 15px; animation: popIn 0.3s ease-out; }
 
     /* Éléments de formulaire partagés */
     #encrier-bleu-app .input-section { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; width: 100%; }
-    #encrier-bleu-app input[type="text"] { width: 100%; padding: 16px; background-color: var(--bg-color); border: 2px solid var(--box-border); border-radius: 6px; color: var(--text-main); font-size: 1.1rem; text-align: center; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    #encrier-bleu-app input[type="text"]:focus { outline: none; border-color: var(--accent-blue); }
-    #encrier-bleu-app button.btn-primary { width: 100%; padding: 16px; background-color: var(--accent-blue); color: white; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-    #encrier-bleu-app button.btn-primary:hover { background-color: #2563eb; }
+    #encrier-bleu-app input[type="text"] { width: 100%; padding: 16px; background-color: var(--bg-color); border: 2px solid rgba(255,255,255,0.2); border-radius: 6px; color: var(--text-main); font-size: 1.1rem; text-align: center; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    #encrier-bleu-app input[type="text"]:focus { outline: none; border-color: white; background: rgba(255,255,255,0.1); }
+    #encrier-bleu-app button.btn-primary { width: 100%; padding: 16px; background-color: white; color: var(--tusmo-btn-text); border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.1s; box-shadow: 0 4px 0 var(--box-border); text-transform: uppercase; }
+    #encrier-bleu-app button.btn-primary:active { transform: translateY(4px); box-shadow: 0 0 0 var(--box-border); }
 
     /* JEU QUOTIDIEN */
     #encrier-bleu-app .tracker { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
-    #encrier-bleu-app .attempt-box { width: 30px; height: 10px; background-color: var(--accent-blue); border-radius: 2px; transition: background-color 0.2s; }
-    #encrier-bleu-app .attempt-box.lost { background-color: var(--box-border); }
-    #encrier-bleu-app .clue-row { background-color: var(--box-bg); border: 2px solid var(--box-border); border-radius: 6px; padding: 16px; font-size: 0.95rem; line-height: 1.5; animation: popIn 0.3s ease-out; }
-    #encrier-bleu-app .clue-number { font-weight: 700; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; display: block; }
+    #encrier-bleu-app .attempt-box { width: 40px; height: 12px; background-color: white; border-radius: 4px; box-shadow: 0 2px 0 var(--box-border); transition: background-color 0.2s; }
+    #encrier-bleu-app .attempt-box.lost { background-color: var(--error); }
+    #encrier-bleu-app .clue-row { background-color: var(--box-bg); border: 2px solid var(--box-border); border-radius: 8px; padding: 16px; font-size: 0.95rem; line-height: 1.5; animation: popIn 0.3s ease-out; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
+    #encrier-bleu-app .clue-number { font-weight: 800; color: var(--warning); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px; display: block; }
     
-    #encrier-bleu-app .police-file { display: none; background-color: var(--text-main); color: var(--bg-color); border-radius: 8px; padding: 25px; border: 2px solid var(--box-border); width: 100%; box-sizing: border-box; }
-    #encrier-bleu-app .tag-success { display: inline-block; background-color: var(--success); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; }
-    #encrier-bleu-app .profile-header { display: flex; gap: 20px; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #cbd5e1; }
-    #encrier-bleu-app .mugshot { width: 80px; height: 80px; background-color: #e2e8f0; border-radius: 4px; flex-shrink: 0; object-fit: cover; border: 1px solid var(--box-border); }
-    #encrier-bleu-app .section-title { font-size: 1rem; font-weight: 700; margin: 20px 0 10px 0; color: #1e293b; text-transform: uppercase; }
+    #encrier-bleu-app .police-file { display: none; background-color: var(--text-main); color: var(--bg-color); border-radius: 8px; padding: 25px; border: 2px solid var(--box-border); width: 100%; box-sizing: border-box; box-shadow: 0 6px 0 rgba(0,0,0,0.3); }
+    #encrier-bleu-app .tag-success { display: inline-block; background-color: var(--success); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; }
+    #encrier-bleu-app .profile-header { display: flex; gap: 20px; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px dashed #cbd5e1; }
+    #encrier-bleu-app .mugshot { width: 80px; height: 80px; background-color: #e2e8f0; border-radius: 8px; flex-shrink: 0; object-fit: cover; border: 2px solid var(--box-border); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
+    #encrier-bleu-app .section-title { font-size: 1rem; font-weight: 800; margin: 20px 0 10px 0; color: #1e293b; text-transform: uppercase; }
     #encrier-bleu-app .content-text { font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; }
 
     /* DOSSIERS / MENU */
-    #encrier-bleu-app .theme-card { background-color: var(--box-bg); border: 1px solid var(--box-border); padding: 20px; border-radius: 8px; cursor: pointer; transition: all 0.2s; text-align: center; position: relative; }
-    #encrier-bleu-app .theme-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
-    #encrier-bleu-app .theme-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; color: var(--accent-blue); }
+    #encrier-bleu-app .theme-card { background-color: var(--box-bg); border: 2px solid var(--box-border); padding: 20px; border-radius: 12px; cursor: pointer; transition: all 0.1s; text-align: center; position: relative; box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
+    #encrier-bleu-app .theme-card:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+    #encrier-bleu-app .theme-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; color: white; text-transform: uppercase;}
     #encrier-bleu-app .theme-status { margin-top: 15px; display: inline-block; background: var(--success); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
     #encrier-bleu-app .stars-container { display: inline-flex; justify-content: center; align-items: center; margin-top: 15px; padding: 6px 15px; border-radius: 20px; background: rgba(0, 0, 0, 0.3); position: relative; cursor: help; border: 1px solid rgba(255,255,255,0.05); min-width: 150px; height: 32px; box-sizing: border-box; }
     #encrier-bleu-app .stars { color: var(--warning); font-size: 0.9rem; letter-spacing: 2px; transition: opacity 0.3s ease; position: absolute; }
-    #encrier-bleu-app .difficulty-text { color: var(--text-main); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; white-space: nowrap; position: absolute; }
+    #encrier-bleu-app .difficulty-text { color: var(--text-main); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; white-space: nowrap; position: absolute; }
     #encrier-bleu-app .stars-container:hover .stars { opacity: 0; }
     #encrier-bleu-app .stars-container:hover .difficulty-text { opacity: 1; }
 
     /* ORGANIGRAMME */
-    #encrier-bleu-app .sprint-header { display: flex; justify-content: space-between; align-items: center; background: var(--box-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--box-border); margin-bottom: 20px; }
-    #encrier-bleu-app .back-btn { background: none; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 5px 10px; border-radius: 4px; cursor: pointer; }
-    #encrier-bleu-app .back-btn:hover { background: var(--text-muted); color: var(--bg-color); }
+    #encrier-bleu-app .sprint-header { display: flex; justify-content: space-between; align-items: center; background: var(--box-bg); padding: 15px; border-radius: 8px; border: 2px solid var(--box-border); margin-bottom: 20px; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
+    #encrier-bleu-app .back-btn { background: white; border: none; color: var(--tusmo-btn-text); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; box-shadow: 0 3px 0 var(--box-border); transition: transform 0.1s; }
+    #encrier-bleu-app .back-btn:active { transform: translateY(3px); box-shadow: 0 0 0 var(--box-border); }
     
     #encrier-bleu-app .tree-container { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 10px; overflow-x: auto; padding-bottom: 20px; width: 100%; -webkit-overflow-scrolling: touch; }
-    #encrier-bleu-app .node { background: var(--bg-color); border: 2px solid var(--box-border); border-radius: 8px; padding: 10px; width: 130px; text-align: center; position: relative; z-index: 2; transition: all 0.2s; flex-shrink: 0; }
-    #encrier-bleu-app .node.locked { border-style: dashed; color: var(--text-muted); opacity: 0.5; cursor: not-allowed; }
-    #encrier-bleu-app .node.playable { border-color: var(--warning); cursor: pointer; box-shadow: 0 0 10px rgba(245, 158, 11, 0.2); }
+    #encrier-bleu-app .node { background: var(--box-bg); border: 2px solid var(--box-border); border-radius: 8px; padding: 10px; width: 130px; text-align: center; position: relative; z-index: 2; transition: all 0.2s; flex-shrink: 0; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
+    #encrier-bleu-app .node.locked { border-style: dashed; color: var(--text-muted); opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+    #encrier-bleu-app .node.playable { border-color: var(--warning); cursor: pointer; }
     #encrier-bleu-app .node.playable:hover { transform: scale(1.05); }
-    #encrier-bleu-app .node.active { border-color: var(--accent-blue); background-color: rgba(59, 130, 246, 0.1); box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
-    #encrier-bleu-app .node.solved { border-color: var(--success); background: var(--box-bg); cursor: default; }
+    #encrier-bleu-app .node.active { border-color: white; background-color: rgba(255, 255, 255, 0.1); }
+    #encrier-bleu-app .node.solved { border-color: var(--success); background: var(--success); color: white !important; cursor: default; }
     
-    #encrier-bleu-app .node-photo { width: 45px; height: 45px; background: var(--box-border); border-radius: 50%; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-    #encrier-bleu-app .node.solved .node-photo { background: var(--success); color: white; }
-    #encrier-bleu-app .node.playable .node-photo { background: var(--warning); color: var(--bg-color); }
-    #encrier-bleu-app .node-title { font-size: 0.8rem; font-weight: 700; }
-    #encrier-bleu-app .node-relation { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; margin-top: 5px; }
+    #encrier-bleu-app .node-photo { width: 45px; height: 45px; background: rgba(0,0,0,0.3); border-radius: 50%; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; }
+    #encrier-bleu-app .node.solved .node-photo { background: white; color: var(--success); }
+    #encrier-bleu-app .node.playable .node-photo { background: var(--warning); color: var(--box-bg); }
+    #encrier-bleu-app .node-title { font-size: 0.8rem; font-weight: 800; }
+    #encrier-bleu-app .node.solved .node-title { color: white !important; }
+    #encrier-bleu-app .node-relation { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; margin-top: 5px; font-weight: 600; }
+    #encrier-bleu-app .node.solved .node-relation { color: rgba(255,255,255,0.8); }
 
-    #encrier-bleu-app .line-vertical { width: 2px; height: 25px; background-color: var(--link-red); z-index: 1; }
+    #encrier-bleu-app .line-vertical { width: 4px; height: 25px; background-color: white; z-index: 1; opacity: 0.3; }
     #encrier-bleu-app .branches { display: flex; justify-content: center; gap: 20px; position: relative; }
-    #encrier-bleu-app .branches::before { content: ''; position: absolute; top: 0; left: 15%; right: 15%; height: 2px; background-color: var(--link-red); z-index: 1; }
+    #encrier-bleu-app .branches::before { content: ''; position: absolute; top: 0; left: 15%; right: 15%; height: 4px; background-color: white; z-index: 1; opacity: 0.3; }
     #encrier-bleu-app .branch-col { display: flex; flex-direction: column; align-items: center; }
 
-    #encrier-bleu-app #sprint-interaction { background: var(--box-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--accent-blue); margin-top: 20px; }
-    #encrier-bleu-app .speech-bubble { display: none; background: #334155; color: white; padding: 15px; border-radius: 8px; font-style: italic; margin-top: 15px; position: relative; font-size: 0.9rem; border-left: 4px solid var(--warning); }
-    #encrier-bleu-app .speech-bubble::after { content: ''; position: absolute; top: -10px; left: 20px; border-width: 0 10px 10px 10px; border-style: solid; border-color: transparent transparent #334155 transparent; }
+    #encrier-bleu-app #sprint-interaction { background: var(--box-bg); padding: 20px; border-radius: 12px; border: 2px solid var(--box-border); margin-top: 20px; box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
+    #encrier-bleu-app .speech-bubble { display: none; background: rgba(0,0,0,0.3); color: white; padding: 15px; border-radius: 8px; font-style: italic; margin-top: 15px; position: relative; font-size: 0.9rem; border-left: 4px solid var(--warning); }
 
     /* LA FRISE CHRONOLOGIQUE */
     #encrier-bleu-app .timeline-container { position: relative; width: 100%; margin: 30px auto; }
-    #encrier-bleu-app .timeline-container::after { content: ''; position: absolute; width: 4px; background: linear-gradient(to bottom, #93c5fd, #3b82f6, #1d4ed8, #0f172a); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px; z-index: 0; }
+    #encrier-bleu-app .timeline-container::after { content: ''; position: absolute; width: 4px; background: rgba(255,255,255,0.1); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px; z-index: 0; }
     
     #encrier-bleu-app .timeline-item { padding: 10px 30px; position: relative; width: 50%; box-sizing: border-box; perspective: 1000px; margin-bottom: 20px; z-index: 1; }
     #encrier-bleu-app .timeline-item:nth-child(odd) { left: 0; }
     #encrier-bleu-app .timeline-item:nth-child(even) { left: 50%; }
     
-    #encrier-bleu-app .timeline-item::before { content: ''; position: absolute; height: 2px; background: var(--box-border); top: 33px; width: 30px; z-index: 1; transition: background 0.3s; }
+    #encrier-bleu-app .timeline-item::before { content: ''; position: absolute; height: 4px; background: rgba(255,255,255,0.1); top: 33px; width: 30px; z-index: 1; transition: background 0.3s; }
     #encrier-bleu-app .timeline-item:nth-child(odd)::before { right: 0; }
     #encrier-bleu-app .timeline-item:nth-child(even)::before { left: 0; }
     
-    #encrier-bleu-app .timeline-dot { position: absolute; width: 12px; height: 12px; background: var(--box-border); border: 4px solid var(--bg-color); box-sizing: content-box; border-radius: 50%; top: 24px; z-index: 10; transition: all 0.3s; }
-    #encrier-bleu-app .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
-    #encrier-bleu-app .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+    #encrier-bleu-app .timeline-dot { position: absolute; width: 14px; height: 14px; background: white; border: 4px solid var(--bg-color); box-sizing: content-box; border-radius: 50%; top: 24px; z-index: 10; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    #encrier-bleu-app .timeline-item:nth-child(odd) .timeline-dot { right: -11px; }
+    #encrier-bleu-app .timeline-item:nth-child(even) .timeline-dot { left: -11px; }
     
-    #encrier-bleu-app .timeline-card { background: var(--box-bg); border: 1px solid var(--box-border); border-radius: 12px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative; z-index: 3; text-align: left; overflow: hidden; }
+    #encrier-bleu-app .timeline-card { background: var(--box-bg); border: 2px solid var(--box-border); border-radius: 12px; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 6px 0 rgba(0,0,0,0.2); position: relative; z-index: 3; text-align: left; overflow: hidden; }
     #encrier-bleu-app .timeline-clickable-area { padding: 20px; cursor: pointer; }
     
     @media (hover: hover) {
-        #encrier-bleu-app .timeline-item:hover .timeline-card { transform: translateY(-3px); border-color: var(--accent-blue); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
-        #encrier-bleu-app .timeline-item:hover .timeline-dot { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
-        #encrier-bleu-app .timeline-item:hover::before { background: var(--accent-blue); }
+        #encrier-bleu-app .timeline-item:hover .timeline-card { transform: translateY(-3px); border-color: white; box-shadow: 0 9px 0 rgba(0,0,0,0.3); }
+        #encrier-bleu-app .timeline-item:hover .timeline-dot { background: var(--warning); transform: scale(1.2); }
+        #encrier-bleu-app .timeline-item:hover::before { background: white; }
     }
     
-    #encrier-bleu-app .timeline-date { display: inline-block; padding: 4px 12px; background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 12px; border: 1px solid rgba(59, 130, 246, 0.3); }
-    #encrier-bleu-app .timeline-header { display: flex; align-items: center; justify-content: space-between; font-weight: 700; font-size: 1.1rem; color: var(--text-main); }
-    #encrier-bleu-app .timeline-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue); flex-shrink: 0; }
-    #encrier-bleu-app .timeline-icon { color: var(--text-muted); transition: transform 0.4s ease; font-size: 0.8rem; background: var(--bg-color); border-radius: 50%; width: 26px; height: 26px; display: flex; justify-content: center; align-items: center; }
+    #encrier-bleu-app .timeline-date { display: inline-block; padding: 4px 12px; background: rgba(255, 255, 255, 0.1); color: white; border-radius: 20px; font-size: 0.8rem; font-weight: 800; margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.2); }
+    #encrier-bleu-app .timeline-header { display: flex; align-items: center; justify-content: space-between; font-weight: 800; font-size: 1.1rem; color: var(--text-main); }
+    #encrier-bleu-app .timeline-avatar { width: 45px; height: 45px; border-radius: 8px; object-fit: cover; border: 2px solid white; flex-shrink: 0; box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+    #encrier-bleu-app .timeline-icon { color: var(--text-muted); transition: transform 0.4s ease; font-size: 0.8rem; background: rgba(0,0,0,0.2); border-radius: 50%; width: 26px; height: 26px; display: flex; justify-content: center; align-items: center; }
     
-    #encrier-bleu-app .timeline-details { display: none; background: rgba(15, 23, 42, 0.5); border-top: 1px solid var(--box-border); padding: 15px 20px; }
-    #encrier-bleu-app .card-tabs { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 1px solid var(--box-border); padding-bottom: 5px; flex-wrap: wrap; }
-    #encrier-bleu-app .card-tab-btn { background: none; border: none; color: var(--text-muted); font-size: 0.85rem; padding: 5px 10px; cursor: pointer; transition: color 0.2s; font-family: 'Inter', sans-serif; font-weight: 600; }
-    #encrier-bleu-app .card-tab-btn:hover { color: var(--text-main); }
-    #encrier-bleu-app .card-tab-btn.active { color: var(--accent-blue); border-bottom: 2px solid var(--accent-blue); }
+    #encrier-bleu-app .timeline-details { display: none; background: rgba(0,0,0,0.2); border-top: 2px solid var(--box-border); padding: 15px 20px; }
+    #encrier-bleu-app .card-tabs { display: flex; gap: 10px; margin-bottom: 15px; border-bottom: 2px dashed rgba(255,255,255,0.1); padding-bottom: 10px; flex-wrap: wrap; }
+    #encrier-bleu-app .card-tab-btn { background: none; border: none; color: var(--text-muted); font-size: 0.85rem; padding: 5px 10px; cursor: pointer; transition: color 0.2s; font-family: 'Inter', sans-serif; font-weight: 800; text-transform: uppercase;}
+    #encrier-bleu-app .card-tab-btn:hover { color: white; }
+    #encrier-bleu-app .card-tab-btn.active { color: var(--warning); border-bottom: 2px solid var(--warning); }
     #encrier-bleu-app .card-tab-content { display: none; font-size: 0.9rem; line-height: 1.6; color: var(--text-muted); animation: fadeIn 0.3s ease; }
     #encrier-bleu-app .card-tab-content.active { display: block; }
     
     #encrier-bleu-app .timeline-item.active .timeline-details { display: block; animation: fadeInDown 0.4s ease forwards; }
-    #encrier-bleu-app .timeline-item.active .timeline-card { border-color: var(--accent-blue); }
-    #encrier-bleu-app .timeline-item.active .timeline-icon { transform: rotate(180deg); color: white; background: var(--accent-blue); }
-    #encrier-bleu-app .timeline-item.active .timeline-dot { background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue); }
-    #encrier-bleu-app .timeline-item.active::before { background: var(--accent-blue); }
+    #encrier-bleu-app .timeline-item.active .timeline-card { border-color: white; }
+    #encrier-bleu-app .timeline-item.active .timeline-icon { transform: rotate(180deg); color: var(--bg-color); background: white; }
+    #encrier-bleu-app .timeline-item.active .timeline-dot { background: var(--warning); }
+    #encrier-bleu-app .timeline-item.active::before { background: white; }
 
     /* RESPONSIVE DESIGN */
     @media screen and (max-width: 600px) {
-        #encrier-bleu-app h1 { font-size: 1.5rem; }
-        #encrier-bleu-app .tab-btn { padding: 8px 10px; font-size: 0.85rem; }
+        #encrier-bleu-app h1 { font-size: 1.8rem; }
         #encrier-bleu-app .profile-header { flex-direction: column; text-align: center; gap: 10px; }
         #encrier-bleu-app .police-file { padding: 15px; }
         #encrier-bleu-app .node { width: 100px; padding: 8px; }
@@ -183,19 +296,37 @@
 
 <div id="encrier-bleu-app">
     <header>
+        <button id="header-home-btn" class="home-btn" onclick="goHome()">🏠</button>
         <h1>Encrier Bleu</h1>
-        <div class="subtitle">L'Enquête Quotidienne</div>
+        <div class="subtitle">Enquêtes & Mystères</div>
     </header>
 
-    <nav class="tabs">
-        <button class="tab-btn active" onclick="switchTab('game-tab')">L'Enquête</button>
-        <button class="tab-btn" onclick="switchTab('sprint-tab')">Dossiers</button>
-        <button class="tab-btn" onclick="switchTab('timeline-tab')">Chronologie</button>
-    </nav>
+    <!-- NOUVEAU MENU PRINCIPAL TUSMO-STYLE -->
+    <div id="main-menu" class="tusmo-menu">
+        <button class="tusmo-btn" onclick="openView('game-tab')">
+            <div class="tusmo-btn-content dashed">
+                <div class="tusmo-icon"></div>
+                L'Enquête du Jour
+            </div>
+        </button>
+        <button class="tusmo-btn" onclick="openView('sprint-tab')">
+            <div class="tusmo-btn-content dashed">
+                <div class="tusmo-icon"></div>
+                Dossiers Secrets
+            </div>
+        </button>
+        <button class="tusmo-btn" onclick="openView('timeline-tab')">
+            <div class="tusmo-btn-content dashed">
+                <div class="tusmo-icon"></div>
+                Chronologie
+            </div>
+        </button>
+    </div>
 
-    <div id="game-tab" class="tab-content active">
+    <!-- Le game-tab n'a plus la classe "active" par défaut pour afficher le menu d'abord -->
+    <div id="game-tab" class="tab-content">
         <div id="game-core">
-            <h3 style="text-align: center; color: var(--text-muted); margin-bottom: 5px;">Le Suspect du <span id="display-date">jour</span></h3>
+            <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Le Suspect du <span id="display-date" style="color: var(--warning);">jour</span></h3>
             <div class="tracker" id="daily-tracker">
                 <div class="attempt-box"></div>
                 <div class="attempt-box"></div>
@@ -205,8 +336,8 @@
             <div id="daily-clues" style="display: flex; flex-direction: column; gap: 10px;"></div>
 
             <div class="input-section">
-                <input type="text" id="daily-input" placeholder="Taper un nom..." autocomplete="off">
-                <button class="btn-primary" onclick="checkDailyGuess()">Valider</button>
+                <input type="text" id="daily-input" placeholder="Qui est-ce ?" autocomplete="off">
+                <button class="btn-primary" onclick="checkDailyGuess()">Valider l'accusation</button>
             </div>
         </div>
 
@@ -215,8 +346,8 @@
             <div class="profile-header">
                 <img id="daily-mugshot" class="mugshot" src="" alt="Suspect" />
                 <div>
-                    <h2 id="pf-name" style="color: #0f172a; margin: 0;">-</h2>
-                    <div id="pf-job" style="color: #475569; font-size: 0.9rem; margin-top: 4px;">-</div>
+                    <h2 id="pf-name" style="color: #0f172a; margin: 0; font-weight: 800;">-</h2>
+                    <div id="pf-job" style="color: #475569; font-size: 0.9rem; margin-top: 4px; font-weight: 600;">-</div>
                 </div>
             </div>
             <div class="section-title">Dossier Public</div>
@@ -225,19 +356,19 @@
             <ul id="pf-secret" class="content-text" style="padding-left: 20px; margin-top: 5px;">
                 -
             </ul>
-            <button id="share-btn" class="btn-primary" style="margin-top: 15px; background-color: var(--bg-color); border: 2px solid var(--box-border);" onclick="shareDailyResult()">Partager mon résultat</button>
+            <button id="share-btn" class="btn-primary" style="margin-top: 15px;" onclick="shareDailyResult()">Partager mon résultat</button>
         </div>
     </div>
 
     <div id="sprint-tab" class="tab-content">
         <div id="theme-menu" style="display: flex; flex-direction: column; gap: 15px;">
-            <h3 style="text-align: center; color: var(--text-muted); margin-bottom: 5px;">Sélectionnez un dossier à résoudre</h3>
+            <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Sélectionnez un dossier</h3>
             
             <div class="theme-card" onclick="openTheme('romantiques')">
                 <div class="theme-title">Le Cercle des Romantiques</div>
                 <div style="font-size: 0.9rem; color: var(--text-muted);">Un réseau d'amis, d'amants et de rivaux du 19e siècle.</div>
                 <div class="stars-container"><div class="stars">⭐</div><div class="difficulty-text">Débutant</div></div><br>
-                <div id="badge-romantiques" class="theme-status hidden">Dossier Classé</div>
+                <div id="badge-romantiques" class="theme-status hidden">✅ Dossier Classé</div>
             </div>
 
             <div class="theme-card" onclick="openTheme('roisoleil')">
@@ -266,8 +397,8 @@
             <div class="sprint-header">
                 <button class="back-btn" onclick="closeTheme()">← Retour</button>
                 <div style="text-align: right;">
-                    <div id="sprint-theme-title" style="font-weight: bold; color: var(--accent-blue);">Titre du thème</div>
-                    <div style="font-size: 0.8rem; color: var(--text-muted);">Complétez l'arbre</div>
+                    <div id="sprint-theme-title" style="font-weight: 800; color: white; text-transform: uppercase;">Titre du thème</div>
+                    <div style="font-size: 0.8rem; color: var(--warning); font-weight: bold;">Complétez l'arbre</div>
                 </div>
             </div>
 
@@ -378,11 +509,10 @@
     </div>
 
     <div id="timeline-tab" class="tab-content">
-        <h3 style="text-align: center; color: var(--text-muted); margin-bottom: 5px;">Les Archives du Temps</h3>
+        <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Les Archives du Temps</h3>
         <p style="text-align: center; font-size: 0.85rem; margin-top: 0; color: var(--text-muted);">Explorez l'histoire de la science et des arts.</p>
         
         <div class="timeline-container">
-            
             <div class="timeline-item" id="item-cleo">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -408,7 +538,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-jeanne">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -434,7 +563,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-vinci">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -460,7 +588,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-galilee">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -486,7 +613,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-moliere">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -512,7 +638,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-louis">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -538,7 +663,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-newton">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -564,7 +688,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-voltaire">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -590,7 +713,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-napoleon">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -616,7 +738,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="timeline-item" id="item-darwin">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -642,7 +763,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-pasteur">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -668,7 +788,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-zola">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -694,7 +813,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-tesla">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -720,8 +838,7 @@
                     </div>
                 </div>
             </div>
-
-             <div class="timeline-item" id="item-marie">
+            <div class="timeline-item" id="item-marie">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
@@ -746,8 +863,7 @@
                     </div>
                 </div>
             </div>
-
-             <div class="timeline-item" id="item-einstein">
+            <div class="timeline-item" id="item-einstein">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
                     <div class="timeline-clickable-area" onclick="toggleTimeline(this.closest('.timeline-item'))">
@@ -772,7 +888,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="timeline-item" id="item-turing">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -798,7 +913,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-franklin">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -824,7 +938,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="timeline-item" id="item-hawking">
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
@@ -850,7 +963,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -905,12 +1017,27 @@
             });
         }
 
-        // --- GESTION DES ONGLETS PRINCIPAUX ---
-        function switchTab(tabId) {
+        // --- NOUVELLE LOGIQUE DE MENU TUSMO-STYLE ---
+        function openView(tabId) {
+            // Masquer le menu
+            document.getElementById('main-menu').style.display = 'none';
+            // Afficher le bouton retour
+            document.getElementById('header-home-btn').style.display = 'flex';
+            
+            // Masquer tous les contenus
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            // Afficher la cible
             document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+        }
+
+        function goHome() {
+            // Afficher le menu
+            document.getElementById('main-menu').style.display = 'flex';
+            // Masquer le bouton retour
+            document.getElementById('header-home-btn').style.display = 'none';
+            
+            // Masquer tous les contenus
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
         }
 
         // ==============================================================
@@ -922,61 +1049,42 @@
         const dailyInputField = document.getElementById('daily-input');
         const dailyAttemptBoxes = document.querySelectorAll('#daily-tracker .attempt-box');
 
-        // --- GESTION DE LA BASCULE A 21h30 ---
         function getAdjustedDate() {
             const now = new Date();
-            // On ajoute 2h30 (9000000 millisecondes) à l'heure actuelle.
-            // Ainsi, à 21h30, l'ordinateur croit qu'il est déjà minuit le jour suivant !
             now.setTime(now.getTime() + (2 * 60 + 30) * 60 * 1000);
             return now;
         }
 
         const adjustedToday = getAdjustedDate();
-        // C'est cette date (qui bascule à 21h30) qu'on utilise pour la sauvegarde
         const todayStr = adjustedToday.toLocaleDateString('fr-FR');
         let savedDailyState = JSON.parse(localStorage.getItem('encrierBleuDaily')) || { date: '', attempts: 0, status: 'playing' };
 
-        // On affiche la "vraie" date du personnage en cours sur l'écran
         document.getElementById('display-date').innerText = adjustedToday.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 
-        // --- CHARGEMENT DES SUSPECTS DEPUIS LE FICHIER JSON ---
         fetch('suspects.json')
-            .then(response => response.json())
+            .then(r => r.json())
             .then(suspectsList => {
-                // On fixe une date de départ (ex: 1er Janvier 2024)
                 const startDate = new Date(2024, 0, 1); 
-                startDate.setHours(0,0,0,0); 
-                
-                // On utilise notre date "ajustée" pour calculer le jour en cours
+                startDate.setHours(0,0,0,0);
                 const adjDate = new Date(adjustedToday);
                 adjDate.setHours(0,0,0,0);
                 const diffDays = Math.floor((adjDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-                
-                // Sélectionne le personnage en fonction du jour calculé
                 characterOfTheDay = suspectsList[Math.max(0, diffDays) % suspectsList.length];
-
-                // Lance le jeu maintenant que le personnage est chargé
                 initDailyGame();
             })
-            .catch(error => {
-                console.error("Erreur de chargement des suspects:", error);
-                dailyCluesContainer.innerHTML = "<p style='color:var(--error);'>Erreur de connexion aux dossiers. Veuillez recharger la page.</p>";
+            .catch(e => {
+                console.error(e);
+                dailyCluesContainer.innerHTML = "<p style='color:white;'>Erreur de connexion aux dossiers. Veuillez recharger la page.</p>";
             });
 
         function initDailyGame() {
-            // Utilise en priorité la clé "wiki_search" de ton JSON, sinon le nom par défaut
             loadDailyWikipediaImage(characterOfTheDay.wiki_search || characterOfTheDay.name);
             loadTimelineImages(); 
 
-            // --- SAUVEGARDE: Restauration de l'état du jeu quotidien ---
             if (savedDailyState.date === todayStr) {
                 dailyAttempt = savedDailyState.attempts;
-                
-                // Remettre les cases rouges pour les tentatives ratées
                 for(let i = 0; i < dailyAttempt; i++) {
-                    if (characterOfTheDay.maxAttempts - 1 - i >= 0) {
-                        dailyAttemptBoxes[characterOfTheDay.maxAttempts - 1 - i].classList.add('lost');
-                    }
+                    if (dailyAttemptBoxes[2 - i]) dailyAttemptBoxes[2 - i].classList.add('lost');
                 }
 
                 if (savedDailyState.status === 'won') {
@@ -984,7 +1092,7 @@
                 } else if (savedDailyState.status === 'lost') {
                     showDailyLoseScreen();
                 } else {
-                    for(let i = 0; i <= dailyAttempt && i < characterOfTheDay.maxAttempts; i++) {
+                    for(let i = 0; i <= dailyAttempt && i < 3; i++) {
                         addDailyClueToDOM(i);
                     }
                 }
@@ -996,6 +1104,7 @@
         }
 
         function addDailyClueToDOM(index) {
+            if (!characterOfTheDay.clues[index]) return;
             const clueDiv = document.createElement('div');
             clueDiv.className = 'clue-row';
             clueDiv.innerHTML = `<span class="clue-number">Indice ${index + 1} / 3</span>${characterOfTheDay.clues[index]}`;
@@ -1015,15 +1124,14 @@
             document.getElementById('game-core').innerHTML = `
                 <div class="clue-row" style="text-align:center; border-color: var(--error);">
                     <h2 style="color: var(--error); margin-bottom: 10px;">Échec</h2>
-                    <p>Le suspect était : <strong>${characterOfTheDay.name}</strong></p>
-                    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px;">Revenez demain à 21h30 pour une nouvelle enquête.</p>
+                    <p style="color: white;">Le suspect était : <strong>${characterOfTheDay.name}</strong></p>
+                    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px;">Nouvelle enquête demain à 21h30.</p>
                 </div>
             `;
         }
 
         function checkDailyGuess() {
-            if (!characterOfTheDay) return; // Sécurité si le JSON n'est pas encore chargé
-            
+            if (!characterOfTheDay) return;
             const input = dailyInputField.value.trim();
             if(!input) return;
             const val = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -1034,17 +1142,13 @@
                 localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
                 showDailyWinScreen();
             } else {
-                dailyInputField.classList.remove('shake'); void dailyInputField.offsetWidth; dailyInputField.classList.add('shake');
+                dailyInputField.classList.add('shake');
+                setTimeout(() => dailyInputField.classList.remove('shake'), 400);
                 dailyInputField.value = "";
-                
-                if (characterOfTheDay.maxAttempts - 1 - dailyAttempt >= 0) {
-                    dailyAttemptBoxes[characterOfTheDay.maxAttempts - 1 - dailyAttempt].classList.add('lost');
-                }
-                
+                if (dailyAttemptBoxes[2 - dailyAttempt]) dailyAttemptBoxes[2 - dailyAttempt].classList.add('lost');
                 dailyAttempt++;
                 savedDailyState.attempts = dailyAttempt;
-
-                if (dailyAttempt < characterOfTheDay.maxAttempts) {
+                if (dailyAttempt < 3) {
                     addDailyClueToDOM(dailyAttempt);
                     localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
                 } else {
@@ -1055,36 +1159,24 @@
             }
         }
 
-        dailyInputField.addEventListener("keypress", function(event) { if (event.key === "Enter") { event.preventDefault(); checkDailyGuess(); } });
+        dailyInputField.addEventListener("keypress", (e) => { if (e.key === "Enter") checkDailyGuess(); });
 
         function shareDailyResult() {
-            const shareText = `🖋️ Encrier Bleu\nJ'ai démasqué le suspect du jour en ${dailyAttempt + 1}/3 indices !\n\nViens enquêter sur encrierbleu.fr`;
+            const shareText = `🖋️ Encrier Bleu\nJ'ai trouvé le suspect du jour en ${dailyAttempt + 1}/3 indices !\n\nViens enquêter sur encrierbleu.fr`;
             navigator.clipboard.writeText(shareText).then(() => {
                 const btn = document.getElementById('share-btn');
-                const originalText = btn.innerText;
-                btn.innerText = "Copié dans le presse-papier ! ✅";
-                btn.style.backgroundColor = "var(--success)";
-                btn.style.color = "white";
-                btn.style.borderColor = "var(--success)";
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.backgroundColor = "var(--bg-color)";
-                    btn.style.color = "var(--text-main)";
-                    btn.style.borderColor = "var(--box-border)";
-                }, 2500);
+                btn.innerText = "Copié ! ✅";
+                setTimeout(() => btn.innerText = "Partager mon résultat", 2000);
             });
         }
 
-
         // ==============================================================
-        // 2. DOSSIERS ET 3. CHRONOLOGIE SONT INCHANGÉS
+        // 2. DOSSIERS ET 3. CHRONOLOGIE
         // ==============================================================
         const themesConfig = { 'romantiques': { total: 4, solved: 0, badge: 'badge-romantiques', title: 'Le Cercle des Romantiques' }, 'roisoleil': { total: 5, solved: 0, badge: 'badge-roisoleil', title: 'La Cour du Roi-Soleil' }, 'lumieres': { total: 6, solved: 0, badge: 'badge-lumieres', title: 'Les Philosophes des Lumières' }, 'revolution': { total: 8, solved: 0, badge: 'badge-revolution', title: 'La Révolution Française' } };
         let currentTheme = null;
         const treeData = { "dumas": { answer: "alexandre dumas", aliases: ["dumas"], title: "A. Dumas", clue: "Auteur des Trois Mousquetaires.", speech: "« L'histoire est un clou auquel j'accroche mes romans. »", unlocks: ["dantes"] }, "dantes": { answer: "edmond dantes", aliases: ["dantes", "le comte de monte-cristo", "monte-cristo"], title: "Edmond Dantès", clue: "Marin emprisonné à tort au Château d'If.", speech: "« Attendre et espérer ! »", unlocks: [] }, "sand": { answer: "george sand", aliases: ["sand"], title: "George Sand", clue: "Auteure de La Mare au Diable.", speech: "« Le souvenir est le parfum de l'âme. »", unlocks: ["musset"] }, "musset": { answer: "alfred de musset", aliases: ["musset"], title: "A. de Musset", clue: "Poète maudit, auteur des Caprices de Marianne.", speech: "« Les plus désespérés sont les chants les plus beaux. »", unlocks: [] }, "colbert": { answer: "jean-baptiste colbert", aliases: ["colbert"], title: "Colbert", clue: "Ministre d'État de Louis XIV, j'ai fondé l'Académie des sciences.", speech: "« Il faut agir avec grand soin. »", unlocks: ["fouquet"] }, "fouquet": { answer: "nicolas fouquet", aliases: ["fouquet"], title: "Fouquet", clue: "Surintendant, mon château de Vaux-le-Vicomte a rendu le roi jaloux.", speech: "« Quo non ascendet ? »", unlocks: [] }, "montespan": { answer: "madame de montespan", aliases: ["montespan", "marquise de montespan"], title: "Montespan", clue: "Favorite du roi pendant des années, je lui ai donné 7 enfants.", speech: "« Je suis l'égale du roi. »", unlocks: ["maintenon"] }, "maintenon": { answer: "madame de maintenon", aliases: ["maintenon", "marquise de maintenon"], title: "Maintenon", clue: "Gouvernante des enfants illégitimes du roi, j'ai fini par l'épouser.", speech: "« Je veux bien qu'on me respecte. »", unlocks: ["voisin"] }, "voisin": { answer: "la voisin", aliases: ["catherine despot", "voisin", "catherine montvoisin"], title: "La Voisin", clue: "Célèbre empoisonneuse brûlée vive lors de l'affaire des poisons.", speech: "« Je connais les secrets de tout Paris. »", unlocks: [] }, "diderot": { answer: "denis diderot", aliases: ["diderot"], title: "Diderot", clue: "Philosophe et maître d'œuvre de l'Encyclopédie.", speech: "« Aucun homme n'a reçu le droit de commander aux autres. »", unlocks: ["alembert"] }, "alembert": { answer: "jean le rond d'alembert", aliases: ["d'alembert", "alembert"], title: "D'Alembert", clue: "Mathématicien, j'ai rédigé le Discours préliminaire de l'Encyclopédie.", speech: "« La philosophie n'est autre chose que l'application de la raison. »", unlocks: [] }, "montesquieu": { answer: "montesquieu", aliases: ["charles de montesquieu"], title: "Montesquieu", clue: "Auteur des Lettres persanes et de De l'esprit des lois.", speech: "« Il faut que le pouvoir arrête le pouvoir. »", unlocks: ["rousseau"] }, "rousseau": { answer: "jean-jacques rousseau", aliases: ["rousseau"], title: "Rousseau", clue: "Philosophe genevois, auteur du Contrat social.", speech: "« L'homme est né libre et partout il est dans les fers. »", unlocks: [] }, "chatelet": { answer: "emilie du chatelet", aliases: ["chatelet", "émilie du châtelet", "emilie du chatelet"], title: "Du Châtelet", clue: "Physicienne, traductrice de Newton et compagne de Voltaire.", speech: "« J'aime l'étude avec passion. »", unlocks: ["catherine"] }, "catherine": { answer: "catherine ii", aliases: ["catherine la grande", "catherine 2", "catherine deux", "catherine de russie"], title: "Catherine II", clue: "Impératrice de Russie et correspondante de nombreux philosophes.", speech: "« Je suis aristocrate, c'est mon métier. »", unlocks: [] }, "lafayette": { answer: "marquis de la fayette", aliases: ["lafayette", "la fayette"], title: "La Fayette", clue: "Héros américain, j'ai ébauché la Déclaration des droits de l'homme.", speech: "« Cur non ? (Pourquoi pas ?) »", unlocks: ["brissot"] }, "brissot": { answer: "jacques pierre brissot", aliases: ["brissot"], title: "Brissot", clue: "Chef de file des Girondins, j'ai poussé à la guerre en 1792.", speech: "« Il nous faut de grandes trahisons ! »", unlocks: ["roland"] }, "roland": { answer: "madame roland", aliases: ["manon roland", "roland", "jeanne marie roland"], title: "Mme Roland", clue: "J'ai tenu un célèbre salon pour les Girondins avant d'être guillotinée.", speech: "« Ô Liberté, que de crimes on commet en ton nom ! »", unlocks: [] }, "danton": { answer: "georges danton", aliases: ["danton"], title: "Danton", clue: "Orateur charismatique du Club des Cordeliers et ministre de la Justice.", speech: "« De l'audace, encore de l'audace, toujours de l'audace ! »", unlocks: ["desmoulins"] }, "desmoulins": { answer: "camille desmoulins", aliases: ["desmoulins"], title: "Desmoulins", clue: "Journaliste, j'ai appelé le peuple aux armes le 12 juillet 1789.", speech: "« Aux armes, citoyens ! »", unlocks: [] }, "robespierre": { answer: "maximilien robespierre", aliases: ["robespierre", "maximilien de robespierre"], title: "Robespierre", clue: "L'Incorruptible, figure majeure du Comité de salut public.", speech: "« La terreur n'est autre chose que la justice prompte et sévère. »", unlocks: ["saintjust"] }, "saintjust": { answer: "louis antoine de saint-just", aliases: ["saint-just", "saint just", "louis de saint-just"], title: "Saint-Just", clue: "Le plus jeune député, surnommé l'Archange de la Terreur.", speech: "« Pas de liberté pour les ennemis de la liberté. »", unlocks: ["fouquier"] }, "fouquier": { answer: "antoine quentin fouquier-tinville", aliases: ["fouquier", "fouquier-tinville", "fouquier tinville"], title: "Fouquier", clue: "L'implacable Accusateur public du Tribunal révolutionnaire.", speech: "« C'est la loi qui frappe, ce n'est pas moi. »", unlocks: [] } };
         let activeNodeId = null; let failsOnCurrentNode = 0;
-
-        // --- SAUVEGARDE: Restauration des Dossiers (Sprints) ---
         let savedSprintState = JSON.parse(localStorage.getItem('encrierBleuSprints')) || [];
         
         function restoreSprintState() {
@@ -1098,8 +1190,7 @@
                     nodeElement.onclick = null;
                     nodeElement.querySelector('.node-photo').innerText = "✓";
                     nodeElement.querySelector('.node-title').innerText = data.title;
-                    nodeElement.querySelector('.node-title').style.color = "var(--text-main)";
-                    
+                    nodeElement.querySelector('.node-title').style.color = "white";
                     data.unlocks.forEach(childId => {
                         const childNode = document.getElementById('node-' + childId);
                         if(childNode && !savedSprintState.includes(childId)) {
@@ -1110,29 +1201,21 @@
                     });
                 }
             });
-
-            // Re-calculer les thèmes complétés
             Object.keys(themesConfig).forEach(themeKey => {
                 const treeEl = document.getElementById('tree-' + themeKey);
                 if(treeEl) {
-                   const solvedCount = treeEl.querySelectorAll('.node.solved').length - 1; // -1 car le noeud central est déjà "solved" de base
+                   const solvedCount = treeEl.querySelectorAll('.node.solved').length - 1;
                    themesConfig[themeKey].solved = solvedCount;
-                   if(solvedCount >= themesConfig[themeKey].total) {
-                       document.getElementById(themesConfig[themeKey].badge).classList.remove('hidden');
-                   }
+                   if(solvedCount >= themesConfig[themeKey].total) document.getElementById(themesConfig[themeKey].badge).classList.remove('hidden');
                 }
             });
         }
         
-        // On lance la restauration des dossiers au chargement
         restoreSprintState();
 
         function openTheme(themeId) { currentTheme = themeId; document.getElementById('theme-menu').classList.add('hidden'); document.querySelectorAll('.theme-tree').forEach(tree => tree.classList.add('hidden')); document.getElementById('tree-' + themeId).classList.remove('hidden'); document.getElementById('sprint-game-area').classList.remove('hidden'); document.getElementById('sprint-theme-title').innerText = themesConfig[themeId].title; }
-        
         function closeTheme() { document.getElementById('sprint-game-area').classList.add('hidden'); document.getElementById('theme-menu').classList.remove('hidden'); document.getElementById('sprint-interaction').classList.add('hidden'); if(activeNodeId) { document.getElementById('node-' + activeNodeId).classList.remove('active'); activeNodeId = null; } }
-        
         function selectNode(nodeId) { const nodeElement = document.getElementById('node-' + nodeId); if (!nodeElement.classList.contains('playable')) return; if (activeNodeId) document.getElementById('node-' + activeNodeId).classList.remove('active'); nodeElement.classList.add('active'); activeNodeId = nodeId; failsOnCurrentNode = 0; const data = treeData[nodeId]; document.getElementById('sprint-interaction').classList.remove('hidden'); document.getElementById('sprint-target-name').innerText = "Cible : " + nodeElement.querySelector('.node-relation').innerText; document.getElementById('sprint-clue').innerText = data.clue; document.getElementById('sprint-input').value = ""; document.getElementById('sprint-input').focus(); document.getElementById('sprint-speech').style.display = 'none'; }
-        
         function checkSprintGuess() { 
             if (!activeNodeId) return; 
             const input = document.getElementById('sprint-input'); 
@@ -1140,7 +1223,6 @@
             const val = input.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
             const target = data.answer.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
             const aliases = (data.aliases || []).map(a => a.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")); 
-            
             if (val === target || aliases.includes(val)) { 
                 const nodeElement = document.getElementById('node-' + activeNodeId); 
                 nodeElement.classList.remove('playable', 'active'); 
@@ -1148,30 +1230,23 @@
                 nodeElement.onclick = null; 
                 nodeElement.querySelector('.node-photo').innerText = "✓"; 
                 nodeElement.querySelector('.node-title').innerText = data.title; 
-                nodeElement.querySelector('.node-title').style.color = "var(--text-main)"; 
-                
-                // --- SAUVEGARDE DU NOUVEAU NOEUD ---
                 savedSprintState.push(activeNodeId);
                 localStorage.setItem('encrierBleuSprints', JSON.stringify(savedSprintState));
-
-                const childrenToUnlock = data.unlocks; 
-                childrenToUnlock.forEach(childId => { 
+                data.unlocks.forEach(childId => { 
                     const childNode = document.getElementById('node-' + childId); 
                     childNode.classList.remove('locked'); 
                     childNode.classList.add('playable'); 
                     childNode.setAttribute('onclick', `selectNode('${childId}')`); 
                 }); 
-                
                 document.getElementById('sprint-interaction').classList.add('hidden'); 
                 activeNodeId = null; 
                 themesConfig[currentTheme].solved++; 
-                
                 if (themesConfig[currentTheme].solved === themesConfig[currentTheme].total) { 
                     document.getElementById(themesConfig[currentTheme].badge).classList.remove('hidden'); 
-                    setTimeout(() => { alert("Félicitations ! Vous avez complété le dossier : " + themesConfig[currentTheme].title + " !"); closeTheme(); }, 800); 
+                    setTimeout(() => { alert("Dossier Classé !"); closeTheme(); }, 800); 
                 } 
             } else { 
-                input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake'); input.value = ""; 
+                input.classList.add('shake'); setTimeout(() => input.classList.remove('shake'), 400); input.value = ""; 
                 failsOnCurrentNode++; 
                 if (failsOnCurrentNode >= 2) { 
                     const speechBox = document.getElementById('sprint-speech'); 
@@ -1181,10 +1256,9 @@
             } 
         }
 
-        document.getElementById('sprint-input').addEventListener("keypress", function(event) { if (event.key === "Enter") { event.preventDefault(); checkSprintGuess(); } });
-        
         function toggleTimeline(element) { const allItems = document.querySelectorAll('.timeline-item'); if (element.classList.contains('active')) { element.classList.remove('active'); return; } allItems.forEach(item => item.classList.remove('active')); element.classList.add('active'); }
-        
         function switchCardTab(event, tabId) { event.stopPropagation(); const detailsContainer = event.target.closest('.timeline-details'); detailsContainer.querySelectorAll('.card-tab-btn').forEach(btn => btn.classList.remove('active')); detailsContainer.querySelectorAll('.card-tab-content').forEach(content => content.classList.remove('active')); event.target.classList.add('active'); document.getElementById(tabId).classList.add('active'); }
     </script>
 </div>
+</body>
+</html>
