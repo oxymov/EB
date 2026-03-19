@@ -10,7 +10,6 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
-    /* SUPPRESSION DES BORDS BLANCS DU NAVIGATEUR */
     html, body {
         margin: 0;
         padding: 0;
@@ -20,9 +19,7 @@
         overflow-x: hidden;
     }
 
-    /* LE CONTENEUR ANTI-BLOCAGE POUR CARRD */
     #encrier-bleu-app {
-        /* PALETTE "ENCRIER BLEU" */
         --bg-color: #021124;       
         --box-bg: #0a1f3a;         
         --box-border: #010a17;     
@@ -56,7 +53,6 @@
         pointer-events: auto;
     }
 
-    /* --- MISE EN PAGE : DIVISION DES COLONNES --- */
     #encrier-bleu-app .main-layout {
         display: flex;
         flex-direction: row;
@@ -97,7 +93,6 @@
         }
     }
 
-    /* --- OVERLAY DE VERROUILLAGE DE L'ARTICLE --- */
     #article-overlay {
         position: absolute;
         top: 0;
@@ -129,7 +124,6 @@
         50% { transform: translateY(-10px); }
     }
 
-    /* Styles pour l'article historique */
     #encrier-bleu-app .article-header-tag {
         color: var(--warning);
         font-size: 0.8rem;
@@ -154,7 +148,6 @@
         margin-top: 15px;
     }
 
-    /* HEADER STYLE TUSMO */
     #encrier-bleu-app header { 
         display: flex;
         flex-direction: column;
@@ -188,7 +181,6 @@
         box-shadow: 0 2px 0 var(--box-border);
     }
 
-    /* BOUTON RETOUR MENU (MAISON) */
     #encrier-bleu-app .home-btn {
         position: absolute;
         left: 0;
@@ -212,7 +204,6 @@
         box-shadow: 0 0 0 var(--box-border);
     }
 
-    /* MENU PRINCIPAL STYLE TUSMO */
     #encrier-bleu-app .tusmo-menu {
         display: flex;
         flex-direction: column;
@@ -277,7 +268,6 @@
     #encrier-bleu-app button.btn-primary { width: 100%; padding: 16px; background-color: white; color: var(--tusmo-btn-text); border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.1s; box-shadow: 0 4px 0 var(--box-border); text-transform: uppercase; }
     #encrier-bleu-app button.btn-primary:active { transform: translateY(4px); box-shadow: 0 0 0 var(--box-border); }
 
-    /* JEU QUOTIDIEN */
     #encrier-bleu-app .tracker { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
     #encrier-bleu-app .attempt-box { width: 40px; height: 12px; background-color: white; border-radius: 4px; box-shadow: 0 2px 0 var(--box-border); transition: background-color 0.2s; }
     #encrier-bleu-app .attempt-box.lost { background-color: var(--error); }
@@ -289,11 +279,9 @@
     #encrier-bleu-app .profile-header { display: flex; gap: 20px; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px dashed #94a3b8; }
     #encrier-bleu-app .mugshot { width: 80px; height: 80px; background-color: #e2e8f0; border-radius: 8px; flex-shrink: 0; object-fit: cover; border: 2px solid var(--box-border); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
     
-    /* Nuances de bleu pour l'intérieur de la fiche de police */
     #encrier-bleu-app .section-title { font-size: 1rem; font-weight: 800; margin: 20px 0 10px 0; color: var(--bg-color); text-transform: uppercase; }
     #encrier-bleu-app .content-text { font-size: 0.95rem; line-height: 1.6; color: #16365d; margin: 0; }
 
-    /* L'ANIMATION SCI-FI PLEIN ÉCRAN POUR L'ÉCHEC */
     #sci-fi-alert {
         position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
         background: rgba(239, 68, 68, 0.95);
@@ -309,7 +297,6 @@
         100% { background: rgba(180, 0, 0, 0.95); box-shadow: inset 0 0 100px rgba(0,0,0,0.8); }
     }
 
-    /* DOSSIERS / MENU */
     #encrier-bleu-app .theme-card { background-color: var(--box-bg); border: 2px solid var(--box-border); padding: 20px; border-radius: 12px; cursor: pointer; transition: all 0.1s; text-align: center; position: relative; box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
     #encrier-bleu-app .theme-card:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
     #encrier-bleu-app .theme-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; color: white; text-transform: uppercase;}
@@ -320,7 +307,6 @@
     #encrier-bleu-app .stars-container:hover .stars { opacity: 0; }
     #encrier-bleu-app .stars-container:hover .difficulty-text { opacity: 1; }
 
-    /* ORGANIGRAMME */
     #encrier-bleu-app .sprint-header { display: flex; justify-content: space-between; align-items: center; background: var(--box-bg); padding: 15px; border-radius: 8px; border: 2px solid var(--box-border); margin-bottom: 20px; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
     #encrier-bleu-app .back-btn { background: white; border: none; color: var(--tusmo-btn-text); padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; box-shadow: 0 3px 0 var(--box-border); transition: transform 0.1s; }
     #encrier-bleu-app .back-btn:active { transform: translateY(3px); box-shadow: 0 0 0 var(--box-border); }
@@ -349,7 +335,6 @@
     #encrier-bleu-app #sprint-interaction { background: var(--box-bg); padding: 20px; border-radius: 12px; border: 2px solid var(--box-border); margin-top: 20px; box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
     #encrier-bleu-app .speech-bubble { display: none; background: rgba(0,0,0,0.3); color: white; padding: 15px; border-radius: 8px; font-style: italic; margin-top: 15px; position: relative; font-size: 0.9rem; border-left: 4px solid var(--warning); }
 
-    /* LA FRISE CHRONOLOGIQUE */
     #encrier-bleu-app .timeline-container { position: relative; width: 100%; margin: 30px auto; }
     #encrier-bleu-app .timeline-container::after { content: ''; position: absolute; width: 4px; background: rgba(255,255,255,0.1); top: 0; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px; z-index: 0; }
     
@@ -393,10 +378,8 @@
     #encrier-bleu-app .timeline-item.active .timeline-dot { background: var(--warning); }
     #encrier-bleu-app .timeline-item.active::before { background: white; }
 
-    /* RESPONSIVE DESIGN (TELEPHONE) */
     @media screen and (max-width: 950px) {
         
-        /* --- CENTRAGE VERTICAL EXCLUSIF AU MOBILE POUR LA PAGE D'ACCUEIL --- */
         #encrier-bleu-app .main-layout {
             margin-top: auto;
             margin-bottom: auto;
@@ -428,7 +411,6 @@
         #sci-fi-alert p { font-size: 1rem; letter-spacing: 4px; text-align: center;}
     }
 
-    /* Animations Existantes */
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes popIn { 0% { opacity: 0; transform: scale(0.98); } 100% { opacity: 1; transform: scale(1); } }
@@ -437,7 +419,6 @@
     .hidden { display: none !important; }
 </style>
 
-<!-- ALERTE SCI-FI -->
 <div id="sci-fi-alert">
     <h2>Alerte Rouge</h2>
     <p>Échec Critique - Accès Refusé</p>
@@ -446,7 +427,6 @@
 <div id="encrier-bleu-app">
     <div class="main-layout">
         
-        <!-- PANNEAU GAUCHE : LE JEU -->
         <div class="left-panel">
             <header>
                 <button id="header-home-btn" class="home-btn" onclick="goHome()">🏠</button>
@@ -454,7 +434,6 @@
                 <div class="subtitle">Enquêtes & Mystères</div>
             </header>
 
-            <!-- MENU PRINCIPAL -->
             <div id="main-menu" class="tusmo-menu">
                 <button class="tusmo-btn" onclick="animateAndOpen(this, 'game-tab')">
                     <div class="tusmo-btn-content dashed">
@@ -476,7 +455,6 @@
                 </button>
             </div>
 
-            <!-- ONGLETS DU JEU -->
             <div id="game-tab" class="tab-content">
                 <div id="game-core">
                     <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Le Suspect du <span id="display-date" style="color: var(--warning);">jour</span></h3>
@@ -1118,12 +1096,10 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- FIN DU PANNEAU GAUCHE -->
+        </div>
 
-        <!-- PANNEAU DROIT (DESKTOP SEULEMENT) : ARTICLE HISTORIQUE -->
         <div class="right-panel" id="daily-article-container">
             
-            <!-- Le vrai contenu (flouté tant que le cadenas est là) -->
             <div id="article-actual-content">
                 <div class="article-header-tag">Dossier Historique du Jour</div>
                 <h2 id="article-title">Chargement...</h2>
@@ -1132,7 +1108,6 @@
                 <div id="article-content"></div>
             </div>
 
-            <!-- OVERLAY DE VERROUILLAGE -->
             <div id="article-overlay">
                 <div class="lock-icon">🔒</div>
                 <h3 style="color: white; margin: 0; text-transform: uppercase; font-weight: 800; text-align: center;">Dossier Verrouillé</h3>
@@ -1140,9 +1115,9 @@
                 <button class="btn-primary" style="width: auto; padding: 12px 24px; font-size: 1rem;" onclick="unlockArticle()">Découvrir l'article</button>
             </div>
 
-        </div> <!-- FIN DU PANNEAU DROIT -->
+        </div>
 
-    </div> <!-- FIN DU MAIN LAYOUT -->
+    </div>
 
     <script>
         function loadDailyWikipediaImage(characterName) {
@@ -1192,7 +1167,6 @@
             });
         }
 
-        // ANIMATION ET OUVERTURE DU MENU
         function animateAndOpen(btn, tabId) {
             btn.classList.add('pop-anim');
             setTimeout(() => {
@@ -1234,7 +1208,6 @@
 
         document.getElementById('display-date').innerText = adjustedToday.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 
-        // --- FETCH SUSPECTS ---
         fetch('suspects.json')
             .then(r => r.json())
             .then(suspectsList => {
@@ -1251,7 +1224,6 @@
                 dailyCluesContainer.innerHTML = "<p style='color:white;'>Erreur de connexion aux dossiers. Veuillez recharger la page.</p>";
             });
 
-        // --- FETCH ARTICLES HISTORIQUES (PANNEAU DROIT DESKTOP) ---
         fetch('articles.json')
             .then(r => r.json())
             .then(articlesList => {
@@ -1266,7 +1238,6 @@
                 document.getElementById('article-subtitle').innerText = articleOfTheDay.subtitle;
                 document.getElementById('article-content').innerHTML = articleOfTheDay.content;
                 
-                // Charger la photo Wikipédia
                 const title = encodeURIComponent(articleOfTheDay.wiki_search.replace(/ /g, '_'));
                 const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${title}&prop=pageimages&format=json&pithumbsize=500&origin=*`;
                 fetch(url).then(r => r.json()).then(data => {
@@ -1280,12 +1251,11 @@
                 }).catch(e => console.log(e));
             })
             .catch(e => {
-                console.error("Erreur chargement articles historiques :", e);
+                console.error(e);
                 const rightPanel = document.getElementById('daily-article-container');
                 if(rightPanel) rightPanel.style.display = 'none';
             });
 
-        // Fonction pour déverrouiller l'article
         function unlockArticle() {
             const overlay = document.getElementById('article-overlay');
             overlay.classList.add('unlocked');
