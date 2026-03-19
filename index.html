@@ -12,10 +12,9 @@
 
     /* LE CONTENEUR ANTI-BLOCAGE POUR CARRD */
     #encrier-bleu-app {
-        /* NOUVELLE PALETTE INSPIRÉE DE TUSMO */
-        --bg-color: #0b4b61; /* Bleu canard profond TUSMO */
-        --box-bg: #1e293b; /* Conservé pour les éléments de jeu sombres */
-        --box-border: #152b36; /* Ombre profonde */
+        --bg-color: #0b4b61; 
+        --box-bg: #1e293b; 
+        --box-border: #152b36; 
         --text-main: #f8fafc;
         --text-muted: #cbd5e1;
         --accent-blue: #3b82f6;
@@ -65,7 +64,7 @@
         letter-spacing: 2px; 
         text-transform: uppercase; 
         color: white;
-        text-shadow: 0 4px 0 var(--box-border); /* Ombre 3D sur le texte */
+        text-shadow: 0 4px 0 var(--box-border);
     }
     
     #encrier-bleu-app .subtitle { 
@@ -93,7 +92,7 @@
         font-size: 1.5rem;
         cursor: pointer;
         box-shadow: 0 4px 0 var(--box-border);
-        display: none; /* Masqué par défaut */
+        display: none; 
         align-items: center;
         justify-content: center;
         transition: transform 0.1s, box-shadow 0.1s;
@@ -103,7 +102,7 @@
         box-shadow: 0 0 0 var(--box-border);
     }
 
-    /* --- NOUVEAU MENU PRINCIPAL STYLE TUSMO --- */
+    /* MENU PRINCIPAL STYLE TUSMO */
     #encrier-bleu-app .tusmo-menu {
         display: flex;
         flex-direction: column;
@@ -129,9 +128,14 @@
         transition: transform 0.1s, box-shadow 0.1s;
     }
 
-    #encrier-bleu-app .tusmo-btn:active {
-        transform: translateY(6px);
-        box-shadow: 0 0 0 var(--box-border);
+    /* ANIMATION DE CLIC DYNAMIQUE POUR LE MENU */
+    @keyframes btnPopAnim {
+        0% { transform: scale(1); filter: brightness(1); }
+        50% { transform: scale(0.92) translateY(4px); filter: brightness(1.2); box-shadow: 0 2px 0 var(--box-border); }
+        100% { transform: scale(1); filter: brightness(1); }
+    }
+    .pop-anim {
+        animation: btnPopAnim 0.25s ease-out forwards !important;
     }
 
     #encrier-bleu-app .tusmo-btn-content {
@@ -155,7 +159,6 @@
         background: white;
     }
 
-    /* Le contenu des onglets masqué par défaut */
     #encrier-bleu-app .tab-content { display: none; width: 100%; max-width: 600px; }
     #encrier-bleu-app .tab-content.active { display: flex; flex-direction: column; gap: 15px; animation: popIn 0.3s ease-out; }
 
@@ -179,6 +182,22 @@
     #encrier-bleu-app .mugshot { width: 80px; height: 80px; background-color: #e2e8f0; border-radius: 8px; flex-shrink: 0; object-fit: cover; border: 2px solid var(--box-border); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
     #encrier-bleu-app .section-title { font-size: 1rem; font-weight: 800; margin: 20px 0 10px 0; color: #1e293b; text-transform: uppercase; }
     #encrier-bleu-app .content-text { font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; }
+
+    /* L'ANIMATION SCI-FI PLEIN ÉCRAN POUR L'ÉCHEC */
+    #sci-fi-alert {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(239, 68, 68, 0.95);
+        z-index: 9999999; display: none; flex-direction: column;
+        justify-content: center; align-items: center;
+        animation: sciFiFlash 0.3s infinite alternate;
+        pointer-events: none; 
+    }
+    #sci-fi-alert h2 { font-size: 3rem; color: white; margin: 0; text-transform: uppercase; text-shadow: 0 0 20px rgba(255,255,255,0.8); font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 5px; }
+    #sci-fi-alert p { font-size: 1.2rem; color: white; text-transform: uppercase; letter-spacing: 8px; margin-top: 10px; font-weight: 600; }
+    @keyframes sciFiFlash {
+        0% { background: rgba(239, 68, 68, 0.95); box-shadow: inset 0 0 50px rgba(0,0,0,0.5); }
+        100% { background: rgba(180, 0, 0, 0.95); box-shadow: inset 0 0 100px rgba(0,0,0,0.8); }
+    }
 
     /* DOSSIERS / MENU */
     #encrier-bleu-app .theme-card { background-color: var(--box-bg); border: 2px solid var(--box-border); padding: 20px; border-radius: 12px; cursor: pointer; transition: all 0.1s; text-align: center; position: relative; box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
@@ -283,9 +302,13 @@
         
         #encrier-bleu-app .timeline-details { padding: 15px 15px; }
         #encrier-bleu-app .card-tab-btn { font-size: 0.8rem; padding: 5px; }
+        
+        /* Ajustement de l'alerte pour mobile */
+        #sci-fi-alert h2 { font-size: 2.2rem; letter-spacing: 2px; }
+        #sci-fi-alert p { font-size: 1rem; letter-spacing: 4px; text-align: center;}
     }
 
-    /* Animations */
+    /* Animations Existantes */
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes popIn { 0% { opacity: 0; transform: scale(0.98); } 100% { opacity: 1; transform: scale(1); } }
@@ -294,6 +317,12 @@
     .hidden { display: none !important; }
 </style>
 
+<!-- LE DIV CACHÉ DE L'ALERTE SCI-FI -->
+<div id="sci-fi-alert">
+    <h2>Alerte Rouge</h2>
+    <p>Échec Critique - Accès Refusé</p>
+</div>
+
 <div id="encrier-bleu-app">
     <header>
         <button id="header-home-btn" class="home-btn" onclick="goHome()">🏠</button>
@@ -301,21 +330,21 @@
         <div class="subtitle">Enquêtes & Mystères</div>
     </header>
 
-    <!-- NOUVEAU MENU PRINCIPAL TUSMO-STYLE -->
+    <!-- MENU PRINCIPAL TUSMO-STYLE AVEC ANIMATION -->
     <div id="main-menu" class="tusmo-menu">
-        <button class="tusmo-btn" onclick="openView('game-tab')">
+        <button class="tusmo-btn" onclick="animateAndOpen(this, 'game-tab')">
             <div class="tusmo-btn-content dashed">
                 <div class="tusmo-icon"></div>
                 L'Enquête du Jour
             </div>
         </button>
-        <button class="tusmo-btn" onclick="openView('sprint-tab')">
+        <button class="tusmo-btn" onclick="animateAndOpen(this, 'sprint-tab')">
             <div class="tusmo-btn-content dashed">
                 <div class="tusmo-icon"></div>
                 Dossiers Secrets
             </div>
         </button>
-        <button class="tusmo-btn" onclick="openView('timeline-tab')">
+        <button class="tusmo-btn" onclick="animateAndOpen(this, 'timeline-tab')">
             <div class="tusmo-btn-content dashed">
                 <div class="tusmo-icon"></div>
                 Chronologie
@@ -323,7 +352,7 @@
         </button>
     </div>
 
-    <!-- Le game-tab n'a plus la classe "active" par défaut pour afficher le menu d'abord -->
+    <!-- ONGLETS -->
     <div id="game-tab" class="tab-content">
         <div id="game-core">
             <h3 style="text-align: center; color: white; margin-bottom: 5px; font-weight: 800; text-transform: uppercase;">Le Suspect du <span id="display-date" style="color: var(--warning);">jour</span></h3>
@@ -967,9 +996,6 @@
     </div>
 
     <script>
-        // ==============================================================
-        // 0. RECUPERATION DES IMAGES WIKIPEDIA
-        // ==============================================================
         function loadDailyWikipediaImage(characterName) {
             const title = encodeURIComponent(characterName.replace(/ /g, '_'));
             const url = `https://fr.wikipedia.org/w/api.php?action=query&titles=${title}&prop=pageimages&format=json&pithumbsize=300&origin=*`;
@@ -1017,32 +1043,28 @@
             });
         }
 
-        // --- NOUVELLE LOGIQUE DE MENU TUSMO-STYLE ---
+        // ANIMATION ET OUVERTURE DU MENU
+        function animateAndOpen(btn, tabId) {
+            btn.classList.add('pop-anim');
+            setTimeout(() => {
+                btn.classList.remove('pop-anim');
+                openView(tabId);
+            }, 250);
+        }
+
         function openView(tabId) {
-            // Masquer le menu
             document.getElementById('main-menu').style.display = 'none';
-            // Afficher le bouton retour
             document.getElementById('header-home-btn').style.display = 'flex';
-            
-            // Masquer tous les contenus
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            // Afficher la cible
             document.getElementById(tabId).classList.add('active');
         }
 
         function goHome() {
-            // Afficher le menu
             document.getElementById('main-menu').style.display = 'flex';
-            // Masquer le bouton retour
             document.getElementById('header-home-btn').style.display = 'none';
-            
-            // Masquer tous les contenus
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
         }
 
-        // ==============================================================
-        // 1. MOTEUR DU JEU QUOTIDIEN AUTOMATIQUE (VIA JSON)
-        // ==============================================================
         let characterOfTheDay = null;
         let dailyAttempt = 0;
         const dailyCluesContainer = document.getElementById('daily-clues');
@@ -1145,16 +1167,28 @@
                 dailyInputField.classList.add('shake');
                 setTimeout(() => dailyInputField.classList.remove('shake'), 400);
                 dailyInputField.value = "";
+                
                 if (dailyAttemptBoxes[2 - dailyAttempt]) dailyAttemptBoxes[2 - dailyAttempt].classList.add('lost');
+                
                 dailyAttempt++;
                 savedDailyState.attempts = dailyAttempt;
+                
                 if (dailyAttempt < 3) {
                     addDailyClueToDOM(dailyAttempt);
                     localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
                 } else {
                     savedDailyState.status = 'lost';
                     localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
-                    showDailyLoseScreen();
+                    
+                    // --- DÉCLENCHEMENT DE L'ALERTE SCI-FI AVANT L'ÉCRAN DE FIN ---
+                    dailyInputField.disabled = true; // Empêche de retaper pendant l'animation
+                    const alertDiv = document.getElementById('sci-fi-alert');
+                    alertDiv.style.display = 'flex';
+                    
+                    setTimeout(() => {
+                        alertDiv.style.display = 'none';
+                        showDailyLoseScreen();
+                    }, 2500); // 2.5 secondes de flash rouge
                 }
             }
         }
@@ -1170,9 +1204,6 @@
             });
         }
 
-        // ==============================================================
-        // 2. DOSSIERS ET 3. CHRONOLOGIE
-        // ==============================================================
         const themesConfig = { 'romantiques': { total: 4, solved: 0, badge: 'badge-romantiques', title: 'Le Cercle des Romantiques' }, 'roisoleil': { total: 5, solved: 0, badge: 'badge-roisoleil', title: 'La Cour du Roi-Soleil' }, 'lumieres': { total: 6, solved: 0, badge: 'badge-lumieres', title: 'Les Philosophes des Lumières' }, 'revolution': { total: 8, solved: 0, badge: 'badge-revolution', title: 'La Révolution Française' } };
         let currentTheme = null;
         const treeData = { "dumas": { answer: "alexandre dumas", aliases: ["dumas"], title: "A. Dumas", clue: "Auteur des Trois Mousquetaires.", speech: "« L'histoire est un clou auquel j'accroche mes romans. »", unlocks: ["dantes"] }, "dantes": { answer: "edmond dantes", aliases: ["dantes", "le comte de monte-cristo", "monte-cristo"], title: "Edmond Dantès", clue: "Marin emprisonné à tort au Château d'If.", speech: "« Attendre et espérer ! »", unlocks: [] }, "sand": { answer: "george sand", aliases: ["sand"], title: "George Sand", clue: "Auteure de La Mare au Diable.", speech: "« Le souvenir est le parfum de l'âme. »", unlocks: ["musset"] }, "musset": { answer: "alfred de musset", aliases: ["musset"], title: "A. de Musset", clue: "Poète maudit, auteur des Caprices de Marianne.", speech: "« Les plus désespérés sont les chants les plus beaux. »", unlocks: [] }, "colbert": { answer: "jean-baptiste colbert", aliases: ["colbert"], title: "Colbert", clue: "Ministre d'État de Louis XIV, j'ai fondé l'Académie des sciences.", speech: "« Il faut agir avec grand soin. »", unlocks: ["fouquet"] }, "fouquet": { answer: "nicolas fouquet", aliases: ["fouquet"], title: "Fouquet", clue: "Surintendant, mon château de Vaux-le-Vicomte a rendu le roi jaloux.", speech: "« Quo non ascendet ? »", unlocks: [] }, "montespan": { answer: "madame de montespan", aliases: ["montespan", "marquise de montespan"], title: "Montespan", clue: "Favorite du roi pendant des années, je lui ai donné 7 enfants.", speech: "« Je suis l'égale du roi. »", unlocks: ["maintenon"] }, "maintenon": { answer: "madame de maintenon", aliases: ["maintenon", "marquise de maintenon"], title: "Maintenon", clue: "Gouvernante des enfants illégitimes du roi, j'ai fini par l'épouser.", speech: "« Je veux bien qu'on me respecte. »", unlocks: ["voisin"] }, "voisin": { answer: "la voisin", aliases: ["catherine despot", "voisin", "catherine montvoisin"], title: "La Voisin", clue: "Célèbre empoisonneuse brûlée vive lors de l'affaire des poisons.", speech: "« Je connais les secrets de tout Paris. »", unlocks: [] }, "diderot": { answer: "denis diderot", aliases: ["diderot"], title: "Diderot", clue: "Philosophe et maître d'œuvre de l'Encyclopédie.", speech: "« Aucun homme n'a reçu le droit de commander aux autres. »", unlocks: ["alembert"] }, "alembert": { answer: "jean le rond d'alembert", aliases: ["d'alembert", "alembert"], title: "D'Alembert", clue: "Mathématicien, j'ai rédigé le Discours préliminaire de l'Encyclopédie.", speech: "« La philosophie n'est autre chose que l'application de la raison. »", unlocks: [] }, "montesquieu": { answer: "montesquieu", aliases: ["charles de montesquieu"], title: "Montesquieu", clue: "Auteur des Lettres persanes et de De l'esprit des lois.", speech: "« Il faut que le pouvoir arrête le pouvoir. »", unlocks: ["rousseau"] }, "rousseau": { answer: "jean-jacques rousseau", aliases: ["rousseau"], title: "Rousseau", clue: "Philosophe genevois, auteur du Contrat social.", speech: "« L'homme est né libre et partout il est dans les fers. »", unlocks: [] }, "chatelet": { answer: "emilie du chatelet", aliases: ["chatelet", "émilie du châtelet", "emilie du chatelet"], title: "Du Châtelet", clue: "Physicienne, traductrice de Newton et compagne de Voltaire.", speech: "« J'aime l'étude avec passion. »", unlocks: ["catherine"] }, "catherine": { answer: "catherine ii", aliases: ["catherine la grande", "catherine 2", "catherine deux", "catherine de russie"], title: "Catherine II", clue: "Impératrice de Russie et correspondante de nombreux philosophes.", speech: "« Je suis aristocrate, c'est mon métier. »", unlocks: [] }, "lafayette": { answer: "marquis de la fayette", aliases: ["lafayette", "la fayette"], title: "La Fayette", clue: "Héros américain, j'ai ébauché la Déclaration des droits de l'homme.", speech: "« Cur non ? (Pourquoi pas ?) »", unlocks: ["brissot"] }, "brissot": { answer: "jacques pierre brissot", aliases: ["brissot"], title: "Brissot", clue: "Chef de file des Girondins, j'ai poussé à la guerre en 1792.", speech: "« Il nous faut de grandes trahisons ! »", unlocks: ["roland"] }, "roland": { answer: "madame roland", aliases: ["manon roland", "roland", "jeanne marie roland"], title: "Mme Roland", clue: "J'ai tenu un célèbre salon pour les Girondins avant d'être guillotinée.", speech: "« Ô Liberté, que de crimes on commet en ton nom ! »", unlocks: [] }, "danton": { answer: "georges danton", aliases: ["danton"], title: "Danton", clue: "Orateur charismatique du Club des Cordeliers et ministre de la Justice.", speech: "« De l'audace, encore de l'audace, toujours de l'audace ! »", unlocks: ["desmoulins"] }, "desmoulins": { answer: "camille desmoulins", aliases: ["desmoulins"], title: "Desmoulins", clue: "Journaliste, j'ai appelé le peuple aux armes le 12 juillet 1789.", speech: "« Aux armes, citoyens ! »", unlocks: [] }, "robespierre": { answer: "maximilien robespierre", aliases: ["robespierre", "maximilien de robespierre"], title: "Robespierre", clue: "L'Incorruptible, figure majeure du Comité de salut public.", speech: "« La terreur n'est autre chose que la justice prompte et sévère. »", unlocks: ["saintjust"] }, "saintjust": { answer: "louis antoine de saint-just", aliases: ["saint-just", "saint just", "louis de saint-just"], title: "Saint-Just", clue: "Le plus jeune député, surnommé l'Archange de la Terreur.", speech: "« Pas de liberté pour les ennemis de la liberté. »", unlocks: ["fouquier"] }, "fouquier": { answer: "antoine quentin fouquier-tinville", aliases: ["fouquier", "fouquier-tinville", "fouquier tinville"], title: "Fouquier", clue: "L'implacable Accusateur public du Tribunal révolutionnaire.", speech: "« C'est la loi qui frappe, ce n'est pas moi. »", unlocks: [] } };
