@@ -10,19 +10,30 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
+    /* SUPPRESSION DES BORDS BLANCS DU NAVIGATEUR */
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #021124; /* Raccord avec le bg-color */
+        overflow-x: hidden;
+    }
+
     /* LE CONTENEUR ANTI-BLOCAGE POUR CARRD */
     #encrier-bleu-app {
-        --bg-color: #0b4b61; 
-        --box-bg: #1e293b; 
-        --box-border: #152b36; 
-        --text-main: #f8fafc;
-        --text-muted: #cbd5e1;
-        --accent-blue: #3b82f6;
-        --success: #10b981;
-        --error: #ef4444;
-        --warning: #f59e0b;
-        --tusmo-btn-text: #0b4b61;
-        --tusmo-dashed: #3494a3;
+        /* NOUVELLE PALETTE "ENCRIER BLEU" */
+        --bg-color: #021124;       /* Bleu encre abyssal profond */
+        --box-bg: #0a1f3a;         /* Bleu nuit élégant */
+        --box-border: #010a17;     /* Bordure très sombre */
+        --text-main: #f8fafc;      /* Blanc bleuté */
+        --text-muted: #94a3b8;     /* Gris bleuté */
+        --accent-blue: #3b82f6;    /* Bleu vif classique */
+        --success: #10b981;        /* Vert gardé pour les succès */
+        --error: #ef4444;          /* Rouge gardé pour les échecs */
+        --warning: #38bdf8;        /* Cyan lumineux (remplace l'orange) */
+        --tusmo-btn-text: #021124; /* Texte encre sombre sur boutons blancs */
+        --tusmo-dashed: #16365d;   /* Pointillés bleu marine */
         
         font-family: 'Inter', sans-serif !important; 
         background-color: var(--bg-color) !important; 
@@ -33,6 +44,7 @@
         align-items: center !important; 
         padding: 20px 10px !important; 
         min-height: 100vh !important; 
+        min-height: 100dvh !important; /* S'adapte parfaitement aux mobiles récents */
         position: relative !important;
         z-index: 99999 !important;
         width: 100% !important;
@@ -63,12 +75,10 @@
         max-width: 600px;
     }
 
-    /* Panneau droit caché par défaut (mobile) */
     #encrier-bleu-app .right-panel {
         display: none; 
     }
     
-    /* Affichage du panneau droit uniquement sur grand écran (ordinateur) */
     @media screen and (min-width: 950px) {
         #encrier-bleu-app .right-panel {
             display: flex;
@@ -83,7 +93,7 @@
             position: sticky;
             top: 30px;
             animation: fadeIn 0.5s ease-out forwards;
-            overflow: hidden; /* Pour que le flou ne déborde pas des coins arrondis */
+            overflow: hidden; 
         }
     }
 
@@ -94,8 +104,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(30, 41, 59, 0.65); /* Fond semi-transparent */
-        backdrop-filter: blur(12px); /* L'effet de flou magique */
+        background: rgba(10, 31, 58, 0.65); /* Raccord avec le fond bleu nuit */
+        backdrop-filter: blur(12px); 
         -webkit-backdrop-filter: blur(12px);
         z-index: 10;
         display: flex;
@@ -106,7 +116,7 @@
     }
     #article-overlay.unlocked {
         opacity: 0;
-        transform: scale(1.1); /* Petit effet de zoom à l'ouverture */
+        transform: scale(1.1); 
         pointer-events: none;
     }
     #article-overlay .lock-icon {
@@ -168,9 +178,9 @@
     }
     
     #encrier-bleu-app .subtitle { 
-        color: white; 
+        color: var(--tusmo-btn-text); 
         font-size: 1rem; 
-        font-weight: 600;
+        font-weight: 800;
         margin-top: 5px; 
         background: var(--warning);
         padding: 4px 12px;
@@ -276,10 +286,12 @@
     
     #encrier-bleu-app .police-file { display: none; background-color: var(--text-main); color: var(--bg-color); border-radius: 8px; padding: 25px; border: 2px solid var(--box-border); width: 100%; box-sizing: border-box; box-shadow: 0 6px 0 rgba(0,0,0,0.3); }
     #encrier-bleu-app .tag-success { display: inline-block; background-color: var(--success); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; }
-    #encrier-bleu-app .profile-header { display: flex; gap: 20px; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px dashed #cbd5e1; }
+    #encrier-bleu-app .profile-header { display: flex; gap: 20px; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px dashed #94a3b8; }
     #encrier-bleu-app .mugshot { width: 80px; height: 80px; background-color: #e2e8f0; border-radius: 8px; flex-shrink: 0; object-fit: cover; border: 2px solid var(--box-border); box-shadow: 0 4px 0 rgba(0,0,0,0.1); }
-    #encrier-bleu-app .section-title { font-size: 1rem; font-weight: 800; margin: 20px 0 10px 0; color: #1e293b; text-transform: uppercase; }
-    #encrier-bleu-app .content-text { font-size: 0.95rem; line-height: 1.6; color: #334155; margin: 0; }
+    
+    /* Nuances de bleu pour l'intérieur de la fiche de police */
+    #encrier-bleu-app .section-title { font-size: 1rem; font-weight: 800; margin: 20px 0 10px 0; color: var(--bg-color); text-transform: uppercase; }
+    #encrier-bleu-app .content-text { font-size: 0.95rem; line-height: 1.6; color: #16365d; margin: 0; }
 
     /* L'ANIMATION SCI-FI PLEIN ÉCRAN POUR L'ÉCHEC */
     #sci-fi-alert {
@@ -381,9 +393,13 @@
     #encrier-bleu-app .timeline-item.active .timeline-dot { background: var(--warning); }
     #encrier-bleu-app .timeline-item.active::before { background: white; }
 
-    /* RESPONSIVE DESIGN */
+    /* RESPONSIVE DESIGN (TELEPHONE) */
     @media screen and (max-width: 950px) {
-        #encrier-bleu-app h1 { font-size: 1.8rem; }
+        #encrier-bleu-app header { margin-bottom: 15px; }
+        #encrier-bleu-app h1 { font-size: 2rem; }
+        #encrier-bleu-app .tusmo-menu { gap: 12px; margin-top: 5px; }
+        #encrier-bleu-app { padding: 10px 5px !important; }
+        
         #encrier-bleu-app .profile-header { flex-direction: column; text-align: center; gap: 10px; }
         #encrier-bleu-app .police-file { padding: 15px; }
         #encrier-bleu-app .node { width: 100px; padding: 8px; }
@@ -476,8 +492,8 @@
                     <div class="profile-header">
                         <img id="daily-mugshot" class="mugshot" src="" alt="Suspect" />
                         <div>
-                            <h2 id="pf-name" style="color: #0f172a; margin: 0; font-weight: 800;">-</h2>
-                            <div id="pf-job" style="color: #475569; font-size: 0.9rem; margin-top: 4px; font-weight: 600;">-</div>
+                            <h2 id="pf-name" style="color: var(--bg-color); margin: 0; font-weight: 800;">-</h2>
+                            <div id="pf-job" style="color: #1e3a5f; font-size: 0.9rem; margin-top: 4px; font-weight: 600;">-</div>
                         </div>
                     </div>
                     <div class="section-title">Dossier Public</div>
@@ -1208,7 +1224,7 @@
         
         // Ajout de "articleUnlocked" dans la sauvegarde locale
         let savedDailyState = JSON.parse(localStorage.getItem('encrierBleuDaily')) || { date: '', attempts: 0, status: 'playing', articleUnlocked: false };
-        if (typeof savedDailyState.articleUnlocked === 'undefined') savedDailyState.articleUnlocked = false; // Sécurité si un ancien joueur revient
+        if (typeof savedDailyState.articleUnlocked === 'undefined') savedDailyState.articleUnlocked = false; 
 
         document.getElementById('display-date').innerText = adjustedToday.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
 
