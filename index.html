@@ -16,24 +16,24 @@
         padding: 0;
         width: 100%;
         height: 100%;
-        background-color: #021124; /* Raccord avec le bg-color */
+        background-color: #021124; 
         overflow-x: hidden;
     }
 
     /* LE CONTENEUR ANTI-BLOCAGE POUR CARRD */
     #encrier-bleu-app {
-        /* NOUVELLE PALETTE "ENCRIER BLEU" */
-        --bg-color: #021124;       /* Bleu encre abyssal profond */
-        --box-bg: #0a1f3a;         /* Bleu nuit élégant */
-        --box-border: #010a17;     /* Bordure très sombre */
-        --text-main: #f8fafc;      /* Blanc bleuté */
-        --text-muted: #94a3b8;     /* Gris bleuté */
-        --accent-blue: #3b82f6;    /* Bleu vif classique */
-        --success: #10b981;        /* Vert gardé pour les succès */
-        --error: #ef4444;          /* Rouge gardé pour les échecs */
-        --warning: #38bdf8;        /* Cyan lumineux (remplace l'orange) */
-        --tusmo-btn-text: #021124; /* Texte encre sombre sur boutons blancs */
-        --tusmo-dashed: #16365d;   /* Pointillés bleu marine */
+        /* PALETTE "ENCRIER BLEU" */
+        --bg-color: #021124;       
+        --box-bg: #0a1f3a;         
+        --box-border: #010a17;     
+        --text-main: #f8fafc;      
+        --text-muted: #94a3b8;     
+        --accent-blue: #3b82f6;    
+        --success: #10b981;        
+        --error: #ef4444;          
+        --warning: #38bdf8;        
+        --tusmo-btn-text: #021124; 
+        --tusmo-dashed: #16365d;   
         
         font-family: 'Inter', sans-serif !important; 
         background-color: var(--bg-color) !important; 
@@ -44,7 +44,7 @@
         align-items: center !important; 
         padding: 20px 10px !important; 
         min-height: 100vh !important; 
-        min-height: 100dvh !important; /* S'adapte parfaitement aux mobiles récents */
+        min-height: 100dvh !important; 
         position: relative !important;
         z-index: 99999 !important;
         width: 100% !important;
@@ -104,7 +104,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(10, 31, 58, 0.65); /* Raccord avec le fond bleu nuit */
+        background: rgba(10, 31, 58, 0.65); 
         backdrop-filter: blur(12px); 
         -webkit-backdrop-filter: blur(12px);
         z-index: 10;
@@ -395,6 +395,13 @@
 
     /* RESPONSIVE DESIGN (TELEPHONE) */
     @media screen and (max-width: 950px) {
+        
+        /* --- CENTRAGE VERTICAL EXCLUSIF AU MOBILE POUR LA PAGE D'ACCUEIL --- */
+        #encrier-bleu-app .main-layout {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
         #encrier-bleu-app header { margin-bottom: 15px; }
         #encrier-bleu-app h1 { font-size: 2rem; }
         #encrier-bleu-app .tusmo-menu { gap: 12px; margin-top: 5px; }
@@ -1222,7 +1229,6 @@
         const adjustedToday = getAdjustedDate();
         const todayStr = adjustedToday.toLocaleDateString('fr-FR');
         
-        // Ajout de "articleUnlocked" dans la sauvegarde locale
         let savedDailyState = JSON.parse(localStorage.getItem('encrierBleuDaily')) || { date: '', attempts: 0, status: 'playing', articleUnlocked: false };
         if (typeof savedDailyState.articleUnlocked === 'undefined') savedDailyState.articleUnlocked = false; 
 
@@ -1312,7 +1318,6 @@
                     }
                 }
 
-                // Masquer le verrou si l'utilisateur l'a déjà ouvert aujourd'hui
                 if (savedDailyState.articleUnlocked) {
                     document.getElementById('article-overlay').style.display = 'none';
                 }
@@ -1321,7 +1326,6 @@
                 localStorage.setItem('encrierBleuDaily', JSON.stringify(savedDailyState));
                 addDailyClueToDOM(0);
                 
-                // S'assurer que le verrou est visible au nouveau jour
                 const overlay = document.getElementById('article-overlay');
                 overlay.style.display = 'flex';
                 overlay.classList.remove('unlocked');
