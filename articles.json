@@ -1,0 +1,62 @@
+[
+    {
+        "title": "La Belle Époque",
+        "subtitle": "Insouciance et progrès (1871-1914)",
+        "content": "S'étendant de la fin de la guerre franco-prussienne jusqu'au déclenchement de la Première Guerre mondiale, la Belle Époque est une période de paix relative en Europe. C'est l'âge d'or des bouleversements technologiques (l'électricité, le cinéma, l'automobile, l'aviation) et d'un foisonnement artistique sans précédent avec l'Art nouveau. La tour Eiffel, construite en 1889, en est le grand symbole. La bourgeoisie découvre les cabarets, les bains de mer et les grands magasins, baignant dans une insouciance totale avant de plonger dans le chaos de 1914.",
+        "wiki_search": "Belle_Époque"
+    },
+    {
+        "title": "La Renaissance",
+        "subtitle": "Le réveil des arts et des sciences",
+        "content": "Née en Italie au 14e siècle, la Renaissance marque la fin du Moyen Âge et le début de l'Époque moderne. Poussée par la redécouverte des textes de l'Antiquité, cette période place l'Homme au centre de l'univers (l'Humanisme). Financés par de riches mécènes comme les Médicis, des génies tels que Léonard de Vinci, Michel-Ange ou Raphaël révolutionnent la peinture en utilisant la perspective. C'est aussi une ère de grandes inventions, notamment l'imprimerie par Gutenberg, qui permet de diffuser le savoir à travers toute l'Europe.",
+        "wiki_search": "Renaissance"
+    },
+    {
+        "title": "Guerre Froide",
+        "subtitle": "L'équilibre de la terreur",
+        "content": "De 1947 à 1991, le monde est coupé en deux blocs idéologiques opposés : les États-Unis (capitalistes) et l'URSS (communistes). On l'appelle \"Guerre Froide\" car les deux superpuissances, possédant l'arme nucléaire, ne s'affrontent jamais directement pour éviter l'anéantissement de la planète. Cette guerre se joue donc par espionnage interposé, par des guerres périphériques (Corée, Vietnam) et par une course acharnée à l'innovation, dont la conquête spatiale qui mènera les Américains sur la Lune en 1969.",
+        "wiki_search": "Guerre_froide"
+    },
+    {
+        "title": "La Révolution Industrielle",
+        "subtitle": "La machine remplace la main",
+        "content": "Débutée au Royaume-Uni à la fin du 18e siècle, cette révolution métamorphose radicalement la société humaine. L'invention de la machine à vapeur fonctionnant au charbon permet l'essor fulgurant du chemin de fer, de la métallurgie et de l'industrie textile. Les paysans quittent massivement les campagnes pour aller travailler dans de gigantesques usines urbaines. Si cette période crée une immense croissance économique, elle engendre aussi la terrible misère ouvrière, qui fera naître les premiers grands mouvements sociaux et syndicaux.",
+        "wiki_search": "Révolution_industrielle"
+    },
+    {
+        "title": "L'Égypte Antique",
+        "subtitle": "L'empire des pharaons",
+        "content": "S'étendant sur plus de trois millénaires, la civilisation égyptienne antique s'est épanouie le long des rives fertiles du Nil. Dirigée par des pharaons considérés comme des dieux vivants sur Terre, cette société a bâti des monuments d'une ingénierie ahurissante, des pyramides de Gizeh à la vallée des Rois. Experts en mathématiques, en astronomie et en médecine, les Égyptiens croyaient profondément à la vie dans l'au-delà, ce qui a conduit à la complexité de leurs rites funéraires, incluant l'embaumement et la momification.",
+        "wiki_search": "Égypte_antique"
+    },
+    {
+        "title": "Les Lumières",
+        "subtitle": "Le triomphe de la Raison",
+        "content": "Le 18e siècle européen est illuminé par ce formidable mouvement philosophique, littéraire et culturel. Des penseurs comme Voltaire, Rousseau, Montesquieu ou Diderot (avec sa monumentale Encyclopédie) remettent en question l'obscurantisme religieux, les superstitions et le pouvoir absolu des rois. Ils défendent la liberté individuelle, la tolérance et la séparation des pouvoirs. Leurs écrits ont bouleversé les sociétés et ont directement inspiré la Révolution américaine de 1776 et la Révolution française de 1789.",
+        "wiki_search": "Siècle_des_Lumières"
+    },
+    {
+        "title": "L'Âge d'or de la Piraterie",
+        "subtitle": "Terreur sur les océans",
+        "content": "Entre 1650 et 1730, les Caraïbes, l'océan Indien et les côtes américaines sont sillonnés par les forbans. De nombreux marins, anciens corsaires abandonnés par leurs gouvernements après les guerres européennes, se tournent vers la piraterie. Naviguant sous le fameux drapeau noir (le Jolly Roger), des capitaines de légende comme Barbe Noire, Calico Jack ou les femmes pirates Mary Read et Anne Bonny attaquent les riches galions marchands. Mais cette période est courte : les marines royales finissent par traquer et pendre la quasi-totalité de ces rebelles des mers.",
+        "wiki_search": "Âge_d'or_de_la_piraterie"
+    },
+    {
+        "title": "La Révolution Française",
+        "subtitle": "La chute de la royauté",
+        "content": "En 1789, face à un royaume ruiné, une famine grandissante et une bourgeoisie avide de pouvoir politique, le peuple français se soulève. La prise de la Bastille le 14 juillet marque le début d'un séisme politique. La Déclaration des droits de l'homme et du citoyen est adoptée, abolissant les privilèges de la noblesse. La monarchie millénaire est balayée, Louis XVI et Marie-Antoinette sont guillotinés. La toute jeune République, menacée par les autres pays d'Europe, plonge ensuite dans la période très sombre de la Terreur avant l'ascension de Napoléon.",
+        "wiki_search": "Révolution_française"
+    },
+    {
+        "title": "Les Années Folles",
+        "subtitle": "Le jazz, le charleston et l'euphorie",
+        "content": "Au lendemain du traumatisme épouvantable de la Première Guerre mondiale, les années 1920 sont une décennie d'effervescence et de fête totale, particulièrement à Paris et aux États-Unis. La mode se libère : les femmes coupent leurs cheveux (\"à la garçonne\"), raccourcissent leurs jupes et fument en public. La radio se démocratise, le jazz afro-américain envahit les cabarets, et l'économie tourne à plein régime. Cette période d'insouciance absolue s'écrasera brutalement avec le krach boursier de Wall Street en octobre 1929.",
+        "wiki_search": "Années_folles"
+    },
+    {
+        "title": "L'Empire Romain",
+        "subtitle": "Les maîtres de la Méditerranée",
+        "content": "De sa fondation légendaire en 753 av. J.-C. jusqu'à la chute de Rome en 476 apr. J.-C., cette civilisation a façonné l'Europe moderne. Devenue République puis Empire sous l'égide d'Auguste (successeur de Jules César), Rome domine militairement un territoire s'étendant de l'Écosse jusqu'en Égypte. Les Romains excellent dans l'ingénierie (aqueducs, routes pavées, amphithéâtres comme le Colisée) et l'administration. Leur droit, leur langue (le latin) et leur architecture influencent encore profondément nos sociétés contemporaines.",
+        "wiki_search": "Empire_romain"
+    }
+]
